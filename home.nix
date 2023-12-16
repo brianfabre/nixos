@@ -12,39 +12,14 @@
 
   programs.zsh = {
     enable = true;
-    enableCompletion = false;
+    enableCompletion = true;
     initExtraFirst = ''
-      # search files fzf
-      fe() {
-      	files=(''$(
-      	    fd -t f --color=always --hidden --no-ignore-vcs \
-      	    	--exclude ".git" \
-      	    	--exclude ".local" \
-    	    	--exclude "mnt" |
-      	    	fzf-tmux --query="''$1" --multi --select-1 --exit-0
-      	))
-      	if [[ -n "''$files" ]]; then
-      		for file in "''${files[@]}"; do
-      			extension="''${file##*.}"
-      			if [[ "''$extension" =~ (pdf|jpg|jpeg|JPG|png)''$ ]]; then
-      				xdg-open "''$file"
-      			else
-      				''${EDITOR:-vim} "''$file"
-      			fi
-      		done
-      	fi
-      }
     '';
     initExtra = ''
       if [ -n "''${commands[fzf-share]}" ]; then
         source "''$(fzf-share)/key-bindings.zsh"
         source "''$(fzf-share)/completion.zsh"
       fi
-
-      zstyle ':autocomplete:*complete*:*' insert-unambiguous yes
-      bindkey '\t' menu-select "$terminfo[kcbt]" menu-select
-      bindkey -M menuselect '\t' menu-complete "$terminfo[kcbt]" reverse-menu-complete
-      bindkey -M menuselect '\r' .accept-line
 
       # find and set branch name var if in git repository.
       function git_branch_name()
@@ -137,17 +112,39 @@
       	fi
       }
 
+      # search files fzf
+      fe() {
+      	files=(''$(
+      	    fd -t f --color=always --hidden --no-ignore-vcs \
+      	    	--exclude ".git" \
+      	    	--exclude ".local" \
+    	    	--exclude "mnt" |
+      	    	fzf-tmux --query="''$1" --multi --select-1 --exit-0
+      	))
+      	if [[ -n "''$files" ]]; then
+      		for file in "''${files[@]}"; do
+      			extension="''${file##*.}"
+      			if [[ "''$extension" =~ (pdf|jpg|jpeg|JPG|png)''$ ]]; then
+      				xdg-open "''$file"
+      			else
+      				''${EDITOR:-vim} "''$file"
+      			fi
+      		done
+      	fi
+      }
+
       # cd to directory fzf
       fcd() {
       	local dir
-      	dir=''$(fd ''${1:-.} --exclude '.vscode' \
-      		--exclude '.git' \
+      	dir=''$(fd ''${1:-.} --exclude '.git' \
       		--exclude '.mozilla' \
-      		--exclude 'Repos/*/*' \
       		--exclude '_*' \
       		-t d --hidden --no-ignore-vcs | fzf-tmux +m) &&
       		cd "''$dir"
       }
+
+      # zsh completion
+      zstyle ':completion:*' menu select
     '';
     plugins = [
       {
@@ -166,15 +163,6 @@
           repo = "zsh-syntax-highlighting";
           rev = "0.7.1";
           sha256 = "03r6hpb5fy4yaakqm3lbf4xcvd408r44jgpv4lnzl9asp4sb9qc0";
-        };
-      }
-      {
-        name = "zsh-autocomplete";
-        src = pkgs.fetchFromGitHub {
-          owner = "marlonrichert";
-          repo = "zsh-autocomplete";
-          rev = "23.05.02";
-          sha256 = "08h5jdm2nrdzjn8dfv21ax1yvyxbn6czfwbgdx50zihdd4j7nnqx";
         };
       }
     ];
