@@ -84,6 +84,10 @@ bar:
               sink_muted && source_muted:
                 - string: {text: "[vol:{sink_percent}% (muted)]"}
                 # - string: {text: "mic: {source_percent}% (muted)"}
+    - backlight:
+        name: intel_backlight
+        content:
+          string: {text: "[bklt:{percent}%]"}
     - battery:
         name: BAT1
         content:
