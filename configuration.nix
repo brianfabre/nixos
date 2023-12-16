@@ -46,6 +46,15 @@ in {
     LC_TIME = "en_US.UTF-8";
   };
 
+  # rtkit is optional but recommended
+  security.rtkit.enable = true;
+  services.pipewire = {
+    enable = true;
+    alsa.enable = true;
+    alsa.support32Bit = true;
+    pulse.enable = true;
+  };
+
   # Configure keymap in X11
   services.xserver = {
     layout = "us";
