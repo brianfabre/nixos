@@ -16,13 +16,13 @@
   nixpkgs.overlays = [
     (final: prev: {
       dwl = prev.dwl.overrideAttrs (old: {
-	      # src = /home/brian/nixos/dwl ;
-          src = prev.fetchFromGitHub {
-            owner = "brianfabre";
-            repo = "dwl";
-            rev = "fccec48af345bd64088be8076b2df11d137a2aaf";
-            hash = "sha256-G3bw7Sklgfg9hfaORKoEOT8JHiZ2uIoxy3rOqncGvTk=";
-          };
+	      src = /home/brian/nixos/dwl ;
+          # src = prev.fetchFromGitHub {
+          #   owner = "brianfabre";
+          #   repo = "dwl";
+          #   rev = "fccec48af345bd64088be8076b2df11d137a2aaf";
+          #   hash = "sha256-G3bw7Sklgfg9hfaORKoEOT8JHiZ2uIoxy3rOqncGvTk=";
+          # };
           buildInputs = with pkgs; [
             libinput
             xorg.libxcb
