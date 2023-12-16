@@ -93,6 +93,7 @@ in {
     wget
     git
     curl
+    brightnessctl
   ];
 
   # default editor
