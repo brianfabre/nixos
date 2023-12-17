@@ -10,6 +10,7 @@ local M = {
             ensure_installed = {
                 "bash",
                 "c",
+                "html",
                 "lua",
                 "nix",
                 "python",
