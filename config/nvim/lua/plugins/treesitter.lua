@@ -7,7 +7,16 @@ local M = {
         event = { "BufReadPost", "BufNewFile" },
         opts = {
             -- A list of parser names, or "all"
-            ensure_installed = { "python", "lua", "vim", "r", "bash" },
+            ensure_installed = {
+                "bash",
+                "c",
+                "lua",
+                "nix",
+                "python",
+                "r",
+                "vim",
+                "yaml",
+            },
             auto_install = true,
             highlight = {
                 enable = true,
