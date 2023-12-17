@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, inputs, ... }:
 
 {
   home.username = "brian";
@@ -8,6 +8,22 @@
     enable = true;
     userName = "brian kim";
     userEmail = "briankim53@gmail.com";
+  };
+
+  programs.firefox = {
+    enable = true;
+    profiles.brian = {
+      extensions = with inputs.rycee-nurpkgs.packages."x86_64-linux"; [
+        bitwarden
+        darkreader
+        # enhancer-for-youtube
+        libredirect
+        reddit-enhancement-suite
+        sponsorblock
+        surfingkeys
+        ublock-origin
+      ];
+    };
   };
 
   programs.zsh = {
@@ -174,7 +190,6 @@
     # feel free to add your own or remove some of them
 
     #
-    firefox
     lf
     neovim
 
