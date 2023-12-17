@@ -1,0 +1,13 @@
+/* ROOT - VARS */
+*|*:root {
+ --tab-min-height:      25px !important; /* adjust */
+ --tab-min-width:       60px !important; /* adjust */
+}
+
+/* TABS: height */
+#tabbrowser-tabs,
+#tabbrowser-tabs > #tabbrowser-arrowscrollbox,
+.tabbrowser-tabs .tabbrowser-tab {
+  min-height: var(--tab-min-height) !important;
+  max-height: var(--tab-min-height) !important;
+}
