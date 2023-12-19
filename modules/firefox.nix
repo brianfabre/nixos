@@ -14,7 +14,7 @@
         surfingkeys
         ublock-origin
       ];
-      userChrome = (builtins.readFile ./userChrome.css);
+      userChrome = (builtins.readFile ./../config/firefox/userChrome.css);
       extraConfig = ''
       /****************************************************************************
        * SECTION: FASTFOX                                                         *
