@@ -16,7 +16,7 @@
   nixpkgs.overlays = [
     (final: prev: {
       dwl = prev.dwl.overrideAttrs (old: {
-	      src = /home/brian/nixos/dwl ;
+	      src = ./../dwl ;
           # src = prev.fetchFromGitHub {
           #   owner = "brianfabre";
           #   repo = "dwl";

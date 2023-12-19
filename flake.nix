@@ -18,7 +18,7 @@
         system = "x86_64-linux";
         modules = [
           ./configuration.nix
-          ./dwl.nix
+          ./modules/dwl.nix
           ./thinkpad1/hardware-configuration.nix
 
           # make home-manager a module of nixos so that home-manager configuration
