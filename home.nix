@@ -442,7 +442,7 @@
     ];
   };
 
-  import = [
+  imports = [
     ./modules/firefox.nix
   ];
 
