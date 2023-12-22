@@ -150,6 +150,7 @@ static const Key keys[] = {
     { HYPER,               XKB_KEY_c,          spawn,          SHCMD("~/.config/utils/scripts/clipman.sh") },
     { HYPER,               XKB_KEY_1,          spawn,          SHCMD("~/.config/utils/scripts/ocr.sh") },
     { HYPER,               XKB_KEY_2,          spawn,          SHCMD("~/.config/utils/scripts/screenshot.sh") },
+	{ HYPER,               XKB_KEY_space,      backandforth,   {0} },
 	{ MODKEY,              XKB_KEY_j,          focusstack,     {.i = +1} },
 	{ MODKEY,              XKB_KEY_k,          focusstack,     {.i = -1} },
 	{ MODKEY,              XKB_KEY_i,          incnmaster,     {.i = +1} },
