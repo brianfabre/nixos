@@ -58,6 +58,7 @@
     ".config/xkb".source = config.lib.file.mkOutOfStoreSymlink "/home/brian/nixos/config/xkb";
     ".config/yambar".source = config.lib.file.mkOutOfStoreSymlink "/home/brian/nixos/config/yambar";
     ".config/zathura".source = config.lib.file.mkOutOfStoreSymlink "/home/brian/nixos/config/zathura";
+    ".config/mimeapps.list".source = config.lib.file.mkOutOfStoreSymlink "/home/brian/nixos/config/mimeapps.list";
   };
 
   # default cursor too small on HIDPI monitor
