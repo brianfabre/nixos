@@ -44,6 +44,7 @@
     ripgrep
     stylua
     tesseract
+    xdg-utils
     xfce.thunar
     usbutils
     zathura
