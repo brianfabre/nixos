@@ -15,7 +15,6 @@ local M = {
                 "nix",
                 "python",
                 "r",
-                "tex",
                 "vim",
                 "yaml",
             },
