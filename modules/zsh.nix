@@ -62,14 +62,15 @@
 
       set -o emacs
 
-      alias nv="nvim"
-      alias lg="lazygit"
+      alias nv='nvim'
+      alias lg='lazygit'
       alias rm='rm -i'
       alias mv='mv -i'
       alias ls='eza'
       alias ll='eza -lab --icons'
       alias lz='NVIM_APPNAME=lazyvim nvim'
       alias ks='NVIM_APPNAME=nvim-ks nvim'
+      alias dwl='dwl > "/home/brian/.cache/dwl_info"'
 
       # lf cd function
       lfcd() {
