@@ -31,16 +31,16 @@
     p7zip
 
     # other
+    bat
     dunst
     eza
     fd
     fzf
+    imv
     lazygit
-    lua-language-server
     mupdf
     ncdu
     neofetch
-    # prettier
     R
     ripgrep
     stylua
@@ -49,6 +49,15 @@
     xfce.thunar
     usbutils
     zathura
+
+    # language server
+    nodePackages.bash-language-server
+    lua-language-server
+
+    # lf image preview
+    chafa
+    ffmpegthumbnailer
+    poppler_utils # pdftoppm
   ];
 
   home.file = {
