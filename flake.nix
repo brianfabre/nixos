@@ -47,7 +47,7 @@
 
           # make home-manager a module of nixos so that home-manager configuration
 	      # will be deployed automatically when executing `nixos-rebuild switch`
-          ./modules/common.nix
+          ./common.nix
           home-manager.nixosModules.home-manager
           # {
           #   home-manager.useGlobalPkgs = true;
