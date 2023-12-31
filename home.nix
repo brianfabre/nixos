@@ -11,7 +11,6 @@
 
   imports = [
     ./modules/firefox.nix
-    ./modules/dwl.nix
     ./modules/tex.nix
     ./modules/zsh.nix
   ];

@@ -22,7 +22,7 @@
         modules = [
           ./configuration.nix
           ./hosts/thinkpad1/hardware-configuration.nix
-          }
+          ./modules/dwl.nix
         ];
       };
 
@@ -32,6 +32,7 @@
         modules = [
           ./configuration.nix
           ./hosts/thinkpad2/hardware-configuration.nix
+          ./modules/dwl.nix
         ];
       };
 
