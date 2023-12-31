@@ -2,7 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, ... }:
+{ config, pkgs, inputs, ... }:
 
 let
   compiledLayout = pkgs.runCommand "keyboard-layout" {} ''
@@ -10,7 +10,8 @@ let
   '';
 in {
   imports =
-    [ # Include the results of the hardware scan.
+    [
+      inputs.home-manager.nixosModules.home-manager
     ];
 
   # Bootloader.
@@ -70,6 +71,16 @@ in {
     shell = pkgs.zsh;
   };
 
+  home-manager = {
+    useGlobalPkgs = true;
+    useUserPackages = true;
+    users = {
+      brian = import ./home.nix;
+    };
+    # Optionally, use home-manager.extraSpecialArgs to pass arguments to home.nix
+    extraSpecialArgs = { inherit inputs; };
+  };
+
   programs.zsh.enable = true;
   programs.zsh.enableCompletion = false;
   programs.zsh.enableGlobalCompInit = false;
@@ -93,7 +104,6 @@ in {
     wget
     git
     curl
-    brightnessctl
   ];
 
   # default editor

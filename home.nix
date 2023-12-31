@@ -11,6 +11,7 @@
 
   imports = [
     ./modules/firefox.nix
+    ./modules/dwl.nix
     ./modules/tex.nix
     ./modules/zsh.nix
   ];
@@ -32,6 +33,7 @@
 
     # other
     bat
+    brightnessctl
     dunst
     eza
     fd
