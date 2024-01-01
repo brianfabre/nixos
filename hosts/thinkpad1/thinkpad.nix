@@ -16,8 +16,11 @@
         DEVICES_TO_DISABLE_ON_BAT_NOT_IN_USE = [ "bluetooth" "wifi" ];
         DEVICES_TO_ENABLE_ON_AC = [ "bluetooth" "wifi" ];
 
-        START_CHARGE_THRESH_BAT1 = 70;
-        STOP_CHARGE_THRESH_BAT1 = 80;
+        # when need to use battery
+        # START_CHARGE_THRESH_BAT1 = 75;
+        # STOP_CHARGE_THRESH_BAT1 = 80;
+        START_CHARGE_THRESH_BAT1 = 45;
+        STOP_CHARGE_THRESH_BAT1 = 50;
       };
     };
     upower = {
