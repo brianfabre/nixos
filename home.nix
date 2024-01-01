@@ -37,6 +37,7 @@
     eza
     fd
     fzf
+    gsimplecal
     imv
     lazygit
     mupdf
