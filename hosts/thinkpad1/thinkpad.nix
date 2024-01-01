@@ -1,6 +1,7 @@
 { config, lib, pkgs, modulesPath, ... }:
 {
   services = {
+    fstrim.enable = lib.mkDefault true;
     tlp = {
       enable = true;
       settings = {
