@@ -19,7 +19,7 @@ static const float fullscreen_bg[]         = {0.1, 0.1, 0.1, 1.0}; /* You can al
 static const char *const autostart[] = {
         "someblocks", NULL,
         "sh", "-c", "wl-paste -t text --watch clipman store --max-items=1000 --histpath='~/.cache/clipman.json'", NULL,
-        "sh", "-c", "wl-gammarelay", NULL,
+        "sh", "-c", "gammastep -l 34:-118 -t 6500:4500 -m wayland", NULL,
         "sh", "-c", "dunst", NULL,
         "sh", "-c", "yambar", NULL,
         "sh", "-c", "foot --server", NULL,
@@ -188,8 +188,8 @@ static const Key keys[] = {
 	{ 0,                   XKB_KEY_XF86AudioRaiseVolume,  spawn, { .v = volupcmd } },
 	{ 0,                   XKB_KEY_XF86AudioLowerVolume,  spawn, { .v = voldowncmd } },
 	{ 0,                   XKB_KEY_XF86AudioMute,         spawn, { .v = mutecmd } },
-    { HYPER,               XKB_KEY_8,                     spawn, { .v = tempupcmd } },
-	{ HYPER,               XKB_KEY_7,                     spawn, { .v = tempdowncmd } },
+    // { HYPER,               XKB_KEY_8,                     spawn, { .v = tempupcmd } },
+    // { HYPER,               XKB_KEY_7,                     spawn, { .v = tempdowncmd } },
 
 	TAGKEYS(    XKB_KEY_1, XKB_KEY_exclam,                     0),
 	TAGKEYS(    XKB_KEY_2, XKB_KEY_at,                         1),
