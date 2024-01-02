@@ -28,8 +28,8 @@
             home-manager.useUserPackages = true;
             home-manager.users.brian = {
               imports = [
-                ./modules/home
-                ./modules/hidpi.nix
+                ./home
+                ./home/hidpi.nix
               ];
             };
             # Optionally, use home-manager.extraSpecialArgs to pass arguments to home.nix
