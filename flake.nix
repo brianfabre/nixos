@@ -20,6 +20,7 @@
         system = "x86_64-linux";
         modules = [
           ./hosts/thinkpad1
+          ./modules/dwl.nix
 
           home-manager.nixosModules.home-manager
           {
@@ -27,9 +28,8 @@
             home-manager.useUserPackages = true;
             home-manager.users.brian = {
               imports = [
-                ./modules/home.nix
+                ./modules/home
                 ./modules/hidpi.nix
-                ./modules/dwl.nix
               ];
             };
             # Optionally, use home-manager.extraSpecialArgs to pass arguments to home.nix
