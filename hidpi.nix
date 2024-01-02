@@ -1,4 +1,6 @@
+{ pkgs, ... }:
 {
+  # default cursor too small on HIDPI monitor
   home.pointerCursor =
     let
       getFrom = url: hash: name: {

@@ -19,9 +19,10 @@
       thinkpad1 = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         modules = [
-          ./configuration.nix
-          ./hosts/thinkpad1/hardware-configuration.nix
-          ./hosts/thinkpad1/thinkpad.nix
+          # ./configuration.nix
+          # ./hosts/thinkpad1/hardware-configuration.nix
+          # ./hosts/thinkpad1/thinkpad.nix
+          ./hosts/thinkpad1
           ./modules/dwl.nix
 
           home-manager.nixosModules.home-manager
@@ -42,7 +43,6 @@
 
       thinkpad2 = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
-        specialArgs = { inherit inputs; };
         modules = [
           ./configuration.nix
           ./hosts/thinkpad2/hardware-configuration.nix
