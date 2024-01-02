@@ -3,7 +3,7 @@
   imports = [
     ./../../configuration.nix
     ./hardware-configuration.nix
-  ]
+  ];
 
   services = {
     fstrim.enable = lib.mkDefault true;

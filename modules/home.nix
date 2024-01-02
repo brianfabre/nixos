@@ -10,9 +10,9 @@
   };
 
   imports = [
-    ./modules/firefox.nix
-    ./modules/tex.nix
-    ./modules/zsh.nix
+    ./firefox.nix
+    ./tex.nix
+    ./zsh.nix
   ];
 
   # Packages that should be installed to the user profile.
