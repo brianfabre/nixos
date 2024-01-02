@@ -18,12 +18,25 @@
 
       thinkpad1 = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
-        specialArgs = { inherit inputs; };
         modules = [
           ./configuration.nix
           ./hosts/thinkpad1/hardware-configuration.nix
           ./hosts/thinkpad1/thinkpad.nix
           ./modules/dwl.nix
+
+          home-manager.nixosModules.home-manager
+          {
+            home-manager.useGlobalPkgs = true;
+            home-manager.useUserPackages = true;
+            home-manager.users.brian = {
+              imports = [
+                ./home.nix
+                ./hidpi.nix
+              ];
+            };
+            # Optionally, use home-manager.extraSpecialArgs to pass arguments to home.nix
+            home-manager.extraSpecialArgs = { inherit inputs; };
+          }
         ];
       };
 
@@ -34,6 +47,19 @@
           ./configuration.nix
           ./hosts/thinkpad2/hardware-configuration.nix
           ./modules/dwl.nix
+
+          home-manager.nixosModules.home-manager
+          {
+            home-manager.useGlobalPkgs = true;
+            home-manager.useUserPackages = true;
+            home-manager.users.brian = {
+              imports = [
+                ./home.nix
+              ];
+            };
+            # Optionally, use home-manager.extraSpecialArgs to pass arguments to home.nix
+            home-manager.extraSpecialArgs = { inherit inputs; };
+          }
         ];
       };
 

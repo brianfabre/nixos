@@ -9,10 +9,7 @@ let
     ${pkgs.xorg.xkbcomp}/bin/xkbcomp ${./config/xkb/symbols/custom-xkb} $out
   '';
 in {
-  imports =
-    [
-      inputs.home-manager.nixosModules.home-manager
-    ];
+  imports = [];
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
@@ -69,16 +66,6 @@ in {
     extraGroups = [ "networkmanager" "wheel" ];
     packages = with pkgs; [];
     shell = pkgs.zsh;
-  };
-
-  home-manager = {
-    useGlobalPkgs = true;
-    useUserPackages = true;
-    users = {
-      brian = import ./home.nix;
-    };
-    # Optionally, use home-manager.extraSpecialArgs to pass arguments to home.nix
-    extraSpecialArgs = { inherit inputs; };
   };
 
   programs.zsh.enable = true;
