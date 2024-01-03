@@ -1,5 +1,8 @@
-{ config, pkgs, ... }:
 {
+  config,
+  pkgs,
+  ...
+}: {
   programs.zsh = {
     enable = true;
     enableCompletion = true;
@@ -109,7 +112,7 @@
       	    fd -t f --color=always --hidden --no-ignore-vcs \
       	    	--exclude ".git" \
       	    	--exclude ".local" \
-    	    	--exclude "mnt" |
+         	--exclude "mnt" |
       	    	fzf-tmux --query="''$1" --multi --select-1 --exit-0
       	))
       	if [[ -n "''$files" ]]; then
