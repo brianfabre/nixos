@@ -11,7 +11,10 @@
     ${pkgs.xorg.xkbcomp}/bin/xkbcomp ${./config/xkb/symbols/custom-xkb} $out
   '';
 in {
-  imports = [];
+  imports = [
+    ./dwl.nix
+    ./display-manager.nix
+  ];
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
