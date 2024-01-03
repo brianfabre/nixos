@@ -62,6 +62,14 @@ local M = {
                 }
             end
 
+            local function alejandra()
+                return {
+                    exe = "alejandra",
+                    args = { "-qq" },
+                    stdin = true,
+                }
+            end
+
             require("formatter").setup({
                 -- logging = true,
                 filetype = {
@@ -75,6 +83,7 @@ local M = {
                     sh = { shfmt },
                     bash = { shfmt },
                     zsh = { shfmt },
+                    nix = { alejandra },
                 },
             })
             vim.api.nvim_create_autocmd({ "BufWritePost" }, {

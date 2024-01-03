@@ -1,5 +1,9 @@
-{ config, pkgs, inputs, ... }:
 {
+  config,
+  pkgs,
+  inputs,
+  ...
+}: {
   home.username = "brian";
   home.homeDirectory = "/home/brian";
 
@@ -18,7 +22,6 @@
 
   # Packages that should be installed to the user profile.
   home.packages = with pkgs; [
-
     #
     lf
     neovim
@@ -44,7 +47,6 @@
     neofetch
     R
     ripgrep
-    stylua
     tesseract
     xdg-utils
     xfce.thunar
@@ -54,6 +56,11 @@
     # language server
     nodePackages.bash-language-server
     lua-language-server
+
+    # formatter
+    alejandra
+    shfmt
+    stylua
 
     # lf image preview
     chafa
