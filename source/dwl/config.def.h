@@ -17,11 +17,11 @@ static const float fullscreen_bg[]         = {0.1, 0.1, 0.1, 1.0}; /* You can al
 
 /* Autostart */
 static const char *const autostart[] = {
-        "someblocks", NULL,
         "sh", "-c", "wl-paste -t text --watch clipman store --max-items=1000 --histpath='~/.cache/clipman.json'", NULL,
         "sh", "-c", "gammastep -l 34:-118 -t 6500:4500 -m wayland", NULL,
         "sh", "-c", "dunst", NULL,
         "sh", "-c", "yambar", NULL,
+        "sh", "-c", "fcitx5", NULL,
         "sh", "-c", "foot --server", NULL,
         NULL /* terminate */
 };
