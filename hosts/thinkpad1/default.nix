@@ -25,8 +25,8 @@
         # when need to use battery
         # START_CHARGE_THRESH_BAT1 = 75;
         # STOP_CHARGE_THRESH_BAT1 = 80;
-        START_CHARGE_THRESH_BAT1 = 45;
-        STOP_CHARGE_THRESH_BAT1 = 50;
+        START_CHARGE_THRESH_BAT1 = 65;
+        STOP_CHARGE_THRESH_BAT1 = 70;
       };
     };
     upower = {
