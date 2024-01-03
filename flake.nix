@@ -22,6 +22,7 @@
         modules = [
           ./hosts/thinkpad1
           ./modules/configuration.nix
+          ./modules/hidpi.nix
 
           home-manager.nixosModules.home-manager
           {
