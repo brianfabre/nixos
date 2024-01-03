@@ -76,6 +76,8 @@ in {
 
   fonts.packages = with pkgs; [
     (nerdfonts.override { fonts = [ "FiraCode" "Hack" ]; })
+    noto-fonts
+    noto-fonts-cjk
   ];
 
   # Allow unfree packages
