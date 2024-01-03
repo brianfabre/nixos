@@ -56,7 +56,9 @@ static const MonitorRule monrules[] = {
 	{ "eDP-1",    0.5,  1,      2,    &layouts[0], WL_OUTPUT_TRANSFORM_NORMAL,   -1,  -1 },
 	*/
 	/* defaults */
-	{ NULL,       0.5, 1,      1.4,    &layouts[0], WL_OUTPUT_TRANSFORM_NORMAL,   -1,  -1 },
+	{ "eDP-1",       0.5, 1,      1.5,    &layouts[0], WL_OUTPUT_TRANSFORM_NORMAL,   -1,  -1 },
+	{ NULL,       0.5, 1,      1,    &layouts[0], WL_OUTPUT_TRANSFORM_NORMAL,   -1,  -1 },
+	// { "HDMI-A-2",       0.5, 1,      1,    &layouts[0], WL_OUTPUT_TRANSFORM_NORMAL,   -1,  -1 },
 };
 
 /* keyboard */
@@ -133,8 +135,8 @@ static const enum libinput_config_tap_button_map button_map = LIBINPUT_CONFIG_TA
 static const char *termcmd[] = { "footclient", NULL };
 static const char *menucmd[] = { "bemenu-run", NULL };
 
-static const char *tempupcmd[]     = { "sh", "/home/brian/.config/utils/scripts/temp_up.sh", NULL };
-static const char *tempdowncmd[]   = { "sh", "/home/brian/.config/utils/scripts/temp_down.sh", NULL };
+// static const char *tempupcmd[]     = { "sh", "/home/brian/.config/utils/scripts/temp_up.sh", NULL };
+// static const char *tempdowncmd[]   = { "sh", "/home/brian/.config/utils/scripts/temp_down.sh", NULL };
 static const char *brightupcmd[]   = { "sh", "/home/brian/.config/utils/scripts/bright_up.sh", NULL };
 static const char *brightdowncmd[] = { "sh", "/home/brian/.config/utils/scripts/bright_down.sh", NULL };
 static const char *volupcmd[]      = { "sh", "/home/brian/.config/utils/scripts/vol_up.sh", NULL };
