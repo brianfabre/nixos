@@ -1,10 +1,12 @@
 # Edit this configuration file to define what should be installed on
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
-
-{ config, pkgs, inputs, ... }:
-
-let
+{
+  config,
+  pkgs,
+  inputs,
+  ...
+}: let
   compiledLayout = pkgs.runCommand "keyboard-layout" {} ''
     ${pkgs.xorg.xkbcomp}/bin/xkbcomp ${./config/xkb/symbols/custom-xkb} $out
   '';
@@ -63,7 +65,7 @@ in {
   users.users.brian = {
     isNormalUser = true;
     description = "brian";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = ["networkmanager" "wheel"];
     packages = with pkgs; [];
     shell = pkgs.zsh;
   };
@@ -75,7 +77,7 @@ in {
   hardware.opengl.enable = true;
 
   fonts.packages = with pkgs; [
-    (nerdfonts.override { fonts = [ "FiraCode" "Hack" ]; })
+    (nerdfonts.override {fonts = ["FiraCode" "Hack"];})
     noto-fonts
     noto-fonts-cjk
   ];
@@ -84,7 +86,7 @@ in {
   nixpkgs.config.allowUnfree = true;
 
   # enable flakes
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nix.settings.experimental-features = ["nix-command" "flakes"];
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
@@ -138,5 +140,4 @@ in {
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "23.11"; # Did you read the comment?
-
 }

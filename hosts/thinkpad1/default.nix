@@ -1,5 +1,4 @@
-{ lib, ... }:
-{
+{lib, ...}: {
   imports = [
     ./hardware-configuration.nix
   ];
@@ -20,8 +19,8 @@
         PLATFORM_PROFILE_ON_AC = "performance";
         PLATFORM_PROFILE_ON_BAT = "balanced";
 
-        DEVICES_TO_DISABLE_ON_BAT_NOT_IN_USE = [ "bluetooth" "wifi" ];
-        DEVICES_TO_ENABLE_ON_AC = [ "bluetooth" "wifi" ];
+        DEVICES_TO_DISABLE_ON_BAT_NOT_IN_USE = ["bluetooth" "wifi"];
+        DEVICES_TO_ENABLE_ON_AC = ["bluetooth" "wifi"];
 
         # when need to use battery
         # START_CHARGE_THRESH_BAT1 = 75;
