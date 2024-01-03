@@ -1,3 +1,3 @@
 {
-  console.font = "latarcyrheb-sun32"
+  console.font = "latarcyrheb-sun32";
 }
