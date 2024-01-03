@@ -1,3 +1,5 @@
+# to fix: currently need to manually add kr to fcitx-configtool
+# on first install
 {
   config,
   pkgs,
