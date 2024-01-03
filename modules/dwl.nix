@@ -14,6 +14,7 @@
     slurp
     wev
     wl-clipboard
+    wlr-randr
     yambar
   ];
 
