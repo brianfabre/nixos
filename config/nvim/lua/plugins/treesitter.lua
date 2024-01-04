@@ -10,6 +10,7 @@ local M = {
             ensure_installed = {
                 "bash",
                 "c",
+                "cpp",
                 "html",
                 "ini",
                 "latex",
