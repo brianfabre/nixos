@@ -5,7 +5,7 @@ bar:
   background: 005577ff
   # margin: 8
   spacing: 5
-  font: Hack Nerd Font:pixelsize=28
+  font: Hack Nerd Font Propo:pixelsize=26
   left:
     - dwl:
         anchors:
@@ -29,7 +29,7 @@ bar:
               - map:
                   conditions:
                     # default tag
-                    id == 0: {string: {text: " {layout}  {title}", max: 50}}
+                    id == 0: {string: {text: " {layout}  {title}", max: 35}}
 
                     urgent:
                       map:
@@ -54,50 +54,50 @@ bar:
 
   right:
     - network:
-        name: wlan0
+        name: wlp3s0
         content:
-          string: {text: "[{name}:{signal}dBm]"}
+          string: {text: "[  {ssid}:{signal}dBm ]"}
     - cpu:
         poll-interval: 2500
         content:
           map:
             conditions:
               id < 0:
-              - string: {text: "[cpu:{cpu}%]"}
+              - string: {text: "[  {cpu}% ]"}
     - mem:
         poll-interval: 2500
         content:
-          string: {text: "[mem:{used:gb}/{total:gb}GB]"}
+          string: {text: "[  {used:gb}/{total:gb}GB ]"}
     - pulse:
         content:
           map:
             conditions:
               ~sink_muted && ~source_muted:
-                - string: {text: "[vol:{sink_percent}%]"}
+                - string: {text: "[ 󰕾 {sink_percent}% ]"}
                 # - string: {text: "mic: {source_percent}%"}
               ~sink_muted && source_muted:
-                - string: {text: "[vol:{sink_percent}%]"}
+                - string: {text: "[ 󰕾 {sink_percent}% ]"}
                 # - string: {text: "mic: {source_percent}% (muted)"}
               sink_muted && ~source_muted:
-                - string: {text: "[vol:{sink_percent}% (muted)]"}
+                - string: {text: "[ 󰖁 {sink_percent}% ]"}
                 # - string: {text: "mic: {source_percent}%"}
               sink_muted && source_muted:
-                - string: {text: "[vol:{sink_percent}% (muted)]"}
+                - string: {text: "[ 󰖁 {sink_percent}% ]"}
                 # - string: {text: "mic: {source_percent}% (muted)"}
     - backlight:
         name: intel_backlight
         content:
-          string: {text: "[bklt:{percent}%]"}
+          string: {text: "[ 󰃠 {percent}% ]"}
     - battery:
         name: BAT1
         content:
           map:
-            default: {string: {text: "[bat:{capacity}%]"}}
+            default: {string: {text: "[ 󰁹 {capacity}% ]"}}
             conditions:
-              state == charging: {string: {text: "[bat:{capacity}% (charging)]", foreground: ffa600ff}}
-              capacity <= 20: {string: {text: "[bat:{capacity}%]", foreground: ff0000ff}}
+              state == charging: {string: {text: "[ 󰂄 {capacity}% ]", foreground: ffa600ff}}
+              capacity <= 20: {string: {text: "[ 󰂃 {capacity}% ]", foreground: ff0000ff}}
     - clock:
         # date-format: "%m-%d"
-        date-format: "%a, %b %d %I:%M%p"
+        date-format: "%a %d %b %I:%M%p"
         content:
-          - string: {on-click: gsimplecal, text: "[{date}]", right-margin: 15}
+          - string: {on-click: gsimplecal, text: "[ {date} ]", right-margin: 15}
