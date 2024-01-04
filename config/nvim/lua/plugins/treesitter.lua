@@ -11,6 +11,7 @@ local M = {
                 "bash",
                 "c",
                 "html",
+                "ini",
                 "latex",
                 "lua",
                 "markdown",
