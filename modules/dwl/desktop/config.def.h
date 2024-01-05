@@ -38,7 +38,8 @@ static const Rule rules[] = {
  	{ "Gimp"     , NULL  , 0         , 1          , 0      , 1         , -1 }       ,
  	{ "firefox"  , NULL  , 1 << 8    , 0          , 0      , 1         , -1 }       ,
 	*/
- 	{ "foot"     , NULL  , 0         , 0          , 1      , 0         , -1 }       ,
+ 	{ "foot"         , NULL  , 0         , 0          , 1      , 0         , -1 }       ,
+ 	{ "pavucontrol"  , NULL  , 0         , 1          , 0      , 0         , -1 }       ,
 };
 
 /* layout(s) */
