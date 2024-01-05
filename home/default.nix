@@ -66,6 +66,19 @@
     chafa
     ffmpegthumbnailer
     poppler_utils # pdftoppm
+
+    # wayland
+    dwl
+    bemenu
+    clipman
+    foot
+    gammastep
+    grim
+    slurp
+    wev
+    wl-clipboard
+    wlr-randr
+    yambar
   ];
 
   home.file = {
