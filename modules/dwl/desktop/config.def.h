@@ -44,8 +44,8 @@ static const Rule rules[] = {
 /* layout(s) */
 static const Layout layouts[] = {
 	/* symbol     arrange function */
-	{ "[M]",      monocle },
 	{ "[]=",      tile },
+	{ "[M]",      monocle },
  	{ NULL,       NULL },
 };
 
@@ -170,7 +170,7 @@ static const Key keys[] = {
  	// { MODKEY|MCTRL,        XKB_KEY_0,          togglegaps,     {0} },
  	// { MODKEY|MCTRL|MSHIFT, XKB_KEY_parenright, defaultgaps,    {0} },
 	{ MODKEY|MSHIFT,       XKB_KEY_Return,     zoom,           {0} },
-	{ MODKEY,              XKB_KEY_m,          setlayout,      {.v = &layouts[1]} },
+	// { MODKEY,              XKB_KEY_m,          setlayout,      {.v = &layouts[1]} },
 	// { MODKEY,              XKB_KEY_Tab,        view,           {0} },
 	{ MODKEY,              XKB_KEY_q,          killclient,     {0} },
 	// { MODKEY,              XKB_KEY_t,          setlayout,      {.v = &layouts[0]} },
