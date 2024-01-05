@@ -11,10 +11,7 @@
     ${pkgs.xorg.xkbcomp}/bin/xkbcomp ${./config/xkb/symbols/custom-xkb} $out
   '';
 in {
-  imports = [
-    ./dwl.nix
-    ./display-manager.nix
-  ];
+  imports = [];
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
@@ -64,6 +61,17 @@ in {
     xkbVariant = "";
   };
 
+  # Enable Display Manager
+  services.greetd = {
+    enable = true;
+    settings = {
+      default_session = {
+        command = "${pkgs.greetd.tuigreet}/bin/tuigreet --remember --time --time-format '%I:%M %p | %a • %h | %F' --cmd 'dwl > /home/brian/.cache/dwl_info'";
+        user = "greeter";
+      };
+    };
+  };
+
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.brian = {
     isNormalUser = true;
@@ -98,6 +106,7 @@ in {
     wget
     git
     curl
+    greetd.tuigreet
   ];
 
   # default editor
