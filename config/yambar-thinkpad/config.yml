@@ -1,11 +1,11 @@
 bar:
-  height: 28
+  height: 42
   location: top
   foreground: eeeeeeff
   background: 005577ff
   # margin: 8
   spacing: 5
-  font: Hack Nerd Font Propo:pixelsize=16
+  font: Hack Nerd Font Propo:pixelsize=26
   left:
     - dwl:
         anchors:

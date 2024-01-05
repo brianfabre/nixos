@@ -1,4 +1,12 @@
-{pkgs, ...}: {
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}: {
+  home.file = {
+    ".config/yambar".source = lib.mkForce (config.lib.file.mkOutOfStoreSymlink "/home/brian/nixos/config/yambar-thinkpad");
+  };
   # default cursor too small on HIDPI monitor
   home.pointerCursor = let
     getFrom = url: hash: name: {
