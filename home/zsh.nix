@@ -7,6 +7,8 @@
     enable = true;
     enableCompletion = true;
     initExtraFirst = ''
+      # wayland
+      export WLR_NO_HARDWARE_CURSORS=1
     '';
     initExtra = ''
       if [ -n "''${commands[fzf-share]}" ]; then
