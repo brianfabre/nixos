@@ -1,16 +1,16 @@
 bar:
-  height: 28
+  height: 24
   location: top
   foreground: eeeeeeff
   background: 005577ff
   # margin: 8
   spacing: 5
-  font: Hack Nerd Font Propo:pixelsize=16
+  font: Hack Nerd Font Propo:pixelsize=14
   left:
     - dwl:
         anchors:
           - base: &dwl_base
-              margin: 16
+              margin: 8
               conditions:
                 id == 1: {string: {text: 1}}
                 id == 2: {string: {text: 2}}
@@ -54,7 +54,7 @@ bar:
 
   right:
     - network:
-        name: wlp3s0
+        name: wlp7s0
         content:
           string: {text: "[  {ssid}:{signal}dBm ]"}
     - cpu:
@@ -84,18 +84,6 @@ bar:
               sink_muted && source_muted:
                 - string: {text: "[ 󰖁 {sink_percent}% ]"}
                 # - string: {text: "mic: {source_percent}% (muted)"}
-    - backlight:
-        name: intel_backlight
-        content:
-          string: {text: "[ 󰃠 {percent}% ]"}
-    - battery:
-        name: BAT1
-        content:
-          map:
-            default: {string: {text: "[ 󰁹 {capacity}% ]"}}
-            conditions:
-              state == charging: {string: {text: "[ 󰂄 {capacity}% ]", foreground: ffa600ff}}
-              capacity <= 20: {string: {text: "[ 󰂃 {capacity}% ]", foreground: ff0000ff}}
     - clock:
         # date-format: "%m-%d"
         date-format: "%a %d %b %I:%M%p"
