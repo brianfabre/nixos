@@ -71,6 +71,7 @@ bar:
     - pulse:
         content:
           map:
+            on-click: "pavucontrol"
             conditions:
               ~sink_muted && ~source_muted:
                 - string: {text: "[ 󰕾 {sink_percent}% ]"}
