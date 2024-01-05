@@ -46,6 +46,7 @@
     mupdf
     ncdu
     neofetch
+    pavucontrol
     R
     ripgrep
     tesseract
