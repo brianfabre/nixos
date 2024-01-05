@@ -23,6 +23,7 @@
           ./hosts/thinkpad1
           ./modules/configuration.nix
           ./modules/hidpi.nix
+          ./modules/dwl/notebook/dwl.nix
 
           home-manager.nixosModules.home-manager
           {
@@ -45,6 +46,7 @@
         modules = [
           ./hosts/k39
           ./modules/configuration.nix
+          ./modules/dwl/desktop/dwl.nix
 
           home-manager.nixosModules.home-manager
           {
