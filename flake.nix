@@ -32,7 +32,7 @@
             home-manager.users.brian = {
               imports = [
                 ./home
-                ./home/hidpi.nix
+                ./home/thinkpad.nix
               ];
             };
             # Optionally, use home-manager.extraSpecialArgs to pass arguments to home.nix

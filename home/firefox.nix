@@ -1,5 +1,6 @@
 {
   config,
+  lib,
   pkgs,
   inputs,
   ...
@@ -18,7 +19,7 @@
         surfingkeys
         ublock-origin
       ];
-      userChrome = builtins.readFile ./../config/firefox/userChrome.css;
+      userChrome = lib.mkDefault (builtins.readFile ./../config/firefox/userChrome.css);
       extraConfig = ''
         /****************************************************************************
          * SECTION: FASTFOX                                                         *
@@ -271,6 +272,7 @@
         user_pref("extensions.activeThemeID", "firefox-compact-dark@mozilla.org");
         user_pref("browser.tabs.firefox-view-newIcon", false);
         // user_pref("editor.truncate_user_pastes", true);
+        user_pref("browser.startup.page", 3);
 
         /****************************************************************************
          * END: BETTERFOX                                                           *
