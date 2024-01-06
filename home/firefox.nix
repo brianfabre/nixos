@@ -20,6 +20,26 @@
         ublock-origin
       ];
       userChrome = lib.mkDefault (builtins.readFile ./../config/firefox/userChrome.css);
+      search = {
+        force = true;
+        default = "SearXNG";
+        engines = {
+          "SearXNG" = {
+            urls = [
+              {
+                template = "https://priv.au/";
+                params = [
+                  {
+                    name = "q";
+                    value = "{searchTerms}";
+                  }
+                ];
+              }
+            ];
+            definedAliases = ["@sr"];
+          };
+        };
+      };
       extraConfig = ''
         /****************************************************************************
          * SECTION: FASTFOX                                                         *
