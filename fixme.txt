@@ -1,0 +1,2 @@
+- firefox manual bookmark imports
+- manual run ./config/utils/initial_setup.sh
