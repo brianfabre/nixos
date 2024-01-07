@@ -10,6 +10,11 @@
     profiles.default = {
       extensions = with inputs.firefox-addons.packages."x86_64-linux"; [
         bitwarden
+        (bypass-paywalls-clean.override {
+          addonId = "magnolia@12.34";
+          url = "https://gitlab.com/magnolia1234/bpc-uploads/-/raw/master/bypass_paywalls_clean-3.4.9.0.xpi";
+          sha256 = "sha256-YFD3FUB5w12+1Yn2/YVzNKF6G6eoirx3zYzOr2b0Swk=";
+        })
         darkreader
         # enhancer-for-youtube
         libredirect
