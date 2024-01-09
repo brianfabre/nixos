@@ -124,16 +124,11 @@ in {
     options = "--delete-older-than 1w";
   };
 
-  # samba CIFS automounts
-  # For mount.cifs, required unless domain name resolution is not needed.
-  # environment.systemPackages = [pkgs.cifs-utils];
+  # NFS automount
   fileSystems."/mnt/data" = {
-    device = "//192.168.1.24/main";
-    fsType = "cifs";
-    options = let
-      # this line prevents hanging on network split
-      automount_opts = "x-systemd.automount,noauto,x-systemd.idle-timeout=60,x-systemd.device-timeout=5s,x-systemd.mount-timeout=5s";
-    in ["${automount_opts},credentials=/etc/nixos/smb-secrets,uid=1000,gid=100"];
+    device = "192.168.1.54:/mnt/data";
+    fsType = "nfs";
+    options = ["x-systemd.automount" "noauto" "x-systemd.idle-timeout=600"];
   };
 
   # Some programs need SUID wrappers, can be configured further or are
