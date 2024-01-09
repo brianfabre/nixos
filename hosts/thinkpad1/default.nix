@@ -3,6 +3,8 @@
     ./hardware-configuration.nix
   ];
 
+  networking.hostName = lib.mkForce "nixos-thinkpad1"; # Define your hostname.
+
   services = {
     fstrim.enable = lib.mkDefault true;
     # fix for intel cpu throttling
