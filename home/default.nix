@@ -43,6 +43,7 @@
     gsimplecal
     imv
     lazygit
+    mpv
     mupdf
     ncdu
     neofetch
