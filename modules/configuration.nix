@@ -108,7 +108,6 @@ in {
     git
     curl
     greetd.tuigreet
-    cifs-utils
   ];
 
   # default editor
