@@ -36,6 +36,7 @@
     # other
     bat
     brightnessctl
+    calibre
     dunst
     eza
     fd

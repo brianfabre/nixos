@@ -73,6 +73,10 @@ in {
     };
   };
 
+  # for automount/unmount usb, needed for calibre
+  services.gvfs.enable = true;
+  services.udisks2.enable = true;
+
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.brian = {
     isNormalUser = true;
