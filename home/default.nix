@@ -63,6 +63,7 @@
 
     # formatter
     alejandra
+    nodePackages.prettier
     shfmt
     stylua
 

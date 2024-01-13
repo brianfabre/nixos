@@ -13,6 +13,7 @@ local M = {
                 "cpp",
                 "html",
                 "ini",
+                "javascript",
                 "latex",
                 "lua",
                 "markdown",

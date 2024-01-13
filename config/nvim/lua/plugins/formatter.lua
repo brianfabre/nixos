@@ -77,6 +77,7 @@ local M = {
                     python = { black },
                     r = { styler },
                     tex = { latexindent },
+                    javascript = { prettier },
                     json = { prettier },
                     html = { prettier },
                     htmldjango = { prettier },
