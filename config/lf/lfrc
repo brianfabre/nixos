@@ -70,6 +70,7 @@ map Y yank-path
 map <enter> open
 map . set hidden!
 map d delete
+# map d trash
 map x cut
 map a push %mkdir<space>
 map A push %touch<space>
@@ -133,7 +134,14 @@ cmd open &{{
 
 # move current file or selected files to trash folder
 # (also see 'man mv' for backup/overwrite options)
-cmd trash %set -f; mv $fx ~/.trash
+# cmd trash %set -f; mv $fx ~/.trash
+cmd trash ${{
+    set -f
+    printf "$fx\n"
+    printf "delete?[y/n]"
+    read ans
+    [ "$ans" = "y" ] && mv -f $fx ~/.trash
+}}
 
 # define a custom 'delete' command
 # cmd delete ${{
