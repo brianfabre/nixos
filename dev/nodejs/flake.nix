@@ -19,10 +19,11 @@
         devShell = pkgs.mkShell {
           nativeBuildInputs = with pkgs; [
             nodejs
+            python3
           ];
 
           shellHook = ''
-            echo "nodejs"
+            echo "entering nodejs shell"
           '';
         };
       }
