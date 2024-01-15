@@ -1,0 +1,14 @@
+[
+    {
+        "input_combination": [
+            {
+                "type": 1,
+                "code": 279,
+                "origin_hash": "0bb1b291d28145172578f4f856de7a4a"
+            }
+        ],
+        "target_uinput": "mouse",
+        "output_symbol": "BTN_MIDDLE",
+        "mapping_type": "key_macro"
+    }
+]
