@@ -65,6 +65,7 @@ return {
             },
         },
     },
+    { "echasnovski/mini.notify", version = false, opts = {} },
     {
         "echasnovski/mini.files",
         version = false,
