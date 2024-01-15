@@ -37,6 +37,7 @@
     bat
     brightnessctl
     calibre
+    chromium
     dunst
     eza
     fd
@@ -56,6 +57,7 @@
     xfce.thunar
     usbutils
     zathura
+    zellij
 
     # language server
     nodePackages.bash-language-server
