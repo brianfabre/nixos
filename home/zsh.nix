@@ -67,6 +67,7 @@
 
       set -o emacs
 
+      alias cat='bat -pp --theme Coldark-Dark'
       alias nv='nvim'
       alias lg='lazygit'
       alias rm='rm -i'
