@@ -32,7 +32,8 @@
           "SearXNG" = {
             urls = [
               {
-                template = "https://priv.au/";
+                # template = "https://priv.au/";
+                template = "https://searxng.site/";
                 params = [
                   {
                     name = "q";
