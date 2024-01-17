@@ -28,6 +28,7 @@
     neovim
 
     # archives
+    alacritty
     zip
     xz
     unzip
@@ -58,6 +59,7 @@
     usbutils
     zathura
     zellij
+    zotero_beta
 
     # language server
     nodePackages.bash-language-server

@@ -22,6 +22,7 @@
           ./hosts/thinkpad1
           ./modules/configuration.nix
           ./modules/dwl/notebook/dwl.nix
+          ./modules/zotero.nix
 
           home-manager.nixosModules.home-manager
           {
@@ -47,6 +48,7 @@
           ./hosts/k39
           ./modules/configuration.nix
           ./modules/dwl/desktop/dwl.nix
+          ./modules/zotero.nix
 
           home-manager.nixosModules.home-manager
           {
