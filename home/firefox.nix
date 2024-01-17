@@ -8,7 +8,7 @@
   programs.firefox = {
     enable = true;
     profiles.default = {
-      extensions = with inputs.firefox-addons.packages."x86_64-linux"; [
+      extensions = with pkgs.nur.repos.rycee.firefox-addons; [
         bitwarden
         (bypass-paywalls-clean.override {
           addonId = "magnolia@12.34";
@@ -23,6 +23,14 @@
         sponsorblock
         surfingkeys
         ublock-origin
+        (buildFirefoxXpiAddon rec {
+          pname = "Zotero";
+          version = "5.0.111";
+          url = "https://www.zotero.org/download/connector/dl?browser=firefox&version=${version}";
+          sha256 = "sha256-2bXqbIVRm1jIVtjHSZJpa6Th3CdxXqMHezOg1BguMdo=";
+          addonId = "zotero@chnm.gmu.edu";
+          meta = {};
+        })
       ];
       userChrome = lib.mkDefault (builtins.readFile ./../config/firefox/userChrome.css);
       search = {

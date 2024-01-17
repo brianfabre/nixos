@@ -14,6 +14,13 @@
 in {
   imports = [];
 
+  nixpkgs = {
+    overlays = [inputs.nur.overlay];
+  };
+
+  # Allow unfree packages
+  nixpkgs.config.allowUnfree = true;
+
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
@@ -110,9 +117,6 @@ in {
     noto-fonts
     noto-fonts-cjk
   ];
-
-  # Allow unfree packages
-  nixpkgs.config.allowUnfree = true;
 
   # enable flakes
   nix.settings.experimental-features = ["nix-command" "flakes"];
