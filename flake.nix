@@ -49,6 +49,7 @@
           ./modules/configuration.nix
           ./modules/dwl/desktop/dwl.nix
           ./modules/zotero.nix
+          ./modules/syncthing.nix
 
           home-manager.nixosModules.home-manager
           {
