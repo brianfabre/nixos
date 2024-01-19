@@ -1,2 +1,3 @@
 - firefox manual bookmark imports
 - manual run ./config/utils/initial_setup.sh
+- manual add kr lang to fcitx5-configtool
