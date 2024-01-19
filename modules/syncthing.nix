@@ -13,11 +13,12 @@ in {
 
     settings = {
       devices = {
-        "samsung-a52s" = {id = "P2FYLQW-PKDFJGZ-EUGI2T7-OW4AH4I-KI462HD-U2VL3X3-GN55PP2-VNRE5AH";};
+        "samsung-a52s" = {id = "AOYKQS6-6OIEVXE-OBZKRNG-5EFUZWM-WI6WEUH-F42257M-RQV4UK6-KO4RVAD";};
       };
 
       folders = {
         "Photos" = {
+          id = "sm-a528b_p7zw-photos";
           path = "/home/${user}/.local/share/syncthing/photos";
           devices = ["samsung-a52s"];
         };
