@@ -51,6 +51,7 @@
     ncdu
     neofetch
     pavucontrol
+    qbittorrent
     R
     ripgrep
     tesseract
