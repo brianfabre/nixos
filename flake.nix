@@ -65,6 +65,32 @@
           }
         ];
       };
+
+      thinkpad2 = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        # pass inputs to modules
+        specialArgs = {inherit inputs;};
+        modules = [
+          ./hosts/thinkpad2
+          ./modules/configuration.nix
+          ./modules/dwl/notebook/dwl.nix
+
+          home-manager.nixosModules.home-manager
+          {
+            home-manager.useGlobalPkgs = true;
+            home-manager.useUserPackages = true;
+            home-manager.users.brian = {
+              imports = [
+                ./home
+                ./home/thinkpad.nix
+              ];
+            };
+            # pass arguments to home.nix
+            home-manager.extraSpecialArgs = {inherit inputs;};
+          }
+        ];
+      };
+
     };
   };
 }
