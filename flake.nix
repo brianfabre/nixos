@@ -74,6 +74,7 @@
           ./hosts/thinkpad2
           ./modules/configuration.nix
           ./modules/dwl/notebook/dwl.nix
+          ./modules/zotero.nix
 
           home-manager.nixosModules.home-manager
           {
