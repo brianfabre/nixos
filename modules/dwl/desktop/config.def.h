@@ -134,7 +134,9 @@ static const enum libinput_config_tap_button_map button_map = LIBINPUT_CONFIG_TA
 
 /* commands */
 static const char *termcmd[] = { "footclient", NULL };
-static const char *menucmd[] = { "bemenu-run", NULL };
+// HACK bemenu-run not using BEMENU_OPTS env var, maybe needs to be loaded first
+static const char *menucmd[] = { "sh", "/home/brian/.config/utils/scripts/bemenu.sh", NULL };
+// static const char *menucmd[] = { "bemenu-run", NULL };
 
 // static const char *tempupcmd[]     = { "sh", "/home/brian/.config/utils/scripts/temp_up.sh", NULL };
 // static const char *tempdowncmd[]   = { "sh", "/home/brian/.config/utils/scripts/temp_down.sh", NULL };
