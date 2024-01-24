@@ -42,7 +42,7 @@
               urls = [
                 {
                   # template = "https://priv.au/";
-                  template = "https://searxng.site/";
+                  template = "https://searxng.site/"; # in firefox: https://searxng.site/?q=%s
                   params = [
                     {
                       name = "q";

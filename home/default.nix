@@ -62,15 +62,19 @@
     zellij
     zotero_beta
 
-    # language server
+    # bash
+    shfmt
     nodePackages.bash-language-server
+
+    # lua
+    stylua
     lua-language-server
 
-    # formatter
+    # nixos
     alejandra
+
+    # formatter
     nodePackages.prettier
-    shfmt
-    stylua
 
     # lf image preview
     chafa
