@@ -17,7 +17,7 @@
   imports = [
     ./firefox.nix
     ./fcitx.nix
-    ./tex.nix
+    # ./tex.nix
     ./zsh.nix
   ];
 
