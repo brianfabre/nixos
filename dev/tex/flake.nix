@@ -15,19 +15,13 @@
     flake-utils.lib.eachDefaultSystem (
       system: let
         pkgs = import nixpkgs {inherit system;};
+        tex = pkgs.texlive.combine {
+          inherit (pkgs.texlive) scheme-full;
+        };
       in {
         devShell = pkgs.mkShell {
           nativeBuildInputs = with pkgs; [
-
-            # s-tui
-            # stress-ng
-
-            # ffmpeg
-
-            wireshark
-
-            # 'sudo ventoy-web' to launch web-gui
-            # ventoy-full
+            tex
           ];
         };
       }
