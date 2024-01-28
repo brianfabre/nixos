@@ -18,19 +18,7 @@
       in {
         devShell = pkgs.mkShell {
           nativeBuildInputs = with pkgs; [
-            # s-tui
-            # stress-ng
-
-            # ffmpeg
-
-            # wireshark
-
-            # 'sudo ventoy-web' to launch web-gui
-            # ventoy-full
-
-            # kid3
-
-            appimage-run
+            jdupes
           ];
         };
       }
