@@ -60,7 +60,7 @@
     usbutils
     zathura
     zellij
-    zotero_beta
+    # zotero_beta
 
     # bash
     shfmt
