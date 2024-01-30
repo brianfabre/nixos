@@ -69,16 +69,16 @@ in {
     xkbVariant = "";
   };
 
-  # Enable Display Manager
-  services.greetd = {
-    enable = true;
-    settings = {
-      default_session = {
-        command = "${pkgs.greetd.tuigreet}/bin/tuigreet --remember --time --time-format '%I:%M %p | %a • %h | %F' --cmd 'dwl > /home/brian/.cache/dwl_info'";
-        user = "greeter";
-      };
-    };
-  };
+  # # Enable Display Manager
+  # services.greetd = {
+  #   enable = true;
+  #   settings = {
+  #     default_session = {
+  #       command = "${pkgs.greetd.tuigreet}/bin/tuigreet --remember --time --time-format '%I:%M %p | %a • %h | %F' --cmd 'dwl > /home/brian/.cache/dwl_info'";
+  #       user = "greeter";
+  #     };
+  #   };
+  # };
 
   # for automount/unmount usb, needed for calibre
   services.gvfs.enable = true;
