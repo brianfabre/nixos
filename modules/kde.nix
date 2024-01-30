@@ -8,6 +8,10 @@
   services.xserver.desktopManager.plasma5.enable = true;
   services.xserver.displayManager.defaultSession = "plasmawayland";
 
+  environment.systemPackages = with pkgs; [
+    yakuake
+  ];
+
   # Enable Display Manager
   services.greetd = {
     enable = true;
