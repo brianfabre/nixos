@@ -12,6 +12,12 @@
     ${pkgs.xorg.xkbcomp}/bin/xkbcomp ${./config/xkb/symbols/custom-xkb} $out
   '';
 in {
+
+  nixpkgs.config = {
+    cudaSupport = true;
+    cudnnSupport = true;
+  };
+
   imports = [];
 
   nixpkgs = {
