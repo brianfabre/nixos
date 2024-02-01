@@ -15,6 +15,21 @@ set sixel true
 set previewer ~/.config/lf/previewer.sh
 # set cleaner ~/.config/lf/clear_img.sh
 
+cmd open &{{
+	mimetype=$(file --brief --dereference --mime-type $f)
+	defapp=$(xdg-mime query default $mimetype)
+	case "$defapp" in
+	nvim.desktop)
+        lf -remote "send $id \$nvim $f"
+		;;
+	vim.desktop)
+        lf -remote "send $id \$vim $f"
+		;;
+	*)
+		xdg-open $f
+	esac
+}}
+
 # move up/down directory, ignores files
 map J :updir; set dironly true; down; set dironly false; open
 map K :updir; set dironly true; up; set dironly false; open
