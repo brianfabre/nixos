@@ -53,7 +53,6 @@
     neofetch
     pavucontrol
     qbittorrent
-    R
     ripgrep
     tesseract
     xdg-utils
