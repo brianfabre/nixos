@@ -33,6 +33,8 @@
 
             # appimage-run
 
+            # jdupes
+
             hashcat
             hcxtools
 

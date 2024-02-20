@@ -18,7 +18,7 @@
       in {
         devShell = pkgs.mkShell {
           nativeBuildInputs = with pkgs; [
-            jdupes
+            nomachine-client
           ];
         };
       }
