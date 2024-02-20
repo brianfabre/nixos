@@ -44,6 +44,7 @@
     fd
     fzf
     gsimplecal
+    htop
     imv
     lazygit
     mpv
@@ -107,8 +108,8 @@
     ".config/zathura".source = config.lib.file.mkOutOfStoreSymlink "/home/brian/nixos/config/zathura";
     ".config/mimeapps.list".source = config.lib.file.mkOutOfStoreSymlink "/home/brian/nixos/config/mimeapps.list";
     # kde
-    ".config/kglobalshortcutsrc".source = config.lib.file.mkOutOfStoreSymlink "/home/brian/nixos/config/kglobalshortcutsrc";
-    ".config/kwinrc".source = config.lib.file.mkOutOfStoreSymlink "/home/brian/nixos/config/kwinrc";
+    # ".config/kglobalshortcutsrc".source = config.lib.file.mkOutOfStoreSymlink "/home/brian/nixos/config/kglobalshortcutsrc";
+    # ".config/kwinrc".source = config.lib.file.mkOutOfStoreSymlink "/home/brian/nixos/config/kwinrc";
   };
 
   # cursor

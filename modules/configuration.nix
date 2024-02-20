@@ -12,11 +12,10 @@
     ${pkgs.xorg.xkbcomp}/bin/xkbcomp ${./config/xkb/symbols/custom-xkb} $out
   '';
 in {
-
-  nixpkgs.config = {
-    cudaSupport = true;
-    cudnnSupport = true;
-  };
+  # nixpkgs.config = {
+  #   cudaSupport = true;
+  #   cudnnSupport = true;
+  # };
 
   imports = [];
 
@@ -70,9 +69,9 @@ in {
   };
 
   # Configure keymap in X11
-  services.xserver = {
+  services.xserver.xkb = {
     layout = "us";
-    xkbVariant = "";
+    variant = "";
   };
 
   # # Enable Display Manager

@@ -22,6 +22,9 @@ minimizeallEnabled=false
 [Tiling]
 padding=4
 
+[Tiling][4c8775c9-3ec2-5a78-a98f-c07dc04d676e]
+tiles={"layoutDirection":"horizontal","tiles":[{"width":0.25},{"width":0.5},{"width":0.25}]}
+
 [Tiling][bd455426-91b5-5aa4-b78c-9e21c3c810ab]
 tiles={"layoutDirection":"horizontal","tiles":[{"layoutDirection":"floating","tiles":[{"height":0.9965277777777857,"width":0.2499999999999997,"x":0,"y":0.0027777777777758875}],"width":0.25},{"width":0.5},{"width":0.25}]}
 
@@ -29,4 +32,4 @@ tiles={"layoutDirection":"horizontal","tiles":[{"layoutDirection":"floating","ti
 InputMethod[$e]=/etc/profiles/per-user/brian/share/applications/org.fcitx.Fcitx5.desktop
 
 [Xwayland]
-Scale=1.25
+Scale=1
