@@ -18,6 +18,8 @@
       in {
         devShell = pkgs.mkShell {
           nativeBuildInputs = with pkgs; [
+            gcc
+
             R
             python311Packages.radian
             rPackages.tidyverse
