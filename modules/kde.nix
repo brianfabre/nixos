@@ -11,6 +11,9 @@
   # Load nvidia driver for Xorg and Wayland
   services.xserver.videoDrivers = ["nvidia"];
 
+  # Allow CUDA on boot
+  boot.kernelModules = ["nvidia-uvm"];
+
   hardware.nvidia = {
     # Modesetting is required.
     modesetting.enable = true;
