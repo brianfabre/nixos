@@ -14,7 +14,7 @@
           (bypass-paywalls-clean.override {
             addonId = "magnolia@12.34";
             url = "https://gitlab.com/magnolia1234/bpc-uploads/-/raw/master/bypass_paywalls_clean-latest.xpi";
-            sha256 = "sha256-ibauJqTkfXOmEusl7ZxjWkVyPadeKGQunflRWrsFjHc=";
+            sha256 = "sha256-SwyWGjIIhR69tjalZam125u3IxHTF+6cn7M0ili/lQ4=";
           })
           darkreader
           # enhancer-for-youtube

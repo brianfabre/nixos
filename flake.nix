@@ -21,7 +21,8 @@
         modules = [
           ./hosts/k39
           ./modules/configuration.nix
-          ./modules/dwl/desktop/dwl.nix
+          # ./modules/dwl/desktop/dwl.nix
+          ./modules/kde6.nix
           # ./modules/kde.nix
           # ./modules/zotero.nix
           ./modules/syncthing.nix
