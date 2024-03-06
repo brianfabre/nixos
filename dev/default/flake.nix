@@ -19,6 +19,7 @@
         devShell = pkgs.mkShell {
           nativeBuildInputs = with pkgs; [
             gcc
+            unrar
           ];
         };
       }
