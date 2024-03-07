@@ -75,7 +75,7 @@
           "lastModified": 1693028613222000,
           "id": 102,
           "typeCode": 1,
-          "iconUri": "http://192.168.1.60:8080/assets/icons/apple-touch-icon.png",
+          "iconUri": "http://192.168.1.105:8080/assets/icons/apple-touch-icon.png",
           "type": "text/x-moz-place",
           "uri": "http://192.168.1.60:8080/#"
         },
