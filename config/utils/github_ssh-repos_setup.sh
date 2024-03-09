@@ -10,7 +10,9 @@ fi
 
 # then cat
 cat ~/.ssh/id_ed25519.pub
+echo '--------------------------------------'
 echo '-- add public key to github account --'
+echo '--------------------------------------'
 read -p "press enter to continue"
 
 
@@ -19,6 +21,11 @@ RESULT=`ssh -T git@github.com 2>&1`
 echo "$RESULT"
 # if connection successful, clone latex and wiki repo
 if [[ $RESULT == *"successfully"* ]]; then
+
+    # set git username+email
+    git config --global user.name "brian"
+    git config --global user.email "briankim53@gmail.com"
+
     mkdir -p ~/Documents && cd ~/Documents
 
     if ! [ -d ~/Documents/latex ]; then
