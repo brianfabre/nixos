@@ -56,18 +56,6 @@
           "uri": "https://searx.be/"
         },
         {
-          "guid": "sfNgcsBJDjES",
-          "title": "Whoogle Search",
-          "index": 2,
-          "dateAdded": 1695860795294000,
-          "lastModified": 1695860798455000,
-          "id": 105,
-          "typeCode": 1,
-          "iconUri": "https://s.tokhmi.xyz/static/img/favicon/android-icon-192x192.png",
-          "type": "text/x-moz-place",
-          "uri": "https://s.tokhmi.xyz/home"
-        },
-        {
           "guid": "kwwXaNyiRZlj",
           "title": "Brian's Dashboard | Homer",
           "index": 3,
