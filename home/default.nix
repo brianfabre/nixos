@@ -102,6 +102,7 @@
     ".config/nvim".source = config.lib.file.mkOutOfStoreSymlink "/home/brian/nixos/config/nvim";
     ".config/sway".source = config.lib.file.mkOutOfStoreSymlink "/home/brian/nixos/config/sway";
     ".config/utils".source = config.lib.file.mkOutOfStoreSymlink "/home/brian/nixos/config/utils";
+    ".config/waybar".source = config.lib.file.mkOutOfStoreSymlink "/home/brian/nixos/config/waybar";
     ".config/wireplumber".source = config.lib.file.mkOutOfStoreSymlink "/home/brian/nixos/config/wireplumber";
     ".config/xkb".source = config.lib.file.mkOutOfStoreSymlink "/home/brian/nixos/config/xkb";
     ".config/yambar".source = lib.mkDefault (config.lib.file.mkOutOfStoreSymlink "/home/brian/nixos/config/yambar");
