@@ -18,7 +18,10 @@
       in {
         devShell = pkgs.mkShell {
           nativeBuildInputs = with pkgs; [
-            pkgs.rubyPackages.github-pages
+            rubyPackages.github-pages
+            rubyPackages.webrick
+            gnumake
+            # bundler
           ];
         };
       }
