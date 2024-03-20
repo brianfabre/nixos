@@ -100,6 +100,7 @@
     ".config/foot".source = config.lib.file.mkOutOfStoreSymlink "/home/brian/nixos/config/foot";
     ".config/lf".source = config.lib.file.mkOutOfStoreSymlink "/home/brian/nixos/config/lf";
     ".config/nvim".source = config.lib.file.mkOutOfStoreSymlink "/home/brian/nixos/config/nvim";
+    ".config/sway".source = config.lib.file.mkOutOfStoreSymlink "/home/brian/nixos/config/sway";
     ".config/utils".source = config.lib.file.mkOutOfStoreSymlink "/home/brian/nixos/config/utils";
     ".config/wireplumber".source = config.lib.file.mkOutOfStoreSymlink "/home/brian/nixos/config/wireplumber";
     ".config/xkb".source = config.lib.file.mkOutOfStoreSymlink "/home/brian/nixos/config/xkb";
