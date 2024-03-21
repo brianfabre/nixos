@@ -27,4 +27,9 @@
       };
     };
   };
+
+  # UNTESTED, uncomment when using dwl
+  # environment.systemPackages = with pkgs; [
+  #   dwl
+  # ];
 }
