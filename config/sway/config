@@ -8,6 +8,7 @@
 exec fcitx5
 exec wl-gammarelay
 exec wl-paste -t text --watch clipman store --max-items=1000 --histpath="~/.cache/clipman.json"
+exec gammastep -l 34:-118 -t 6500:4000 -m wayland
 # from nixos sway wiki
 exec dbus-sway-environment
 exec configure-gtk
@@ -26,6 +27,8 @@ set $right l
 # Your preferred terminal emulator
 set $term foot
 
+    bindsym $hyper+minus exec "sh /home/brian/.config/utils/scripts/vol_down.sh"
+    bindsym $hyper+equal exec "sh /home/brian/.config/utils/scripts/vol_up.sh"
 
 ### Key bindings
 #
@@ -90,7 +93,8 @@ set $term foot
     bindsym $mod+s layout stacking
     bindsym $mod+w layout tabbed
     bindsym $mod+e layout toggle split
-    bindsym $mod+tab layout toggle tabbed splith
+    # bindsym $mod+tab layout toggle tabbed splith
+    bindsym $mod+tab layout toggle stacking splith
 
     # Make the current focus fullscreen
     bindsym $mod+f fullscreen
@@ -194,14 +198,15 @@ input type:keyboard {
     # bindsym $hyper+2 exec grim -g "$(slurp)" - | wl-copy
 
     # clipboard history
-    bindsym $hyper+c exec clipman --histpath="~/.cache/clipman.json" pick --tool=bemenu --tool-args="-l 10 --fn 'Hack 11' -i"
+    bindsym $hyper+c exec clipman --histpath="~/.cache/clipman.json" pick --tool=bemenu --tool-args="-l 10 --fn 'Hack Nerd Font 14' -i --tb '#6272a4' --tf '#f8f8f2' --fb '#282a36' --ff '#f8f8f2' --nb '#282a36' --nf '#6272a4' --hb '#44475a' --hf '#50fa7b' --sb '#44475a' --sf '#50fa7b' --scb '#282a36' --scf '#ff79c6'"
 
 
 # Your preferred application launcher
 # Note: pass the final command to swaymsg so that the resulting window can be opened
 # on the original workspace that the command was run on.
 # set $menu dmenu_path | dmenu | xargs swaymsg exec --
-set $menu bemenu-run -i -l 10 --fn 'Hack Nerd Font 11' -p menu | xargs swaymsg exec --
+# set $menu bemenu-run -i -l 10 --fn 'Hack Nerd Font 11' -p menu | xargs swaymsg exec --
+set $menu bemenu-run --tb '#6272a4' --tf '#f8f8f2' --fb '#282a36' --ff '#f8f8f2' --nb '#282a36' --nf '#6272a4' --hb '#44475a' --hf '#50fa7b' --sb '#44475a' --sf '#50fa7b' --scb '#282a36' --scf '#ff79c6' -i -l 10 --fn 'Hack Nerd Font 14' -p menu | xargs swaymsg exec --
 
 # set $output-primary "Acer Technologies XV240Y P 0x00006F5C"
 # set $output-secondary "Acer Technologies Acer H236HL LX1AA0044210"
@@ -224,8 +229,10 @@ set $output-primary "DP-1"
 #
 # Idle configuration:
 #
-# exec swayidle -w \
-#            timeout 900 'systemctl suspend'
+exec swayidle -w \
+         timeout 10 'swaylock -f -c 000000' \
+         timeout 20 'swaymsg "output * power off"' resume 'swaymsg "output * power on"' \
+         before-sleep 'swaylock -f -c 000000'
 
 
 # This will lock your screen after 300 seconds of inactivity, then turn off
@@ -236,31 +243,25 @@ set $output-primary "DP-1"
 #
 # Workspaces:
 #
+    # TO USE WITH MULTIPLE DISPLAYS
     # workspace to displays
-    workspace 1 output $output-primary
-    workspace 2 output $output-primary
-    workspace 3 output $output-primary
-    workspace 4 output $output-primary
-    workspace 5 output $output-primary
-
-    workspace 6 output $output-secondary
-    workspace 7 output $output-secondary
-    workspace 8 output $output-secondary
-    workspace 9 output $output-secondary
-    workspace 10 output $output-secondary
-
-    bindsym $mod+bracketright move workspace to output right
-    bindsym $mod+bracketleft move workspace to output left
+    # workspace 1 output $output-primary
+    # workspace 2 output $output-primary
+    # workspace 3 output $output-primary
+    # workspace 4 output $output-primary
+    # workspace 5 output $output-primary
+    #
+    # workspace 6 output $output-secondary
+    # workspace 7 output $output-secondary
+    # workspace 8 output $output-secondary
+    # workspace 9 output $output-secondary
+    # workspace 10 output $output-secondary
+    #
+    # bindsym $mod+bracketright move workspace to output right
+    # bindsym $mod+bracketleft move workspace to output left
 
     # applications on startup
-    # assign [class="firefox"] workspace 1
-    # assign [app_id="foot"] workspace 2
     exec swaymsg 'exec firefox'
-    # exec swaymsg 'exec foot'
-    # assign [class="Microsoft-edge"] workspace 6
-    # exec swaymsg 'exec microsoft-edge-stable'
-    # assign [class="discord"] workspace 7
-    # exec swaymsg 'exec discord'
 
     exec $term --title term_init
     for_window [title="term_init"] move workspace 2

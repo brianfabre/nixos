@@ -1,29 +1,39 @@
 [{
     "layer": "bottom", // Waybar at bottom layer, bemenu on top
     "output": ["DP-1"],
-    "height": 20, // Waybar height (to be removed for auto height)
+    "height": 24, // Waybar height (remove for auto height)
     // "width": 1280, // Waybar width
     "spacing": 4, // Gaps between modules (4px)
     "modules-left": ["sway/workspaces", "sway/mode", "sway/scratchpad"],
     "modules-center": ["sway/window"],
-    "modules-right": ["custom/wl-gammarelay-temperature", "custom/wl-gammarelay-brightness", "pulseaudio", "network", "cpu", "memory", "temperature", "clock", "tray"],
+    "modules-right": ["pulseaudio", "network", "cpu", "memory", "temperature", "clock", "tray"],
     // Modules configuration
-    // "sway/workspaces": {
-    //     "disable-scroll": true,
-    //     "all-outputs": true,
-    //     "warp-on-scroll": false,
-    //     "format": "{name}: {icon}",
-    //     "format-icons": {
-    //         "1": "",
-    //         "2": "",
-    //         "3": "",
-    //         "4": "",
-    //         "5": "",
-    //         "urgent": "",
-    //         "focused": "",
-    //         "default": ""
-    //     }
-    // },
+    "sway/workspaces": {
+    //    "disable-scroll": true,
+    //    "all-outputs": true,
+    //    "format": "{name}: {icon}",
+    //    "format-icons": {
+    //        "1": "",
+    //        "2": "",
+    //        "3": "",
+    //        "4": "",
+    //        "5": "",
+    //        "urgent": "",
+    //        "focused": "",
+    //        "default": ""
+    //    }
+        "persistent_workspaces": {
+        "1": [],
+        "2": [],
+        "3": [],
+        "4": [],
+        "5": [],
+        "6": [],
+        "7": [],
+        "8": [],
+        "9": [],
+    }
+    },
     "keyboard-state": {
         "numlock": true,
         "capslock": true,
@@ -113,7 +123,7 @@
         "format": "{volume}% {icon}",
         "format-bluetooth": "{volume}% {icon} {format_source}",
         "format-bluetooth-muted": " {icon} {format_source}",
-        "format-muted": " {format_source}",
+        "format-muted": "0% ",
         "format-source": "{volume}% ",
         "format-source-muted": "",
         "format-icons": {
@@ -125,7 +135,7 @@
             "car": "",
             "default": ["", "", ""]
         },
-        "on-click": "/home/brian/.config/qtile/scripts/switch_audio.sh",
+        "on-click": "wpctl set-mute @DEFAULT_SINK@ toggle",
         "on-click-right": "pavucontrol"
     },
     "custom/gammastep": {
