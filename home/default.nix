@@ -82,7 +82,6 @@
     poppler_utils # pdftoppm
 
     # wayland
-    dwl
     bemenu
     clipman
     foot
