@@ -54,6 +54,7 @@
     pavucontrol
     qbittorrent
     ripgrep
+    tealdeer
     tesseract
     xdg-utils
     xfce.thunar
