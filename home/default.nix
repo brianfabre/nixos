@@ -63,6 +63,9 @@
     zellij
     # zotero_beta
 
+    # NM tray on waybar
+    networkmanagerapplet
+
     # bash
     shfmt
     nodePackages.bash-language-server

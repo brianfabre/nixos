@@ -41,6 +41,9 @@ in {
   # Enable networking
   networking.networkmanager.enable = true;
 
+  # Required for VPN
+  networking.firewall.checkReversePath = false;
+
   # Set your time zone.
   time.timeZone = "America/Los_Angeles";
 
