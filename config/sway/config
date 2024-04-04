@@ -9,6 +9,7 @@ exec fcitx5
 exec wl-gammarelay
 exec wl-paste -t text --watch clipman store --max-items=1000 --histpath="~/.cache/clipman.json"
 exec gammastep -l 34:-118 -t 6500:4000 -m wayland
+exec nm-applet --indicator
 # from nixos sway wiki
 exec dbus-sway-environment
 exec configure-gtk
