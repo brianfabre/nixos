@@ -1,0 +1,7 @@
+vim
+git
+fzf
+ripgrep
+htop
+fd-find
+tealdeer
