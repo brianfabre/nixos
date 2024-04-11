@@ -5,3 +5,5 @@ ripgrep
 htop
 fd-find
 tealdeer
+xclip
+rofi
