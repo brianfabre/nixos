@@ -53,7 +53,14 @@ export MANROFFOPT="-P -c"
 export FZF_DEFAULT_COMMAND="fd --type file --hidden --no-ignore --color=always"
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 export FZF_DEFAULT_OPTS="--ansi --height=40% --reverse --border=none"
-source ~/.local/share/fzf/key-bindings.zsh
+
+# Source fzf key-bindings
+if [[ -f "/usr/share/fzf/key-bindings.zsh" ]]; then
+    source "/usr/share/fzf/key-bindings.zsh"
+elif [[ -f "${HOME}/.local/share/fzf/key-bindings.zsh" ]]; then
+    source "${HOME}/.local/share/fzf/key-bindings.zsh"
+fi
+
 # lf cd function
 lfcd() {
 	tmp="$(mktemp)"
