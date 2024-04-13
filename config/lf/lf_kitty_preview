@@ -1,0 +1,28 @@
+#!/usr/bin/env bash
+file=$1
+w=$2
+h=$3
+x=$4
+y=$5
+
+cache="$HOME/.cache/lf/temp"
+
+case "$(file -Lb --mime-type -- "$1")" in
+    image/*)
+        kitty +kitten icat --silent --stdin no --transfer-mode file --place "${w}x${h}@${x}x${y}" "$file" < /dev/null > /dev/tty
+        exit 1
+        ;;
+    video/*)
+        kitty +kitten icat --silent --stdin no --transfer-mode file --place "${w}x${h}@${x}x${y}" "$($HOME/.config/lf/vidthumb "$file")" < /dev/null > /dev/tty
+        cat "$1"
+        exit 1
+        ;;
+    */pdf)
+        pdftoppm -jpeg -f 1 -singlefile "$file" "$cache"
+        kitty +kitten icat --silent --stdin no --transfer-mode file --place "${w}x${h}@${x}x${y}" "$cache.jpg" < /dev/null > /dev/tty
+        exit 1
+        ;;
+    *)
+        cat "$1"
+        ;;
+esac
