@@ -95,9 +95,8 @@ zstyle ':vcs_info:*' check-for-changes true
 zstyle ':vcs_info:*' unstagedstr ' *'
 zstyle ':vcs_info:*' stagedstr ' +'
 # Set the format of the Git information for vcs_info
-# zstyle ':vcs_info:git:*' formats       '(%b%u%c)'
-# zstyle ':vcs_info:git:*' actionformats '(%b|%a%u%c)'
-zstyle ':vcs_info:git*' formats "%s  %r/%S %b (%a) %m%u%c "
+zstyle ':vcs_info:git:*' formats       '(%b%u%c)'
+zstyle ':vcs_info:git:*' actionformats '(%b|%a%u%c)'
 
 # pacman
 alias pacin="pacman -Slq | fzf --height=100% --multi --preview 'pacman -Si {1}' --preview-window=65% | xargs -ro sudo pacman -S"
