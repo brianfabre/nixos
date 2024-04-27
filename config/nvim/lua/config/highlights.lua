@@ -12,8 +12,8 @@ vim.api.nvim_set_hl(0, "FlashMatch", {
 })
 
 vim.api.nvim_set_hl(0, "FlashLabel", {
-    bg = "#00FF00",
-    fg = "#000000",
+    bg = "#FF0000",
+    fg = "#FFFFFF",
     bold = true,
 })
 

@@ -14,6 +14,21 @@ augroup END
 " autocmd FileType stata setlocal commentstring=//\ %s
 ]])
 
+-- netrw keymaps
+vim.cmd([[
+function! NetrwMapping()
+    nmap <buffer> <C-h> <C-w>h
+    nmap <buffer> <C-l> <C-w>l
+    nmap <buffer> <C-j> <C-w>j
+    nmap <buffer> <C-k> <C-w>k
+endfunction
+
+augroup netrw_mapping
+  autocmd!
+  autocmd filetype netrw call NetrwMapping()
+augroup END
+]])
+
 -- highlight on yank
 vim.api.nvim_create_autocmd({ "TextYankPost" }, {
     callback = function()

@@ -10,11 +10,11 @@ local function map(mode, lhs, rhs, opts)
 end
 
 -- move between panes to left/bottom/top/right
--- enabled in vim-tmux-navigator plugin
--- map("n", "<C-h>", "<C-w>h")
--- map("n", "<C-l>", "<C-w>l")
--- map("n", "<C-j>", "<C-w>j")
--- map("n", "<C-k>", "<C-w>k")
+-- (not) enabled in vim-tmux-navigator plugin
+map("n", "<C-h>", "<C-w>h")
+map("n", "<C-l>", "<C-w>l")
+map("n", "<C-j>", "<C-w>j")
+map("n", "<C-k>", "<C-w>k")
 
 -- jk for wrapped words
 map("n", "k", "v:count == 0 ? 'gk' : 'k'", { expr = true })

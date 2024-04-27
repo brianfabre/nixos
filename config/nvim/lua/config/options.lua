@@ -4,7 +4,8 @@
 
 -- vim.g.loaded_netrw = 1                                   -- disable netrw
 -- vim.g.loaded_netrwPlugin = 1                             -- disable netrw
-vim.g.netrw_winsize = 20                               -- netrw options
+vim.g.netrw_winsize = 15                               -- netrw options
+vim.g.netrw_banner = 0
 vim.opt.background = "dark"
 vim.opt.termguicolors = true
 vim.opt.number = true
