@@ -48,12 +48,21 @@ export FZF_DEFAULT_COMMAND="fd --type file --hidden --no-ignore --color=always"
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 export FZF_DEFAULT_OPTS="--ansi --height=40% --reverse --border=none"
 
-# Source fzf key-bindings
-if [[ -f "/usr/share/fzf/key-bindings.zsh" ]]; then
-    source "/usr/share/fzf/key-bindings.zsh"
-elif [[ -f "${HOME}/.local/share/fzf/key-bindings.zsh" ]]; then
-    source "${HOME}/.local/share/fzf/key-bindings.zsh"
-fi
+# # Source fzf key-bindings
+# if [[ -f "/usr/share/fzf/key-bindings.zsh" ]]; then
+#     source "/usr/share/fzf/key-bindings.zsh"
+# elif [[ -f "${HOME}/.local/share/fzf/key-bindings.zsh" ]]; then
+#     source "${HOME}/.local/share/fzf/key-bindings.zsh"
+# fi
+
+# function for if file exists, source
+# ex: include ~/.zshrc
+include() {
+	[[ -f "$1" ]] && source "$1"
+}
+
+include /usr/share/fzf/key-bindings.zsh
+include /usr/share/fzf/completion.zsh
 
 # lf cd function
 lfcd() {
@@ -101,3 +110,17 @@ zstyle ':vcs_info:git:*' actionformats '(%b|%a%u%c)'
 # pacman
 alias pacin="pacman -Slq | fzf --height=100% --multi --preview 'pacman -Si {1}' --preview-window=65% | xargs -ro sudo pacman -S"
 alias pacre="pacman -Qq | fzf --height=100% --multi --preview 'pacman -Qi {1}' --preview-window=65% | xargs -ro sudo pacman -Rns"
+
+# fkill - kill processes - list only the ones you can kill. Modified the earlier script.
+fkill() {
+	local pid
+	if [ "$UID" != "0" ]; then
+		pid=$(ps -f -u $UID | sed 1d | fzf -m | awk '{print $2}')
+	else
+		pid=$(ps -ef | sed 1d | fzf -m | awk '{print $2}')
+	fi
+
+	if [ "x$pid" != "x" ]; then
+		echo $pid | xargs kill -${1:-9}
+	fi
+}
