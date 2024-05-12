@@ -67,7 +67,7 @@ cmd mkfile ${{
 }}
 
 cmd fzf_jump ${{
-    res="$(find . -maxdepth 1 | fzf --height 100% --border double --margin 25%,10%,0,10% --reverse --header='Jump to location' | sed 's/\\/\\\\/g;s/"/\\"/g')"
+    res="$(find . -maxdepth 1 | fzf --height 100% --margin 0,10%,0,10% --header='Jump to location' | sed 's/\\/\\\\/g;s/"/\\"/g')"
     if [ -d "$res" ] ; then
         cmd="cd"
     elif [ -f "$res" ] ; then
