@@ -6,10 +6,10 @@ git
 htop
 lazygit
 lf
+ncdu
 neofetch
 neovim
 prettier
-r
 ripgrep
 rsync
 stylua
