@@ -1,6 +1,6 @@
 [{
     "layer": "bottom", // Waybar at bottom layer, bemenu on top
-    "output": ["DP-1"],
+    "output": ["Virtual-1"],
     "height": 24, // Waybar height (remove for auto height)
     // "width": 1280, // Waybar width
     "spacing": 4, // Gaps between modules (4px)
