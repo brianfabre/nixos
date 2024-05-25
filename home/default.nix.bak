@@ -28,6 +28,7 @@
     neovim
 
     # archives
+    alacritty
     zip
     xz
     unzip
@@ -35,9 +36,9 @@
 
     # other
     bat
-    # brightnessctl
+    brightnessctl
     calibre
-    # chromium
+    chromium
     dunst
     eza
     fd
@@ -59,11 +60,11 @@
     xfce.thunar
     usbutils
     zathura
-    # zellij
+    zellij
     # zotero_beta
 
     # NM tray on waybar
-    # networkmanagerapplet
+    networkmanagerapplet
 
     # bash
     shfmt
@@ -88,13 +89,13 @@
     bemenu
     clipman
     foot
-    # gammastep
+    gammastep
     grim
     slurp
     wev
     wl-clipboard
     wlr-randr
-
+    yambar
   ];
 
   home.file = {

@@ -14,19 +14,20 @@
     ...
   } @ inputs: {
     nixosConfigurations = {
-      k39 = nixpkgs.lib.nixosSystem {
+
+      main = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         # pass inputs to modules
         specialArgs = {inherit inputs;};
         modules = [
-          ./hosts/k39
+          ./hosts/thinkpad1
           ./modules/configuration.nix
           # ./modules/dwl/desktop/dwl.nix
           ./modules/sway.nix
           # ./modules/kde6.nix
           # ./modules/kde.nix
           # ./modules/zotero.nix
-          ./modules/syncthing.nix
+          # ./modules/syncthing.nix
 
           home-manager.nixosModules.home-manager
           {
@@ -43,32 +44,6 @@
         ];
       };
 
-      thinkpad2 = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
-        # pass inputs to modules
-        specialArgs = {inherit inputs;};
-        modules = [
-          ./hosts/thinkpad2
-          ./modules/configuration.nix
-          ./modules/kde.nix
-          # ./modules/dwl/notebook/dwl.nix
-          # ./modules/zotero.nix
-
-          home-manager.nixosModules.home-manager
-          {
-            home-manager.useGlobalPkgs = true;
-            home-manager.useUserPackages = true;
-            home-manager.users.brian = {
-              imports = [
-                ./home
-                ./home/thinkpad.nix
-              ];
-            };
-            # pass arguments to home.nix
-            home-manager.extraSpecialArgs = {inherit inputs;};
-          }
-        ];
-      };
     };
   };
 }

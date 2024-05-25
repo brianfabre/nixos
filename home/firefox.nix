@@ -11,11 +11,11 @@
       default = {
         extensions = with pkgs.nur.repos.rycee.firefox-addons; [
           bitwarden
-          (bypass-paywalls-clean.override {
-            addonId = "magnolia@12.34";
-            url = "https://gitlab.com/magnolia1234/bpc-uploads/-/raw/master/bypass_paywalls_clean-latest.xpi";
-            sha256 = "sha256-SwyWGjIIhR69tjalZam125u3IxHTF+6cn7M0ili/lQ4=";
-          })
+          # (bypass-paywalls-clean.override {
+          #   addonId = "magnolia@12.34";
+          #   url = "https://gitlab.com/magnolia1234/bpc-uploads/-/raw/master/bypass_paywalls_clean-latest.xpi";
+          #   sha256 = "sha256-SwyWGjIIhR69tjalZam125u3IxHTF+6cn7M0ili/lQ4=";
+          # })
           darkreader
           # enhancer-for-youtube
           libredirect
@@ -24,14 +24,14 @@
           sponsorblock
           surfingkeys
           ublock-origin
-          (buildFirefoxXpiAddon rec {
-            pname = "Zotero";
-            version = "5.0.111";
-            url = "https://www.zotero.org/download/connector/dl?browser=firefox&version=${version}";
-            sha256 = "sha256-2bXqbIVRm1jIVtjHSZJpa6Th3CdxXqMHezOg1BguMdo=";
-            addonId = "zotero@chnm.gmu.edu";
-            meta = {};
-          })
+          # (buildFirefoxXpiAddon rec {
+          #   pname = "Zotero";
+          #   version = "5.0.111";
+          #   url = "https://www.zotero.org/download/connector/dl?browser=firefox&version=${version}";
+          #   sha256 = "sha256-2bXqbIVRm1jIVtjHSZJpa6Th3CdxXqMHezOg1BguMdo=";
+          #   addonId = "zotero@chnm.gmu.edu";
+          #   meta = {};
+          # })
         ];
         userChrome = lib.mkDefault (builtins.readFile ./../config/firefox/userChrome.css);
         search = {

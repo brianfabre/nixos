@@ -12,10 +12,6 @@
     ${pkgs.xorg.xkbcomp}/bin/xkbcomp ${./config/xkb/symbols/custom-xkb} $out
   '';
 in {
-  # nixpkgs.config = {
-  #   cudaSupport = true;
-  #   cudnnSupport = true;
-  # };
 
   imports = [];
 
@@ -33,10 +29,6 @@ in {
 
   networking.hostName = lib.mkDefault "nixos"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
-
-  # Configure network proxy if necessary
-  # networking.proxy.default = "http://user:password@proxy:port/";
-  # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
 
   # Enable networking
   networking.networkmanager.enable = true;
@@ -92,18 +84,18 @@ in {
   services.gvfs.enable = true;
   services.udisks2.enable = true;
 
-  # FIXME: temp fix "sudo -E input-remapper-gtk" to access GUI
-  services.input-remapper.enable = true;
-  # HACK: autoload doesn't work for non-DE env
-  # https://github.com/sezanzeb/input-remapper/issues/653
-  systemd.user.services.autoload-input-remapper = {
-    description = "Load the input-remapper config";
-    wantedBy = ["default.target"];
-    path = [pkgs.input-remapper];
-    script = ''
-      input-remapper-control --command autoload
-    '';
-  };
+  # # FIXME: temp fix "sudo -E input-remapper-gtk" to access GUI
+  # services.input-remapper.enable = true;
+  # # HACK: autoload doesn't work for non-DE env
+  # # https://github.com/sezanzeb/input-remapper/issues/653
+  # systemd.user.services.autoload-input-remapper = {
+  #   description = "Load the input-remapper config";
+  #   wantedBy = ["default.target"];
+  #   path = [pkgs.input-remapper];
+  #   script = ''
+  #     input-remapper-control --command autoload
+  #   '';
+  # };
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.brian = {
@@ -159,14 +151,6 @@ in {
     fsType = "nfs";
     options = ["x-systemd.automount" "noauto" "x-systemd.idle-timeout=600"];
   };
-
-  # Some programs need SUID wrappers, can be configured further or are
-  # started in user sessions.
-  # programs.mtr.enable = true;
-  # programs.gnupg.agent = {
-  #   enable = true;
-  #   enableSSHSupport = true;
-  # };
 
   # List services that you want to enable:
 
