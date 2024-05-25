@@ -1,6 +1,8 @@
 return {
     {
+        -- FIXME: error when enabled
         "echasnovski/mini.ai",
+        enabled = false,
         event = "VeryLazy",
         version = false,
         dependencies = { "nvim-treesitter/nvim-treesitter-textobjects" },
