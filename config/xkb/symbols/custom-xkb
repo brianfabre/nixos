@@ -50,7 +50,7 @@
 
 # verify with xmodmap
 xkb_symbols "basic" {
-  include "pc+us+kr"
+  include "pc+us"
 
   replace key <CAPS> {
     [ Hyper_L, Hyper_L ]
