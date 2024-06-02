@@ -48,6 +48,14 @@ export FZF_DEFAULT_COMMAND="fd --type file --hidden --no-ignore --color=always"
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 export FZF_DEFAULT_OPTS="--ansi --height=40% --reverse --border=none"
 
+function cat() {
+    if command -v bat &> /dev/null; then
+        bat -pp --theme Coldark-Dark "$@"
+    else
+        cat "$@"
+    fi
+}
+
 # # Source fzf key-bindings
 # if [[ -f "/usr/share/fzf/key-bindings.zsh" ]]; then
 #     source "/usr/share/fzf/key-bindings.zsh"
