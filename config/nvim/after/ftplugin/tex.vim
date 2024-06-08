@@ -1,4 +1,4 @@
-Wrapwidth 80
+Wrapwidth 100
 set nonumber
 set norelativenumber
 set nobreakindent
