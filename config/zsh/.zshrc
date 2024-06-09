@@ -49,10 +49,10 @@ export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 export FZF_DEFAULT_OPTS="--ansi --height=40% --reverse --border=none"
 
 function cat() {
-    if command -v bat &> /dev/null; then
+    if type bat &> /dev/null; then
         bat -pp --theme Coldark-Dark "$@"
     else
-        cat "$@"
+        /bin/cat "$@"
     fi
 }
 
