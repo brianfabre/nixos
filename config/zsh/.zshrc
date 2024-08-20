@@ -17,7 +17,7 @@ zstyle ':completion:*' completer _expand _complete _correct _approximate
 zstyle ':completion:*' format 'Completing %d'
 zstyle ':completion:*' group-name ''
 zstyle ':completion:*' menu select=2
-eval "$(dircolors -b)"
+# eval "$(dircolors -b)" # doesnt work with mac
 zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
 zstyle ':completion:*' list-colors ''
 zstyle ':completion:*' list-prompt %SAt %p: Hit TAB for more, or the character to insert%s
@@ -140,3 +140,8 @@ fkill() {
 		echo $pid | xargs kill -${1:-9}
 	fi
 }
+
+##############
+# MACOS      #
+##############
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
