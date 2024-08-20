@@ -117,15 +117,6 @@ zstyle ':vcs_info:*' stagedstr ' +'
 zstyle ':vcs_info:git:*' formats       '(%b%u%c)'
 zstyle ':vcs_info:git:*' actionformats '(%b|%a%u%c)'
 
-if [ -f /etc/arch-release ]; then
-    # commands for arch linux
-    alias pacin="pacman -Slq | fzf --height=100% --multi --preview 'pacman -Si {1}' --preview-window=65% | xargs -ro sudo pacman -S"
-    alias pacre="pacman -Qq | fzf --height=100% --multi --preview 'pacman -Qi {1}' --preview-window=65% | xargs -ro sudo pacman -Rns"
-else
-    if [ -f /etc/debian_version ]; then
-        # commands for debian
-    fi
-fi
 
 # fkill - kill processes - list only the ones you can kill. Modified the earlier script.
 fkill() {
@@ -142,6 +133,17 @@ fkill() {
 }
 
 ##############
-# MACOS      #
+# DISTRO     #
 ##############
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# IF ARCH
+if [ -f /etc/arch-release ]; then
+    # commands for arch linux
+    alias pacin="pacman -Slq | fzf --height=100% --multi --preview 'pacman -Si {1}' --preview-window=65% | xargs -ro sudo pacman -S"
+    alias pacre="pacman -Qq | fzf --height=100% --multi --preview 'pacman -Qi {1}' --preview-window=65% | xargs -ro sudo pacman -Rns"
+# IF MACOS
+elif [[ $(uname) == "Darwin" ]]; then
+    eval "$(fzf --zsh)"
+# IF DEBIAN
+# elif [ -f /etc/debian_version ]; then
+fi
