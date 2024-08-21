@@ -44,7 +44,7 @@ alias ll='ls -lah'
 export MANPAGER="less -R --use-color -Dd+r -Du+b"
 export MANROFFOPT="-P -c"
 # fzf
-export FZF_DEFAULT_COMMAND="fd --type file --hidden --no-ignore --color=always"
+export FZF_DEFAULT_COMMAND="fd --type file --hidden --no-ignore --color=always --exclude .git"
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 export FZF_DEFAULT_OPTS="--ansi --height=40% --reverse --border=none"
 
