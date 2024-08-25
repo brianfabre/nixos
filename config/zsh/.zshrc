@@ -144,6 +144,10 @@ if [ -f /etc/arch-release ]; then
 # IF MACOS
 elif [[ $(uname) == "Darwin" ]]; then
     eval "$(fzf --zsh)"
+    # pyenv
+    export PYENV_ROOT="$HOME/.pyenv"
+    [[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
+    eval "$(pyenv init -)"
 # IF DEBIAN
 # elif [ -f /etc/debian_version ]; then
 fi
