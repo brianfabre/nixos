@@ -41,10 +41,11 @@ return {
     },
     {
         "dhruvasagar/vim-table-mode",
-        config = function()
-            require("which-key").register({
-                t = { name = "table-mode", _ = "which_key_ignore" },
-            }, { prefix = "<leader>" })
-        end,
+        -- config = function()
+        --     require("which-key").register(
+        --     { t = { name = "table-mode", _ = "which_key_ignore" }, },
+        --     { prefix = "<leader>" }
+        --     )
+        -- end,
     },
 }
