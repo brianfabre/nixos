@@ -19,20 +19,20 @@ local M = {
             })
 
             local wk = require("which-key")
-            -- wk.register({
-            --     b = { name = "buffer", _ = "which_key_ignore" },
-            --     c = { name = "directory", _ = "which_key_ignore" },
-            --     f = { name = "files", _ = "which_key_ignore" },
-            --     g = { name = "git", _ = "which_key_ignore" },
-            --     l = { name = "lsp / lazy(git)", _ = "which_key_ignore" },
-            --     o = { name = "open", _ = "which_key_ignore" },
-            --     p = { name = "run code", _ = "which_key_ignore" },
-            --     q = { name = "quit", _ = "which_key_ignore" },
-            --     r = { name = "rename lsp", _ = "which_key_ignore" },
-            --     s = { name = "search fzf", _ = "which_key_ignore" },
-            --     u = { name = "ui", _ = "which_key_ignore" },
-            --     w = { name = "wiki", _ = "which_key_ignore" },
-            -- }, { prefix = "<leader>" })
+            wk.add({
+                { "<leader>d", group = "buffer" },
+                { "<leader>c", group = "directory" },
+                { "<leader>f", group = "files" },
+                { "<leader>g", group = "git" },
+                { "<leader>l", group = "lsp / lazy(git)" },
+                { "<leader>o", group = "open" },
+                { "<leader>p", group = "run code" },
+                { "<leader>q", group = "quit" },
+                { "<leader>r", group = "rename lsp" },
+                { "<leader>s", group = "search fzf" },
+                { "<leader>u", group = "ui" },
+                { "<leader>w", group = "wiki" }
+            })
         end,
     },
 }
