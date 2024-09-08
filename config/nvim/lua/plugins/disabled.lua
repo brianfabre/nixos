@@ -491,4 +491,88 @@ return {
             },
         },
     },
+    {
+        "jbyuki/nabla.nvim",
+        event = "VeryLazy",
+        ft = { "markdown" },
+        config = function()
+            vim.api.nvim_create_autocmd({ "Filetype" }, {
+                pattern = { "markdown" },
+                callback = function()
+                    local function map(mode, keys, func, desc)
+                        if desc then
+                            desc = "Nabla: " .. desc
+                        end
+                        vim.keymap.set(mode, keys, func, { noremap = true, silent = true, buffer = bufnr, desc = desc })
+                    end
+                    map("n", "<leader>nt", function()
+                        return require("nabla").toggle_virt()
+                    end, "[n]abla [t]oggle")
+                end,
+            })
+        end,
+    },
+    {
+        "stevearc/oil.nvim",
+        keys = {
+            {
+
+                "_",
+                "<cmd>Oil<cr>",
+                desc = "open file explorer",
+            },
+        },
+        cmd = "Oil",
+        -- opts = {},
+        -- Optional dependencies
+        dependencies = { "nvim-tree/nvim-web-devicons" },
+        config = function()
+            require("oil").setup({
+                default_file_explorer = true,
+                columns = {
+                    "icon",
+                    -- "permissions",
+                    -- "size",
+                    -- "mtime",
+                },
+                keymaps = {
+                    -- ["g?"] = "actions.show_help",
+                    -- ["<CR>"] = "actions.select",
+                    -- ["<C-s>"] = "actions.select_vsplit",
+                    -- ["<C-h>"] = "actions.select_split",
+                    -- ["<C-t>"] = "actions.select_tab",
+                    -- ["<C-p>"] = "actions.preview",
+                    ["q"] = "actions.close",
+                    -- ["<C-l>"] = "actions.refresh",
+                    ["<BS>"] = "actions.parent",
+                    -- ["_"] = "actions.open_cwd",
+                    -- ["`"] = "actions.cd",
+                    -- ["~"] = "actions.tcd",
+                    -- ["gs"] = "actions.change_sort",
+                    -- ["g."] = "actions.toggle_hidden",
+                },
+                buf_options = {
+                    buflisted = false,
+                    bufhidden = "hide",
+                },
+                view_options = {
+                    show_hidden = true,
+                },
+            })
+        end,
+    },
+    {
+        "christoomey/vim-tmux-navigator",
+        enabled = false,
+        lazy = false,
+        config = function()
+            vim.cmd([[
+            let g:tmux_navigator_no_mappings = 1
+            noremap <silent> <c-h> :<C-U>TmuxNavigateLeft<cr>
+            noremap <silent> <c-j> :<C-U>TmuxNavigateDown<cr>
+            noremap <silent> <c-k> :<C-U>TmuxNavigateUp<cr>
+            noremap <silent> <c-l> :<C-U>TmuxNavigateRight<cr>
+            ]])
+        end,
+    },
 }
