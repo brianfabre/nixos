@@ -1,4 +1,5 @@
-font_size 11.0
+font_family DejaVuSansM Nerd Font Mono
+font_size 13.0
 kitty_mod ctrl+shift
 clear_all_shortcuts yes
 cursor #ff0000
@@ -13,6 +14,12 @@ remember_window_size  no
 initial_window_width  960
 initial_window_height 600
 
+# tabs
+map kitty_mod+t new_tab
+map kitty_mod+. next_tab
+map kitty_mod+, previous_tab
+map kitty_mod+i set_tab_title
+
 # windows
 map kitty_mod+enter new_window
 map kitty_mod+q close_window
@@ -20,6 +27,11 @@ map kitty_mod+l next_window
 map kitty_mod+h previous_window
 map kitty_mod+] move_window_forward
 map kitty_mod+[ move_window_backward
+
+# transparency
+dynamic_background_opacity yes
+map kitty_mod+p set_background_opacity +0.05
+map kitty_mod+o set_background_opacity -0.05
 
 # layouts
 map kitty_mod+m toggle_layout stack
@@ -32,13 +44,23 @@ map kitty_mod+page_down scroll_page_down
 # clipboard
 map kitty_mod+c copy_to_clipboard
 map kitty_mod+v paste_from_clipboard
+map super+c copy_to_clipboard
+map super+v paste_from_clipboard
+
 
 # font size
 map kitty_mod+equal  change_font_size all +1.0
 map kitty_mod+minus  change_font_size all -1.0
 map kitty_mod+0      change_font_size all 0
 
-
+# tab bar
+tab_bar_margin_width      9
+tab_bar_margin_height     9 0
+tab_bar_style             separator
+tab_bar_min_tabs          2
+tab_separator             ""
+tab_title_template        "{fmt.fg._5c6370}{fmt.bg.default}{fmt.fg._abb2bf}{fmt.bg._5c6370} {title.split()[0]} {fmt.fg._5c6370}{fmt.bg.default} "
+active_tab_title_template "{fmt.fg._e5c07b}{fmt.bg.default}{fmt.fg._282c34}{fmt.bg._e5c07b} {title.split()[0]} {fmt.fg._e5c07b}{fmt.bg.default} "
 
 
 # BEGIN_KITTY_THEME
