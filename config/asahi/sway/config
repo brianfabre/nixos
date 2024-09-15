@@ -7,7 +7,7 @@
 # # run at startup
 # exec fcitx5
 # exec wl-gammarelay
-# exec wl-paste -t text --watch clipman store --max-items=1000 --histpath="~/.cache/clipman.json"
+exec wl-paste -t text --watch clipman store --max-items=1000 --histpath="~/.cache/clipman.json"
 # exec gammastep -l 34:-118 -t 6500:4000 -m wayland
 # exec nm-applet --indicator
 # # from nixos sway wiki
@@ -98,7 +98,7 @@ set $term foot
     bindsym $mod+w layout tabbed
     bindsym $mod+e layout toggle split
     # bindsym $mod+tab layout toggle tabbed splith
-    bindsym $mod+tab layout toggle stacking splith
+    bindsym $mod+tab layout toggle tabbed splith
 
     # Make the current focus fullscreen
     bindsym $mod+f fullscreen
@@ -188,9 +188,28 @@ input type:keyboard {
     repeat_delay 400
     # custom-xkb located in ~/.config/xkb/symbols
     # xkb_layout us,kr,custom-xkb
-    # xkb_layout custom-xkb
+    xkb_layout custom-xkb
 }
 
+input type:touchpad {
+    dwt enabled                 #Disable while typing
+    tap enabled                 #Tap registers as a click
+    accel_profile adaptive      #adaptive/flat cursor acceleration
+    pointer_accel 0.1
+    natural_scroll enabled      #Direction of Scroll
+    scroll_factor 0.1
+    scroll_method two_finger    #none|two_finger|edge|on_button_down
+    middle_emulation enabled    #Enables middle click
+    tap_button_map lmr          #1Finger > Left Click , 2Finger > Right Click, 3Fingers > MiddleClick
+}
+
+# #
+# # window border
+# #
+default_border pixel 2
+font pango:monospace 9
+titlebar_padding 1
+titlebar_border_thickness 0
 
 # #
 # # Other settings:
@@ -200,20 +219,14 @@ input type:keyboard {
 #     bindsym $hyper+2 exec grim -g "$(slurp)" "$HOME/Downloads/screenshot-$(date '+%y%m%d_%H-%M-%S').png"
 #     # screenshot straight to clipboard
 #     # bindsym $hyper+2 exec grim -g "$(slurp)" - | wl-copy
-# 
-#     # clipboard history
-#     bindsym $hyper+c exec clipman --histpath="~/.cache/clipman.json" pick --tool=bemenu --tool-args="-l 10 --fn 'Hack Nerd Font 14' -i --tb '#6272a4' --tf '#f8f8f2' --fb '#282a36' --ff '#f8f8f2' --nb '#282a36' --nf '#6272a4' --hb '#44475a' --hf '#50fa7b' --sb '#44475a' --sf '#50fa7b' --scb '#282a36' --scf '#ff79c6'"
-# 
-# 
+#
+    # clipboard history
+    bindsym $hyper+c exec clipman --histpath="~/.cache/clipman.json" pick --tool=bemenu --tool-args="-l 10 --fn 'monospace 12' -i --tb '#6272a4' --tf '#f8f8f2' --fb '#282a36' --ff '#f8f8f2' --nb '#282a36' --nf '#6272a4' --hb '#44475a' --hf '#50fa7b' --sb '#44475a' --sf '#50fa7b' --scb '#282a36' --scf '#ff79c6'"
+
+
 # # Your preferred application launcher
-# # Note: pass the final command to swaymsg so that the resulting window can be opened
-# # on the original workspace that the command was run on.
-# # set $menu dmenu_path | dmenu | xargs swaymsg exec --
-# # set $menu bemenu-run -i -l 10 --fn 'Hack Nerd Font 11' -p menu | xargs swaymsg exec --
-# set $menu bemenu-run --tb '#6272a4' --tf '#f8f8f2' --fb '#282a36' --ff '#f8f8f2' --nb '#282a36' --nf '#6272a4' --hb '#44475a' --hf '#50fa7b' --sb '#44475a' --sf '#50fa7b' --scb '#282a36' --scf '#ff79c6' -i -l 10 --fn 'Hack Nerd Font 14' -p menu | xargs swaymsg exec --
-# 
-# # set $output-primary "Acer Technologies XV240Y P 0x00006F5C"
-# # set $output-secondary "Acer Technologies Acer H236HL LX1AA0044210"
+set $menu bemenu-run --tb '#6272a4' --tf '#f8f8f2' --fb '#282a36' --ff '#f8f8f2' --nb '#282a36' --nf '#6272a4' --hb '#44475a' --hf '#50fa7b' --sb '#44475a' --sf '#50fa7b' --scb '#282a36' --scf '#ff79c6' -i -l 10 --fn 'monospace 12' -p menu | xargs swaymsg exec --
+
 # set $output-primary "Virtual-1"
 # # set $output-secondary "DVI-D-1"
 
@@ -231,7 +244,7 @@ input type:keyboard {
 #   output "*" bg ~/nixos/assets/wallpapers/kde6_bg.png fill
 # #
 # # You can get the names of your outputs by running: swaymsg -t get_outputs
-# 
+#
 # #
 # # Idle configuration:
 # #
@@ -297,6 +310,9 @@ bar {
 
 bindsym XF86MonBrightnessUp exec brightnessctl set +5%
 bindsym XF86MonBrightnessDown exec brightnessctl set 5%-
+bindsym XF86AudioRaiseVolume exec wpctl set-volume -l 1.2 @DEFAULT_AUDIO_SINK@ 5%+
+bindsym XF86AudioLowerVolume exec wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-
+bindsym XF86AudioMute exec wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle
 
 
 include @sysconfdir@/sway/config.d/*
