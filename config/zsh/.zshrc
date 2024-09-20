@@ -133,6 +133,14 @@ fkill() {
 	fi
 }
 
+# cd to selected directory
+fcd() {
+  local dir
+  dir=$(find ${1:-.} -path '*/\.*' -prune \
+                  -o -type d -print 2> /dev/null | fzf +m) &&
+  cd "$dir"
+}
+
 ##############
 # DISTRO     #
 ##############
@@ -149,6 +157,16 @@ elif [[ $(uname) == "Darwin" ]]; then
     export PYENV_ROOT="$HOME/.pyenv"
     [[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
     eval "$(pyenv init -)"
+    # Install (one or multiple) selected application(s)
+    # using "brew search" as source input
+    brewin() {
+      local inst=$(brew search "$@" | fzf -m)
+
+      if [[ $inst ]]; then
+        for prog in $(echo $inst);
+        do; brew install $prog; done;
+      fi
+    }
 # IF DEBIAN
 # elif [ -f /etc/debian_version ]; then
 fi
