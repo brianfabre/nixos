@@ -6,8 +6,6 @@ foot
 grim
 gsimplecal
 imv
-man-db
-man-pages
 mpv
 mupdf
 slurp
