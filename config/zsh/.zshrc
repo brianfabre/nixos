@@ -71,6 +71,7 @@ include() {
 }
 
 include /usr/share/fzf/key-bindings.zsh
+include /usr/share/fzf/shell/key-bindings.zsh
 include /usr/share/fzf/completion.zsh
 include /home/brian/.local/share/fzf/key-bindings.zsh
 include /usr/share/doc/fzf/examples/key-bindings.zsh

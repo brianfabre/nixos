@@ -1,116 +1,266 @@
+/* Keyframes */
+
+@keyframes blink-critical {
+	to {
+		/*color: @white;*/
+		background-color: @critical;
+	}
+}
+
+
+/* Styles */
+
+/* Colors (gruvbox) */
+@define-color black	#282828;
+@define-color red	#cc241d;
+@define-color green	#98971a;
+@define-color yellow	#d79921;
+@define-color blue	#458588;
+@define-color purple	#b16286;
+@define-color aqua	#689d6a;
+@define-color gray	#a89984;
+@define-color brgray	#928374;
+@define-color brred	#fb4934;
+@define-color brgreen	#b8bb26;
+@define-color bryellow	#fabd2f;
+@define-color brblue	#83a598;
+@define-color brpurple	#d3869b;
+@define-color braqua	#8ec07c;
+@define-color white	#ebdbb2;
+@define-color bg2	#504945;
+
+
+@define-color warning 	@bryellow;
+@define-color critical	@red;
+@define-color mode	@black;
+@define-color unfocused	@bg2;
+@define-color focused	@braqua;
+@define-color inactive	@purple;
+@define-color sound	@brpurple;
+@define-color network	@purple;
+@define-color memory	@braqua;
+@define-color cpu	@green;
+@define-color temp	@brgreen;
+@define-color layout	@bryellow;
+@define-color battery	@aqua;
+@define-color date	@black;
+@define-color time	@white;
+
+/* Reset all styles */
 * {
-    font-family: JetBrainsMono Nerd Font, Roboto, Helvetica, Arial, sans-serif;
-    font-size: 7px;
-    min-height: 0px;
-    margin: 0;
-    padding: 0;
-    border: none;
-    border-radius: 0;
-    box-shadow: none;
-    text-shadow: none;
+	border: none;
+	border-radius: 0;
+	min-height: 0;
+	margin: 0;
+	padding: 0;
+	box-shadow: none;
+	text-shadow: none;
+	icon-shadow: none;
 }
 
-window#waybar {
-    padding: 0;
-    margin: 0;
-    background-color: rgba(43, 44, 52, 0.8);
-    color: #ffffff;
-    transition: background-color 0.5s;
+/* The whole bar */
+#waybar {
+	background: rgba(40, 40, 40, 0.8784313725); /* #282828e0 */
+	color: @white;
+	font-family: monospace, JetBrains Mono, Siji;
+	font-size: 11pt;
+	/*font-weight: bold;*/
 }
 
-window#waybar.hidden {
-    opacity: 0.2;
+/* Each module */
+#battery,
+#clock,
+#cpu,
+#language,
+#memory,
+#mode,
+#network,
+#pulseaudio,
+#temperature,
+#tray,
+#backlight,
+#idle_inhibitor,
+#disk,
+#user,
+#custom-vpn,
+#mpris {
+	padding-left: 8pt;
+	padding-right: 8pt;
+}
+
+/* Each critical module */
+#mode,
+#memory.critical,
+#cpu.critical,
+#temperature.critical,
+#battery.critical.discharging {
+	animation-timing-function: linear;
+	animation-iteration-count: infinite;
+	animation-direction: alternate;
+	animation-name: blink-critical;
+	animation-duration: 1s;
+}
+
+/* Each warning */
+#network.disconnected,
+#memory.warning,
+#cpu.warning,
+#temperature.warning,
+#battery.warning.discharging {
+	color: @warning;
+}
+
+/* And now modules themselves in their respective order */
+
+/* Current sway mode (resize etc) */
+#mode {
+	color: @white;
+	background: @mode;
+}
+
+/* Workspaces stuff */
+#workspaces button {
+	/*font-weight: bold;*/
+	padding-left: 2pt;
+	padding-right: 2pt;
+	color: @white;
+	background: @unfocused;
+}
+
+/* Inactive (on unfocused output) */
+#workspaces button.visible {
+	color: @white;
+	background: @inactive;
+}
+
+/* Active (on focused output) */
+#workspaces button.focused {
+	color: @black;
+	background: @focused;
+}
+
+/* Contains an urgent window */
+#workspaces button.urgent {
+	color: @black;
+	background: @warning;
+}
+
+/* Style when cursor is on the button */
+#workspaces button:hover {
+	background: @black;
+	color: @white;
 }
 
 #window {
-    font-family: 'Sarasa Gothic SC', sans-serif;
+	margin-right: 35pt;
+	margin-left: 35pt;
 }
 
-#clock {
-    min-width: 140px;
-    background: #3b3f51;
-    color: #ffffff;
-    padding: 0px 0px;
-    border-radius: 0px;
+#custom-vpn {
+	background: @sound;
+	color: @black;
 }
 
-#battery,
-#cpu,
-#memory,
-#backlight,
-#network,
-#pulseaudio,
-#tray,
-#mode,
-#idle_inhibitor,
-#keyboard-state {
-    padding: 0px 10px;
-    background-color: #3b3f51;
-    color: #ffffff;
+#network {
+	background: @network;
+	color: @white;
 }
 
-#battery.charging{
-    background-color: #b5b4e2;
+#memory {
+	background: @memory;
+	color: @black;
 }
 
-#battery.critical:not(.charging) {
-    background-color: #b54f4f;
-    animation: blink 0.5s linear infinite alternate;
+#cpu {
+	background: @cpu;
+	color: @white;
 }
 
-@keyframes blink {
-    to {
-        background-color: #ffffff;
-        color: #3b3f51;
-    }
+#temperature {
+	background: @temp;
+	color: @black;
 }
 
-#network.disconnected {
-    background-color: #b54f4f;
+#pulseaudio {
+	background: @layout;
+	color: @black;
 }
 
-#pulseaudio.muted {
-    background-color: #3b3f51;
-    color: #b5b4e2;
+#battery {
+	background: @battery;
+	color: @white;
 }
 
 #tray {
-    background-color: #b5b4e2;
-    color: #282a36;
+	background: @date;
 }
 
-#tray>.passive {
-    -gtk-icon-effect: dim;
-    color: #6272a4;
+#clock.date {
+	background: @date;
+	color: @white;
 }
 
-#tray>.needs-attention {
-    background-color: #ff5555;
-    color: #ffffff;
+#clock.time {
+	background: @time;
+	color: @black;
 }
 
-#idle_inhibitor.activated {
-    background-color: #b5b4e2;
-    color: #3b3f51;
+#custom-arrow1 {
+	font-size: 11pt;
+	color: @time;
+	background: @date;
 }
 
-#workspaces button,
-#mode {
-    padding: 0px 0px;
-    background-color: transparent;
-    color: #ffffff;
+#custom-arrow2 {
+	font-size: 11pt;
+	color: @date;
+	background: @layout;
 }
 
-#workspaces button:hover,
-#workspaces button.focused {
-    background-color: #6272a4;
-    box-shadow: inset 0 -3px #ffffff;
+#custom-arrow3 {
+	font-size: 11pt;
+	color: @layout;
+	background: @battery;
 }
 
-#workspaces button.urgent {
-    background-color: #b54f4f;
+#custom-arrow4 {
+	font-size: 11pt;
+	color: @battery;
+	background: @temp;
 }
 
-label:focus {
-    background-color: #000000;
+#custom-arrow5 {
+	font-size: 11pt;
+	color: @temp;
+	background: @cpu;
+}
+
+#custom-arrow6 {
+	font-size: 11pt;
+	color: @cpu;
+	background: @memory;
+}
+
+#custom-arrow7 {
+	font-size: 11pt;
+	color: @memory;
+	background: @network;
+}
+
+#custom-arrow8 {
+	font-size: 11pt;
+	color: @network;
+	background: @sound;
+}
+
+#custom-arrow9 {
+	font-size: 11pt;
+	color: @sound;
+	background: transparent;
+}
+
+#custom-arrow10 {
+	font-size: 11pt;
+	color: @unfocused;
+	background: transparent;
 }
