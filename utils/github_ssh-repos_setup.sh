@@ -20,29 +20,29 @@ read -p "press enter to continue"
 RESULT=`ssh -T git@github.com 2>&1`
 echo "$RESULT"
 # if connection successful, clone latex and wiki repo
-if [[ $RESULT == *"successfully"* ]]; then
-
-    # set git username+email
-    git config --global user.name "brian"
-    git config --global user.email "briankim53@gmail.com"
-
-    mkdir -p ~/Documents && cd ~/Documents
-
-    if ! [ -d ~/Documents/latex ]; then
-        git clone git@github.com:brianfabre/latex.git
-        echo 'successfully cloned latex repo'
-    else
-        echo 'failed to clone latex repo: directory already exists'
-    fi
-
-    if ! [ -d ~/Documents/wiki ]; then
-        git clone git@github.com:brianfabre/wiki.git
-        echo 'successfully cloned wiki repo'
-    else
-        echo 'failed to clone wiki repo: directory already exists'
-    fi
-
-else
-    echo 'exiting script'
-    exit 1
-fi
+# if [[ $RESULT == *"successfully"* ]]; then
+# 
+#     # set git username+email
+#     git config --global user.name "brian"
+#     git config --global user.email "briankim53@gmail.com"
+# 
+#     mkdir -p ~/Documents && cd ~/Documents
+# 
+#     if ! [ -d ~/Documents/latex ]; then
+#         git clone git@github.com:brianfabre/latex.git
+#         echo 'successfully cloned latex repo'
+#     else
+#         echo 'failed to clone latex repo: directory already exists'
+#     fi
+# 
+#     if ! [ -d ~/Documents/wiki ]; then
+#         git clone git@github.com:brianfabre/wiki.git
+#         echo 'successfully cloned wiki repo'
+#     else
+#         echo 'failed to clone wiki repo: directory already exists'
+#     fi
+# 
+# else
+#     echo 'exiting script'
+#     exit 1
+# fi
