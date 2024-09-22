@@ -50,6 +50,8 @@
     variant = "";
   };
 
+  services.mullvad-vpn.enable = true;
+
   console.font = "ter-132b";
   console.keyMap = "us";
   console.packages = with pkgs; [

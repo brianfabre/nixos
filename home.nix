@@ -7,7 +7,7 @@
   home.homeDirectory = "/home/brian";
 
   imports = [
-    # ./home/firefox.nix
+    ./home/firefox.nix
     # ./fcitx.nix
     # ./tex.nix
     # ./zsh.nix
@@ -76,6 +76,8 @@
     gammastep
     grim
     slurp
+    swaybg
+    waybar
     wev
     wl-clipboard
     wlr-randr
@@ -88,9 +90,11 @@
   };
 
   home.file = {
+    ".config/foot".source = config.lib.file.mkOutOfStoreSymlink "/home/brian/nixos/config/foot";
     ".config/hypr".source = config.lib.file.mkOutOfStoreSymlink "/home/brian/nixos/config/hypr-t480";
     ".config/nvim".source = config.lib.file.mkOutOfStoreSymlink "/home/brian/nixos/config/nvim";
     ".config/lf".source = config.lib.file.mkOutOfStoreSymlink "/home/brian/nixos/config/lf";
+    ".config/waybar".source = config.lib.file.mkOutOfStoreSymlink "/home/brian/nixos/config/waybar";
     ".config/zathura".source = config.lib.file.mkOutOfStoreSymlink "/home/brian/nixos/config/zathura";
     ".zshrc".source = config.lib.file.mkOutOfStoreSymlink "/home/brian/nixos/config/zsh/.zshrc";
     ".config/mimeapps.list".source = config.lib.file.mkOutOfStoreSymlink "/home/brian/nixos/config/mimeapps.list";

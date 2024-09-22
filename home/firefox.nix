@@ -9,16 +9,6 @@
     enable = true;
     profiles = {
       default = {
-        extensions = with pkgs.nur.repos.rycee.firefox-addons; [
-          bitwarden
-          darkreader
-          libredirect
-          reddit-enhancement-suite
-          sponsorblock
-          surfingkeys
-          ublock-origin
-        ];
-        # userChrome = lib.mkDefault (builtins.readFile ./../config/firefox/userChrome.css);
         search = {
           force = true;
           default = "SearXNG";

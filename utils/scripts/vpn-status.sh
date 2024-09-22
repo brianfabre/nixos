@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # Get the first line of the mullvad status output
 status_line=$(mullvad status | head -n 1)

@@ -171,3 +171,9 @@ elif [[ $(uname) == "Darwin" ]]; then
 # IF DEBIAN
 # elif [ -f /etc/debian_version ]; then
 fi
+
+# fzf for nixos
+if [ -n "${commands[fzf-share]}" ]; then
+  source "$(fzf-share)/key-bindings.zsh"
+  source "$(fzf-share)/completion.zsh"
+fi
