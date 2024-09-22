@@ -9,6 +9,14 @@
     enable = true;
     profiles = {
       default = {
+        extensions = with inputs.firefox-addons.packages."x86_64-linux"; [
+          bitwarden
+          darkreader
+          libredirect
+          reddit-enhancement-suite
+          surfingkeys
+          ublock-origin
+        ];
         search = {
           force = true;
           default = "SearXNG";
