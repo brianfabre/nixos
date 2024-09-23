@@ -12,7 +12,6 @@
     ${pkgs.xorg.xkbcomp}/bin/xkbcomp ${./config/xkb/symbols/custom-xkb} $out
   '';
 in {
-
   imports = [];
 
   nixpkgs = {

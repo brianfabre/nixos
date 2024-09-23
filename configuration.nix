@@ -50,7 +50,19 @@
     variant = "";
   };
 
+  # Mullvad VPN
   services.mullvad-vpn.enable = true;
+
+  # Enable Display Manager
+  services.greetd = {
+    enable = true;
+    settings = {
+      default_session = {
+        command = "${pkgs.greetd.tuigreet}/bin/tuigreet --remember --time --time-format '%I:%M %p | %a • %h | %F' --cmd Hyprland";
+        user = "greeter";
+      };
+    };
+  };
 
   console.font = "ter-132b";
   console.keyMap = "us";
@@ -65,6 +77,10 @@
   ];
 
   programs.hyprland.enable = true;
+  services.hypridle.enable = true;
+  programs.hyprlock.enable = true;
+  # Hyprlock needs PAM access to authenticate, else it fallbacks to su
+  security.pam.services.hyprlock = {};
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.brian = {
@@ -89,9 +105,9 @@
   # $ nix search wget
   environment.systemPackages = with pkgs; [
     vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
-    neovim
     wget
     git
+    greetd.tuigreet
   ];
 
   # Some programs need SUID wrappers, can be configured further or are

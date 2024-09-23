@@ -8,7 +8,7 @@
   services = {
     fstrim.enable = lib.mkDefault true;
 
-    fix for intel cpu throttling
+    # fix for intel cpu throttling
     throttled.enable = lib.mkDefault true;
 
     tlp = {

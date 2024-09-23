@@ -51,6 +51,8 @@
     # zellij
     # zotero_beta
 
+    gnome-power-manager
+
     # NM tray on waybar
     # networkmanagerapplet
 

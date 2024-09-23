@@ -45,8 +45,8 @@
 			"critical": 15
 		},
 		"format-time": "{H}:{M:02}",
-		"format": "{icon} {capacity}% ({time})",
-		"format-charging": " {capacity}% ({time})",
+		"format": "{icon} {capacity}%",
+		"format-charging": " {capacity}%",
 		"format-charging-full": " {capacity}%",
 		"format-full": "{icon} {capacity}%",
 		"format-alt": "{icon} {power}W",
@@ -67,7 +67,7 @@
 	},
 
 	"clock#date": {
-		"interval": 20,
+		"interval": 30,
 		"format": "{:%e %b %Y}",
 		"tooltip": false
 		//"tooltip-format": "{:%e %B %Y}"
@@ -84,16 +84,9 @@
 		}
 	},
 
-	"sway/language": {
-		"format": " {}",
-		"min-length": 5,
-		"on-click": "swaymsg 'input * xkb_switch_layout next'",
-		"tooltip": false
-	},
-
 	"memory": {
 		"interval": 5,
-		"format": " {used:0.0f}G/{total:0.0f}G",
+		"format": " {used:0.0f}G/{total:0.0f}G",
 		"states": {
 			"warning": 70,
 			"critical": 90
@@ -108,24 +101,6 @@
 		"format-disconnected": "No connection",
 		"format-alt": " {ipaddr}/{cidr}",
 		"tooltip": false
-	},
-
-	"sway/mode": {
-		"format": "{}",
-		"tooltip": false
-	},
-
-	"sway/window": {
-		"format": "{}",
-		"max-length": 30,
-		"tooltip": false
-	},
-
-	"sway/workspaces": {
-		"disable-scroll-wraparound": true,
-		"smooth-scrolling-threshold": 4,
-		"enable-bar-scroll": true,
-		"format": "{name}"
 	},
 
     "hyprland/workspaces": {
