@@ -58,12 +58,14 @@
     enable = true;
     settings = {
       default_session = {
-        command = "${pkgs.greetd.tuigreet}/bin/tuigreet --remember --time --time-format '%I:%M %p | %a • %h | %F' --cmd Hyprland";
+        # command = "${pkgs.greetd.tuigreet}/bin/tuigreet --remember --time --time-format '%I:%M %p | %a • %h | %F' --cmd Hyprland";
+        command = "${pkgs.greetd.greetd}/bin/agreety --cmd Hyprland";
         user = "greeter";
       };
     };
   };
 
+  # TTY font
   console.font = "ter-132b";
   console.keyMap = "us";
   console.packages = with pkgs; [
@@ -107,7 +109,7 @@
     vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
     wget
     git
-    greetd.tuigreet
+    # greetd.tuigreet
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
