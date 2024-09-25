@@ -53,6 +53,11 @@
   # Mullvad VPN
   services.mullvad-vpn.enable = true;
 
+  # Bluetooth
+  hardware.bluetooth.enable = true; # enables support for Bluetooth
+  hardware.bluetooth.powerOnBoot = true; # powers up the default Bluetooth controller on boot
+  services.blueman.enable = true;
+
   # Enable Display Manager
   services.greetd = {
     enable = true;
@@ -111,6 +116,20 @@
     git
     # greetd.tuigreet
   ];
+
+  # default editor
+  environment.variables.EDITOR = "nvim";
+
+  # Limit the number of generations to keep
+  # boot.loader.systemd-boot.configurationLimit = 10;
+  boot.loader.grub.configurationLimit = 10;
+
+  # weekly garbage collection
+  nix.gc = {
+    automatic = true;
+    dates = "weekly";
+    options = "--delete-older-than 1w";
+  };
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
