@@ -65,7 +65,7 @@ local M = {
                     crust = "#000000",
                 },
             },
-            -- transparent_background = true,
+            transparent_background = true,
         },
     },
     {

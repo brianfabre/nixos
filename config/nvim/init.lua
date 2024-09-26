@@ -31,14 +31,14 @@ local function c(theme)
     vim.cmd.colorscheme(theme)
 end
 -- c("torte")
--- c("kanagawa")
+c("kanagawa")
 -- c("sonokai")
 -- c("tokyonight")
 -- c("rose-pine")
 -- c("falcon")
 -- c("arctic") -- vscode colors
 -- c("dracula-soft")
-c("dracula")
+-- c("dracula")
 -- c("github_dark_dimmed")
 -- c("catppuccin")
 
