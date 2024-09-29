@@ -4,18 +4,28 @@
 
 	"modules-left": [
 		"hyprland/workspaces",
+		"custom/arrow10",
 	],
 
 	"modules-right": [
+		"custom/arrow9",
         "custom/vpn",
+		"custom/arrow8",
 		"network",
+		"custom/arrow7",
 		"memory",
+		"custom/arrow6",
 		"cpu",
+		"custom/arrow5",
 		"temperature",
+		"custom/arrow4",
 		"battery",
+		"custom/arrow3",
 		"pulseaudio",
+		"custom/arrow2",
 		"tray",
 		"clock#date",
+		"custom/arrow1",
 		"clock#time"
 	],
 
@@ -66,8 +76,8 @@
 	"cpu": {
 		"interval": 5,
 		"tooltip": false,
-		"format": "  {usage}%",
-		"format-alt": "  {load}",
+		"format": " {usage}%",
+		"format-alt": " {load}",
 		"states": {
 			"warning": 70,
 			"critical": 90
@@ -76,7 +86,7 @@
 
 	"memory": {
 		"interval": 5,
-		"format": "  {used:0.0f}G/{total:0.0f}G",
+		"format": " {used:0.0f}G/{total:0.0f}G",
 		"states": {
 			"warning": 70,
 			"critical": 90
@@ -86,7 +96,7 @@
 
 	"network": {
 		"interval": 5,
-		"format-wifi": "  {essid} ({signalStrength}%)",
+		"format-wifi": " {essid} ({signalStrength}%)",
 		"format-ethernet": " {ifname}",
 		"format-disconnected": "No connection",
 		"format-alt": " {ipaddr}/{cidr}",
@@ -97,7 +107,7 @@
     },
 
 	"pulseaudio": {
-		"format": "{icon}  {volume}%",
+		"format": "{icon} {volume}%",
 		"format-bluetooth": "{icon} {volume}%",
 		"format-muted": "",
 		"format-icons": {
@@ -110,7 +120,7 @@
 			"default": ["", ""]
 		},
 		"scroll-step": 1,
-		"on-click": "wpctl set-sink-mute @DEFAULT_SINK@ toggle",
+		"on-click": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
 		"tooltip": false
 	},
 
