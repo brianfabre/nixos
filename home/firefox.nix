@@ -38,6 +38,12 @@
             };
           };
         };
+        userChrome = ''
+          /* ---Tabs/Tab Bar height--- */
+          :root {
+            --tab-min-height: 26px !important;
+          }
+        '';
         extraConfig = ''
           /****************************************************************************
            * SECTION: FASTFOX                                                         *
