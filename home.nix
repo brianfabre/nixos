@@ -31,7 +31,7 @@
     # other
     bat
     brightnessctl
-    calibre
+    # calibre
     dunst
     eza
     # gsimplecal
