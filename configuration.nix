@@ -6,10 +6,7 @@
   pkgs,
   ...
 }: {
-  imports = [
-    # Include the results of the hardware scan.
-    ./hardware-configuration.nix
-  ];
+  imports = [./hardware-configuration.nix]; # imported in hosts dir
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
@@ -82,12 +79,6 @@
     noto-fonts
     noto-fonts-cjk
   ];
-
-  programs.hyprland.enable = true;
-  services.hypridle.enable = true;
-  programs.hyprlock.enable = true;
-  # Hyprlock needs PAM access to authenticate, else it fallbacks to su
-  security.pam.services.hyprlock = {};
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.brian = {

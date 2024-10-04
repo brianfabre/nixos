@@ -1,7 +1,5 @@
 {lib, ...}: {
-  # imports = [
-  #   ./hardware-configuration.nix
-  # ];
+  imports = [./hardware-configuration.nix];
 
   networking.hostName = lib.mkForce "nixos"; # Define your hostname.
 

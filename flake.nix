@@ -22,6 +22,7 @@
         specialArgs = {inherit inputs;}; # pass inputs to modules
         modules = [
           ./hosts/t480
+          ./wm/hyprland.nix
           ./configuration.nix
 
           home-manager.nixosModules.home-manager
