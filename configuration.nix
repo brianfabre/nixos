@@ -6,7 +6,7 @@
   pkgs,
   ...
 }: {
-  imports = [./hardware-configuration.nix]; # imported in hosts dir
+  # imports = [./hardware-configuration.nix]; # imported in hosts dir
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
@@ -54,18 +54,6 @@
   hardware.bluetooth.enable = true; # enables support for Bluetooth
   hardware.bluetooth.powerOnBoot = true; # powers up the default Bluetooth controller on boot
   services.blueman.enable = true;
-
-  # Enable Display Manager
-  services.greetd = {
-    enable = true;
-    settings = {
-      default_session = {
-        # command = "${pkgs.greetd.tuigreet}/bin/tuigreet --remember --time --time-format '%I:%M %p | %a • %h | %F' --cmd Hyprland";
-        command = "${pkgs.greetd.greetd}/bin/agreety --cmd Hyprland";
-        user = "greeter";
-      };
-    };
-  };
 
   # TTY font
   console.font = "ter-132b";
