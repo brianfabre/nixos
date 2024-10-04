@@ -95,6 +95,8 @@
     wl-clipboard
     wlr-randr
 
+    # other
+    mullvad-browser
   ];
 
   home.file = {
