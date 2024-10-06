@@ -23,6 +23,7 @@
         modules = [
           ./hosts/t480
           ./wm/hyprland.nix
+          # ./wm/labwc.nix
           ./configuration.nix
 
           home-manager.nixosModules.home-manager

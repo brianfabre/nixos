@@ -78,12 +78,15 @@
     foot
     gammastep
     grim
+    kanshi
     slurp
     swaybg
     waybar
     wev
     wl-clipboard
     wlr-randr
+
+    nfs-utils
   ];
 
   programs.git = {
@@ -96,6 +99,7 @@
     ".config/foot".source = config.lib.file.mkOutOfStoreSymlink "/home/brian/nixos/config/foot";
     ".config/hypr".source = config.lib.file.mkOutOfStoreSymlink "/home/brian/nixos/config/hypr-t480";
     ".config/nvim".source = config.lib.file.mkOutOfStoreSymlink "/home/brian/nixos/config/nvim";
+    ".config/labwc".source = config.lib.file.mkOutOfStoreSymlink "/home/brian/nixos/config/labwc";
     ".config/lf".source = config.lib.file.mkOutOfStoreSymlink "/home/brian/nixos/config/lf";
     ".config/waybar".source = config.lib.file.mkOutOfStoreSymlink "/home/brian/nixos/config/waybar";
     ".config/zathura".source = config.lib.file.mkOutOfStoreSymlink "/home/brian/nixos/config/zathura";

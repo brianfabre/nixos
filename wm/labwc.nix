@@ -1,4 +1,9 @@
 {
+  config,
+  pkgs,
+  lib,
+  ...
+}: {
   programs.labwc.enable = true;
 
   # Enable Display Manager

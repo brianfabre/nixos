@@ -1,4 +1,9 @@
 {
+  config,
+  pkgs,
+  lib,
+  ...
+}: {
   programs.hyprland.enable = true;
   services.hypridle.enable = true;
   programs.hyprlock.enable = true;
@@ -10,8 +15,8 @@
     enable = true;
     settings = {
       default_session = {
-        # command = "${pkgs.greetd.tuigreet}/bin/tuigreet --remember --time --time-format '%I:%M %p | %a • %h | %F' --cmd Hyprland";
-        command = "${pkgs.greetd.greetd}/bin/agreety --cmd Hyprland";
+        command = "${pkgs.greetd.tuigreet}/bin/tuigreet --remember --time --time-format '%I:%M %p | %a • %h | %F' --cmd Hyprland";
+        # command = "${pkgs.greetd.greetd}/bin/agreety --cmd Hyprland";
         user = "greeter";
       };
     };
