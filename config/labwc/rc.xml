@@ -15,10 +15,15 @@
 
   <keyboard>
     <default />
+
+    <repeatRate>50</repeatRate>
+    <repeatDelay>400</repeatDelay>
+
     <!-- Use a different terminal emulator -->
     <keybind key="W-Return">
       <action name="Execute" command="foot" />
     </keybind>
+
     <!--
       Remove a previously defined keybind
       A shorter alternative is <keybind key="W-F4" />
@@ -26,6 +31,7 @@
     <keybind key="W-F4">
       <action name="None" />
     </keybind>
+
   </keyboard>
 
   <mouse>
@@ -38,13 +44,24 @@
     </context>
   </mouse>
 
-  <openbox_menu>
-    <menu id="root-menu" label="">
-      <item label="Web browser"><action name="Execute" command="firefox" /></item>
-      <item label="Terminal"><action name="Execute" command="foot" /></item>
-      <item label="Reconfigure"><action name="Reconfigure" /></item>
-      <item label="Exit"><action name="Exit" /></item>
-    </menu>
-</openbox_menu>
+
+    <libinput>
+     <device category="touchpad">
+      <scrollFactor>0.1</scrollFactor>
+      <naturalScroll>yes</naturalScroll>
+      <leftHanded></leftHanded>
+      <pointerSpeed></pointerSpeed>
+      <accelProfile></accelProfile>
+      <tap>yes</tap>
+      <tapButtonMap></tapButtonMap>
+      <tapAndDrag></tapAndDrag>
+      <dragLock></dragLock>
+      <middleEmulation></middleEmulation>
+      <disableWhileTyping>yes</disableWhileTyping>
+      <clickMethod></clickMethod>
+      <sendEventsMode></sendEventsMode>
+      <calibrationMatrix></calibrationMatrix>
+     </device>
+    </libinput>
 
 </labwc_config>

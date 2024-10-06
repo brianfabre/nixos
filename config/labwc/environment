@@ -28,16 +28,16 @@
 ## for those on non-rolling distributions.
 ##
 
-# MOZ_ENABLE_WAYLAND=1
+MOZ_ENABLE_WAYLAND=1
 
 ##
 ## Set cursor theme and size. Find system icons themes with:
 ## `find /usr/share/icons/ -type d -name "cursors"`
 ##
 
-# XCURSOR_THEME=breeze_cursors
-# XCURSOR_THEME=capitaine-cursors
-# XCURSOR_SIZE=24
+XCURSOR_THEME=breeze_cursors
+XCURSOR_THEME=capitaine-cursors
+XCURSOR_SIZE=24
 
 ##
 ## Disable hardware cursors. Most users would not want to do this, but if you
