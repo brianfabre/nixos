@@ -25,7 +25,7 @@
               urls = [
                 {
                   # template = "https://priv.au/";
-                  template = "https://searxng.site/"; # in firefox: https://searxng.site/?q=%s
+                  template = "https://searx.be/"; # in firefox: https://searxng.site/?q=%s
                   params = [
                     {
                       name = "q";
