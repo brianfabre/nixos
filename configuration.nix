@@ -12,7 +12,7 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  boot.initrd.luks.devices."luks-f0ed8792-4412-4e38-be12-b087b770310a".device = "/dev/disk/by-uuid/f0ed8792-4412-4e38-be12-b087b770310a";
+  boot.initrd.luks.devices."luks-11888d69-a013-418d-aaa5-5394d1f0bd30".device = "/dev/disk/by-uuid/11888d69-a013-418d-aaa5-5394d1f0bd30";
   networking.hostName = "nixos"; # Define your hostname.
   # networking.wireless.enable = true; # Enables wireless support via wpa_supplicant.
 
