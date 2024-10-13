@@ -21,7 +21,7 @@
         system = "x86_64-linux";
         specialArgs = {inherit inputs;}; # pass inputs to modules
         modules = [
-          ./hosts/t480
+          ./hosts/l390
           ./wm/hyprland.nix
           # ./wm/labwc.nix
           ./configuration.nix
