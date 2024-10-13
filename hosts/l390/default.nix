@@ -25,8 +25,8 @@
         DEVICES_TO_ENABLE_ON_AC = ["bluetooth" "wifi"];
 
         # when need to use battery
-        START_CHARGE_THRESH_BAT1 = 80;
-        STOP_CHARGE_THRESH_BAT1 = 85;
+        START_CHARGE_THRESH_BAT0 = 80;
+        STOP_CHARGE_THRESH_BAT0 = 85;
 
         # START_CHARGE_THRESH_BAT1 = 65;
         # STOP_CHARGE_THRESH_BAT1 = 70;
