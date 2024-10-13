@@ -41,7 +41,9 @@
 
             # zellij
 
-            ffmpeg
+            # ffmpeg
+
+            xournal
           ];
         };
       }
