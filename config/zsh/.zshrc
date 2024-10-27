@@ -153,21 +153,17 @@ if [ -f /etc/arch-release ]; then
     alias pacre="pacman -Qq | fzf --height=100% --multi --preview 'pacman -Qi {1}' --preview-window=65% | xargs -ro sudo pacman -Rns"
 # IF MACOS
 elif [[ $(uname) == "Darwin" ]]; then
+
+    # fzf
     eval "$(fzf --zsh)"
+
+    # zoxide
+    eval "$(zoxide init zsh)"
+
     # pyenv
     export PYENV_ROOT="$HOME/.pyenv"
     [[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
     eval "$(pyenv init -)"
-    # Install (one or multiple) selected application(s)
-    # using "brew search" as source input
-    brewin() {
-      local inst=$(brew search "$@" | fzf -m)
-
-      if [[ $inst ]]; then
-        for prog in $(echo $inst);
-        do; brew install $prog; done;
-      fi
-    }
 # IF DEBIAN
 # elif [ -f /etc/debian_version ]; then
 fi
