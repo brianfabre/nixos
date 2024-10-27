@@ -31,9 +31,10 @@ local function c(theme)
     vim.cmd.colorscheme(theme)
 end
 -- c("torte")
-c("kanagawa")
+-- c("elflord")
+-- c("kanagawa")
 -- c("sonokai")
--- c("tokyonight")
+c("tokyonight")
 -- c("rose-pine")
 -- c("falcon")
 -- c("arctic") -- vscode colors
