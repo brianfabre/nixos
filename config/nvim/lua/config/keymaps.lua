@@ -86,7 +86,7 @@ map("v", ".", ":normal .<CR>")
 map("n", "<leader>lz", ":Lazy<CR>", { desc = "lazy.nvim" })
 
 -- open nvim config
-map("n", "<leader>oc", ":e $MYVIMRC<CR>", { desc = "config" })
+-- map("n", "<leader>oc", ":e $MYVIMRC<CR>", { desc = "config" })
 
 -- resize windows
 -- map("n", "<leader>=", ':exe "resize +2"<CR>', { desc = "win size increase" })
@@ -103,8 +103,8 @@ map("n", "<leader>uw", ":set wrap!<CR>", { desc = "toggle word wrap" })
 -- fastwrap
 -- map("i", "<C-e>", "<esc>lxep<esc>i")
 
-map("n", "<leader>\\", ":lua require('config/utils').FindAll()<CR>", { desc = "quickfix search" })
-map("n", "<leader>ur", ":lua require('config/utils').SearchReplace()<CR>", { desc = "search and replace" })
+-- map("n", "<leader>\\", ":lua require('config/utils').FindAll()<CR>", { desc = "quickfix search" })
+-- map("n", "<leader>ur", ":lua require('config/utils').SearchReplace()<CR>", { desc = "search and replace" })
 
 -- toggle all folds
 map("n", "<leader>.", "zA", { desc = "search and replace" })
