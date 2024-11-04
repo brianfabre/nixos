@@ -159,6 +159,10 @@ elif [[ $(uname) == "Darwin" ]]; then
 
     # zoxide
     eval "$(zoxide init zsh)"
+    alias cd="z"
+
+    # eza
+    alias ls="eza -la"
 
     # pyenv
     export PYENV_ROOT="$HOME/.pyenv"
