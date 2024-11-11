@@ -52,7 +52,7 @@
 
 	"clock#time": {
 		"interval": 10,
-		"format": "{:%H:%M}",
+		"format": "{:%I:%M %p}",
 		"tooltip": false
 	},
 

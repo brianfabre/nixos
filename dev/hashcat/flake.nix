@@ -26,7 +26,7 @@
             # wireshark
 
             # 'sudo ventoy-web' to launch web-gui
-            # ventoy-full
+            ventoy-full
 
             # music metadata edit
             # kid3
@@ -41,7 +41,7 @@
 
             # zellij
 
-            ffmpeg
+            # ffmpeg
 
             # xournal
 

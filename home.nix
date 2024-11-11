@@ -44,6 +44,7 @@
     # qbittorrent
     tealdeer
     tesseract
+    tmux
     xdg-utils
     xfce.thunar
     usbutils
