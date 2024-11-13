@@ -32,3 +32,8 @@ swayidle -w \
 	timeout 600 'wlopm --off \*' \
 	resume 'wlopm --on \*' \
 	before-sleep 'swaylock -f -c 000000' >/dev/null 2>&1 &
+
+
+gammastep -l 34:-118 -t 6500:3500 -m wayland >/dev/null 2>&1 &
+wl-paste -t text --watch clipman store --max-items=1000 --histpath='~/.cache/clipman.json' >/dev/null 2>&1 &
+foot --server >/dev/null 2>&1 &
