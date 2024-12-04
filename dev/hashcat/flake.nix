@@ -26,7 +26,7 @@
             # wireshark
 
             # 'sudo ventoy-web' to launch web-gui
-            ventoy-full
+            # ventoy-full
 
             # music metadata edit
             # kid3
@@ -46,6 +46,12 @@
             # xournal
 
             # go-mtpfs
+
+            # libinput
+
+            # lxqt.lxqt-panel
+
+            gnome.simple-scan
           ];
         };
       }
