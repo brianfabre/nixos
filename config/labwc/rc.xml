@@ -7,6 +7,16 @@
 
 <labwc_config>
 
+
+  <placement>
+    <policy>automatic</policy>
+    <!--
+      When <placement><policy> is "cascade", the offset for cascading new
+      windows can be overwritten like this:
+      <cascadeOffset x="40" y="30" />
+    -->
+  </placement>
+
   <theme>
     <name></name>
     <cornerRadius>8</cornerRadius>
@@ -71,12 +81,13 @@
         <action name="ShowMenu" menu="some-custom-menu" />
       </mousebind>
     </context>
+    <!-- scrollfactor goes under libinput in future versions -->
+    <scrollFactor>0.1</scrollFactor>
   </mouse>
 
 
     <libinput>
      <device category="touchpad">
-      <scrollFactor>0.1</scrollFactor>
       <naturalScroll>yes</naturalScroll>
       <leftHanded></leftHanded>
       <pointerSpeed></pointerSpeed>
