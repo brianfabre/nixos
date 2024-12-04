@@ -8,6 +8,11 @@
 }: {
   # imports = [./hardware-configuration.nix]; # imported in hosts dir
 
+  hardware.sane.enable = true; # enables support for SANE scanners
+  hardware.sane.brscan5.enable = true;
+  services.avahi.enable = true; # discover devices on network
+  services.saned.enable = true;
+
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
