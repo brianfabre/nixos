@@ -6,6 +6,8 @@ foot
 grim
 gsimplecal
 imv
+kanshi
+mako
 mpv
 mupdf
 slurp
