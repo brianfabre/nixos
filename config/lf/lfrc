@@ -12,9 +12,9 @@ set sixel true
 # set ratios 1:2
 # set ratios 1:2:3:5
 
-# set previewer ~/.config/lf/lf_kitty_preview
-# set cleaner ~/.config/lf/lf_kitty_clean
-set previewer ~/.config/lf/previewer.sh
+set previewer ~/.config/lf/lf_kitty_preview
+set cleaner ~/.config/lf/lf_kitty_clean
+# set previewer ~/.config/lf/previewer.sh
 # set cleaner ~/.config/lf/clear_img.sh
 
 cmd open &{{
