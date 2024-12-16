@@ -20,3 +20,4 @@ usbutils
 vim
 wget
 zsh
+lua-language-server
