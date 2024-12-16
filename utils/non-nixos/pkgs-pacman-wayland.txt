@@ -3,6 +3,7 @@ bemenu-wayland
 dunst
 firefox
 foot
+gammastep
 grim
 gsimplecal
 imv
@@ -14,6 +15,7 @@ slurp
 tesseract
 thunar
 waybar
+wev
 wl-clipboard
 yt-dlp
 zathura

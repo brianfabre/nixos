@@ -2,7 +2,7 @@ SOURCE_DIR="$HOME/nixos/config"
 TARGET_DIR="$HOME/.config"
 
 # download arch packages
-sudo pacman -S base-devel git curl eza fd fzf htop lazygit lf ncdu neofetch neovim prettier ripgrep rsync stylua tealdeer tree unzip vim wget zsh bash-language-server lua-language-server shfmt
+# sudo pacman -S base-devel git curl eza fd fzf htop lazygit lf ncdu neofetch neovim prettier ripgrep rsync stylua tealdeer tree unzip vim wget zsh bash-language-server lua-language-server shfmt
 
 # create symlinks to dotfiles
 if [ -d "$SOURCE_DIR" ]; then
