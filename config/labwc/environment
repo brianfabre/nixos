@@ -21,6 +21,7 @@
 # XKB_DEFAULT_LAYOUT=se,us(intl)
 # XKB_DEFAULT_OPTIONS=grp:alt_shift_toggle
 # XKB_DEFAULT_OPTIONS=grp:shift_caps_toggle
+XKB_DEFAULT_OPTIONS=caps:hyper
 
 ##
 ## Force Mozilla software like Firefox and Thunderbird to use wayland backend.
@@ -35,9 +36,6 @@ MOZ_ENABLE_WAYLAND=1
 ## `find /usr/share/icons/ -type d -name "cursors"`
 ##
 
-XCURSOR_THEME=breeze_cursors
-XCURSOR_THEME=capitaine-cursors
-XCURSOR_SIZE=24
 
 ##
 ## Disable hardware cursors. Most users would not want to do this, but if you
@@ -83,3 +81,5 @@ XCURSOR_SIZE=24
 
 # LABWC_FALLBACK_OUTPUT=NOOP-fallback
 
+XCURSOR_THEME=breeze_cursors
+XCURSOR_SIZE=24
