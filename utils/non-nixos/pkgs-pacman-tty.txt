@@ -15,6 +15,7 @@ rsync
 stylua
 tealdeer
 tree
+ttf-hack-nerd
 unzip
 usbutils
 vim
