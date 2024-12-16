@@ -4,132 +4,210 @@
   set of options with comments, see docs/rc.xml.all
 -->
 <labwc_config>
-  <placement>
-    <policy>Automatic</policy>
-    <!--
+	<placement>
+		<policy>Automatic</policy>
+		<!--
       When <placement><policy> is "cascade", the offset for cascading new
       windows can be overwritten like this:
       <cascadeOffset x="40" y="30" />
     -->
-  </placement>
-  <theme>
-    <name>Vent-dark</name>
-    <cornerRadius>0</cornerRadius>
-    <font name="sans" size="12"/>
-    <dropShadows>yes</dropShadows>
-  </theme>
-
-  <desktops>
-    <popupTime>1000</popupTime>
-    <names>
-      <name>Workspace 1</name>
-      <name>Workspace 2</name>
-      <name>Workspace 3</name>
-      <name>Workspace 4</name>
-    </names>
-  </desktops>
-
-  <windowSwitcher show="yes" preview="yes" outlines="yes" allWorkspaces="no">
-  <fields>
-    <!-- <field content="type" width="25%"/> -->
-    <field content="trimmed_identifier" width="25%"/>
-    <field content="title" width="50%"/>
-  </fields>
-</windowSwitcher>
-
-  <keyboard>
-    <default/>
-    <repeatRate>50</repeatRate>
-    <repeatDelay>400</repeatDelay>
-    <!-- Use a different terminal emulator -->
-    <keybind key="W-Return">
-      <action name="Execute" command="foot"/>
-    </keybind>
-    <!--
+	</placement>
+	<theme>
+		<name>Vent-dark</name>
+		<cornerRadius>5</cornerRadius>
+		<font name="sans" size="12"/>
+		<dropShadows>yes</dropShadows>
+	</theme>
+	<desktops>
+		<popupTime>1000</popupTime>
+		<names>
+			<name>Workspace 1</name>
+			<name>Workspace 2</name>
+			<name>Workspace 3</name>
+			<name>Workspace 4</name>
+		</names>
+	</desktops>
+	<windowSwitcher show="yes" preview="yes" outlines="yes" allWorkspaces="no">
+		<fields>
+			<!-- <field content="type" width="25%"/> -->
+			<field content="trimmed_identifier" width="25%"/>
+			<field content="title" width="50%"/>
+		</fields>
+	</windowSwitcher>
+	<regions>
+	   <region name="top-left"     x="0%"  y="0%"  height="50%"  width="50%"  />
+	   <region name="top"          x="0%"  y="0%"  height="50%"  width="100%" />
+	   <region name="top-right"    x="50%" y="0%"  height="50%"  width="50%"  />
+	   <region name="left"         x="0%"  y="0%"  height="100%" width="50%"  />
+	   <region name="center"       x="10%" y="10%" height="80%"  width="80%"  />
+	   <region name="right"        x="50%" y="0%"  height="100%" width="50%"  />
+	   <region name="bottom-left"  x="0%"  y="50%" height="50%"  width="50%"  />
+	   <region name="bottom"       x="0%"  y="50%" height="50%"  width="100%" />
+	   <region name="bottom-right" x="50%" y="50%" height="50%"  width="50%"  />
+	</regions>
+	<keyboard>
+		<default/>
+		<numlock>on</numlock>
+		<repeatRate>50</repeatRate>
+		<repeatDelay>400</repeatDelay>
+		<!-- Use a different terminal emulator -->
+		<keybind key="W-Return">
+			<action name="Execute" command="foot"/>
+		</keybind>
+		<!--
       Remove a previously defined keybind
       A shorter alternative is <keybind key="W-F4" />
     -->
-    <keybind key="W-F4">
-      <action name="None"/>
-    </keybind>
-    <keybind key="W-1">
-      <action name="GoToDesktop" to="1"/>
-    </keybind>
-    <keybind key="W-2">
-      <action name="GoToDesktop" to="2"/>
-    </keybind>
-    <keybind key="W-3">
-      <action name="GoToDesktop" to="3"/>
-    </keybind>
-    <keybind key="W-4">
-      <action name="GoToDesktop" to="4"/>
-    </keybind>
-    <keybind key="W-S-1">
-      <action name="SendToDesktop" to="1"/>
-    </keybind>
-    <keybind key="W-S-2">
-      <action name="SendToDesktop" to="2"/>
-    </keybind>
-    <keybind key="W-S-3">
-      <action name="SendToDesktop" to="3"/>
-    </keybind>
-    <keybind key="W-S-4">
-      <action name="SendToDesktop" to="4"/>
-    </keybind>
-    <keybind key="W-q">
-      <action name="Close"/>
-    </keybind>
-    <keybind key="W-t">
-      <action name="ToggleMaximize"/>
-    </keybind>
-    <keybind key="W-Space">
-      <action name="Execute" command="bemenu-run -l 10 --fn 'Hack Nerd Font Mono 12'"/>
-    </keybind>
-    <keybind key="W-Return">
-      <action name="Execute" command="footclient"/>
-    </keybind>
-    <keybind key="XF86_AudioLowerVolume">
-      <action name="Execute" command="wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"/>
-    </keybind>
-    <keybind key="XF86_AudioRaiseVolume">
-      <action name="Execute" command="wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+"/>
-    </keybind>
-    <keybind key="XF86_AudioMute">
-      <action name="Execute" command="wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"/>
-    </keybind>
-    <keybind key="XF86_MonBrightnessUp">
-      <action name="Execute" command="brightnessctl set +5%"/>
-    </keybind>
-    <keybind key="XF86_MonBrightnessDown">
-      <action name="Execute" command="brightnessctl set 5%-"/>
-    </keybind>
-  </keyboard>
-  <mouse>
-    <default/>
-    <!-- Show a custom menu on desktop right click -->
-    <context name="Root">
-      <mousebind button="Right" action="Press">
-        <action name="ShowMenu" menu="some-custom-menu"/>
-      </mousebind>
-    </context>
-    <!-- scrollfactor goes under libinput in future versions -->
-    <scrollFactor>1.1</scrollFactor>
-  </mouse>
-  <libinput>
-    <device category="touchpad">
-      <naturalScroll>yes</naturalScroll>
-      <leftHanded/>
-      <pointerSpeed/>
-      <accelProfile/>
-      <tap>yes</tap>
-      <tapButtonMap/>
-      <tapAndDrag/>
-      <dragLock/>
-      <middleEmulation/>
-      <disableWhileTyping>yes</disableWhileTyping>
-      <clickMethod/>
-      <sendEventsMode/>
-      <calibrationMatrix/>
-    </device>
-  </libinput>
+		<keybind key="W-F4">
+			<action name="None"/>
+		</keybind>
+		<keybind key="W-1">
+			<action name="GoToDesktop" to="1"/>
+		</keybind>
+		<keybind key="W-2">
+			<action name="GoToDesktop" to="2"/>
+		</keybind>
+		<keybind key="W-3">
+			<action name="GoToDesktop" to="3"/>
+		</keybind>
+		<keybind key="W-4">
+			<action name="GoToDesktop" to="4"/>
+		</keybind>
+		<keybind key="W-S-1">
+			<action name="SendToDesktop" to="1"/>
+		</keybind>
+		<keybind key="W-S-2">
+			<action name="SendToDesktop" to="2"/>
+		</keybind>
+		<keybind key="W-S-3">
+			<action name="SendToDesktop" to="3"/>
+		</keybind>
+		<keybind key="W-S-4">
+			<action name="SendToDesktop" to="4"/>
+		</keybind>
+		<keybind key="W-q">
+			<action name="Close"/>
+		</keybind>
+		<keybind key="W-t">
+			<action name="ToggleMaximize"/>
+		</keybind>
+		<keybind key="C-W-Return">
+			<action name="ToggleMaximize"/>
+		</keybind>
+		<keybind key="C-W-Left">
+			<action name="SnapToEdge" direction="left" />
+		</keybind>
+		<keybind key="C-W-Right">
+			<action name="SnapToEdge" direction="right" />
+		</keybind>
+		<keybind key="C-W-4">
+			<action name="SnapToEdge" direction="left" />
+		</keybind>
+		<keybind key="C-W-6">
+			<action name="SnapToEdge" direction="right" />
+		</keybind>
+		<keybind key="W-Space">
+			<action name="Execute" command="bemenu-run -l 10 --fn 'Hack Nerd Font Mono 12'"/>
+		</keybind>
+		<keybind key="W-Return">
+			<action name="Execute" command="footclient"/>
+		</keybind>
+		<keybind key="XF86_AudioLowerVolume">
+			<action name="Execute" command="wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"/>
+		</keybind>
+		<keybind key="XF86_AudioRaiseVolume">
+			<action name="Execute" command="wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+"/>
+		</keybind>
+		<keybind key="XF86_AudioMute">
+			<action name="Execute" command="wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"/>
+		</keybind>
+		<keybind key="XF86_MonBrightnessUp">
+			<action name="Execute" command="brightnessctl set +5%"/>
+		</keybind>
+		<keybind key="XF86_MonBrightnessDown">
+			<action name="Execute" command="brightnessctl set 5%-"/>
+		</keybind>
+		<keybind key="H-c">
+			<action name="Execute" command="clipman --histpath='~/.cache/clipman.json' pick --tool=bemenu"/>
+		</keybind>
+		<keybind key="H-c">
+            <action name="Execute">
+                <command>clipman --histpath="~/.cache/clipman.json" pick --tool=bemenu --tool-args="-l 10 -p clipboard --fn 'Hack Nerd Font 14' -i"</command>
+            </action>
+		</keybind>
+		<!-- SnapToRegion via W-Numpad -->
+		<keybind key="W-KP_7">
+		  <action name="SnapToRegion" region="top-left" />
+		</keybind>
+		<keybind key="W-KP_8">
+		  <action name="SnapToRegion" region="top" />
+		</keybind>
+		<keybind key="W-KP_9">
+		  <action name="SnapToRegion" region="top-right" />
+		</keybind>
+		<keybind key="W-KP_4">
+		  <action name="SnapToRegion" region="left" />
+		</keybind>
+		<keybind key="W-KP_5">
+		  <action name="SnapToRegion" region="center" />
+		</keybind>
+		<keybind key="W-KP_6">
+		  <action name="SnapToRegion" region="right" />
+		</keybind>
+		<keybind key="W-KP_1">
+		  <action name="SnapToRegion" region="bottom-left" />
+		</keybind>
+		<keybind key="W-KP_2">
+		  <action name="SnapToRegion" region="bottom" />
+		</keybind>
+		<keybind key="W-KP_3">
+		  <action name="SnapToRegion" region="bottom-right" />
+		</keybind>
+	</keyboard>
+	<mouse>
+
+		<default/>
+		<!-- Show a custom menu on desktop right click -->
+		<context name="Root">
+			<mousebind button="Right" action="Press">
+				<action name="ShowMenu" menu="some-custom-menu"/>
+			</mousebind>
+		</context>
+        <context name="Frame">
+            <mousebind button="W-Left" action="Press">
+                <action name="Focus" />
+                <action name="Raise" />
+            </mousebind>
+            <mousebind button="W-Left" action="Drag">
+                <action name="Move" />
+            </mousebind>
+            <mousebind button="W-Right" action="Press">
+                <action name="Focus" />
+                <action name="Raise" />
+            </mousebind>
+            <mousebind button="W-Right" action="Drag">
+                <action name="Resize" />
+            </mousebind>
+        </context>
+		<!-- scrollfactor goes under libinput in future versions -->
+		<scrollFactor>1.1</scrollFactor>
+	</mouse>
+	<libinput>
+		<device category="touchpad">
+			<naturalScroll>yes</naturalScroll>
+			<leftHanded/>
+			<pointerSpeed/>
+			<accelProfile/>
+			<tap>yes</tap>
+			<tapButtonMap/>
+			<tapAndDrag/>
+			<dragLock/>
+			<middleEmulation/>
+			<disableWhileTyping>yes</disableWhileTyping>
+			<clickMethod/>
+			<sendEventsMode/>
+			<calibrationMatrix/>
+		</device>
+	</libinput>
 </labwc_config>
+
