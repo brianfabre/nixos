@@ -6,6 +6,9 @@ return {
     config = function()
         -- calling `setup` is optional for customization
         require("fzf-lua").setup({
+            grep = {
+                cmd = "rg --color=always --smart-case --no-heading --column --line-number --glob '!repos/*' --glob '!Library/*'",
+            },
             -- winopts = {
             --     -- Use **only one** of the below options
             --     -- split = "aboveleft new"   -- open in split above current window
