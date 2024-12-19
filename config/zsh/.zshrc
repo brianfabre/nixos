@@ -40,7 +40,7 @@ alias nv='nvim'
 alias lg='lazygit'
 alias rm='rm -i'
 alias mv='mv -i'
-alias ll='ls -lah'
+# alias ll='ls -lah'
 # colored man pages
 export MANPAGER="less -R --use-color -Dd+r -Du+b"
 export MANROFFOPT="-P -c"
@@ -56,6 +56,15 @@ function cat() {
         /bin/cat "$@"
     fi
 }
+
+ll() {
+    if command -v eza > /dev/null; then
+        eza -lah "$@"
+    else
+        ls -lah "$@"
+    fi
+}
+
 
 # # Source fzf key-bindings
 # if [[ -f "/usr/share/fzf/key-bindings.zsh" ]]; then
@@ -160,9 +169,6 @@ elif [[ $(uname) == "Darwin" ]]; then
     # zoxide
     eval "$(zoxide init zsh)"
     alias cd="z"
-
-    # eza
-    alias ls="eza -la"
 
     # pyenv
     export PYENV_ROOT="$HOME/.pyenv"
