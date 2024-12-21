@@ -6,6 +6,7 @@
 
 # run at startup
 exec fcitx5
+exec foot --server
 exec wl-gammarelay
 exec wl-paste -t text --watch clipman store --max-items=1000 --histpath="~/.cache/clipman.json"
 exec gammastep -l 34:-118 -t 6500:4000 -m wayland
@@ -20,13 +21,14 @@ exec configure-gtk
 # Logo key. Use Mod1 for Alt.
 set $mod Mod4
 set $hyper Mod3
+set $alt Mod1
 # Home row direction keys, like vim
 set $left h
 set $down j
 set $up k
 set $right l
 # Your preferred terminal emulator
-set $term foot
+set $term footclient
 
 
 ### Key bindings
@@ -56,8 +58,15 @@ set $term foot
     bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -B 'Yes, exit sway' 'swaymsg exit'
 
     # Volume keybinds
-    bindsym $hyper+minus exec "sh /home/brian/.config/utils/scripts/vol_down.sh"
-    bindsym $hyper+equal exec "sh /home/brian/.config/utils/scripts/vol_up.sh"
+    # bindsym $hyper+minus exec "sh /home/brian/nixos/utils/scripts/vol_down.sh"
+    # bindsym $hyper+equal exec "sh /home/brian/nixos/utils/scripts/vol_up.sh"
+
+    bindsym XF86AudioRaiseVolume exec wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+
+    bindsym XF86AudioLowerVolume exec wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-
+    bindsym XF86AudioMute exec wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle
+    bindsym XF86AudioMicMute exec wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle
+    bindsym XF86MonBrightnessUp exec brightnessctl s 5%+
+    bindsym XF86MonBrightnessDown exec brightnessctl s 5%-
 
 #
 # Moving around:
@@ -97,7 +106,7 @@ set $term foot
     bindsym $mod+w layout tabbed
     bindsym $mod+e layout toggle split
     # bindsym $mod+tab layout toggle tabbed splith
-    bindsym $mod+tab layout toggle stacking splith
+    bindsym $mod+tab layout toggle tabbed splith
 
     # Make the current focus fullscreen
     bindsym $mod+f fullscreen
@@ -113,6 +122,9 @@ set $term foot
 
     # switch last window
     bindsym $hyper+space workspace back_and_forth
+
+    # focus next
+    bindsym $alt+tab focus next
 #
 # Workspaces:
 #
@@ -185,11 +197,16 @@ bindsym $mod+r mode "resize"
 input type:keyboard {
     repeat_rate 50
     repeat_delay 400
+    xkb_options caps:hyper
     # custom-xkb located in ~/.config/xkb/symbols
     # xkb_layout us,kr,custom-xkb
-    xkb_layout custom-xkb
+    # xkb_layout custom-xkb
 }
 
+input type:pointer {
+    scroll_method on_button_down
+    scroll_button BTN_EXTRA
+}
 
 #
 # Other settings:
@@ -211,23 +228,21 @@ input type:keyboard {
 # set $menu bemenu-run -i -l 10 --fn 'Hack Nerd Font 11' -p menu | xargs swaymsg exec --
 set $menu bemenu-run --tb '#6272a4' --tf '#f8f8f2' --fb '#282a36' --ff '#f8f8f2' --nb '#282a36' --nf '#6272a4' --hb '#44475a' --hf '#50fa7b' --sb '#44475a' --sf '#50fa7b' --scb '#282a36' --scf '#ff79c6' -i -l 10 --fn 'Hack Nerd Font 14' -p menu | xargs swaymsg exec --
 
-# set $output-primary "Acer Technologies XV240Y P 0x00006F5C"
-# set $output-secondary "Acer Technologies Acer H236HL LX1AA0044210"
-set $output-primary "Virtual-1"
-# set $output-secondary "DVI-D-1"
-
 ### Output configuration
-#
-# Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
-# output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
-
 #
 # Example configuration:
 #
-  output $output-primary resolution 1366x768@60Hz position 0,0
-  # output $output-secondary resolution 1920x1080 position 1920,0
-  # output $output-primary scale 1.5
-  output "*" bg ~/nixos/assets/wallpapers/kde6_bg.png fill
+
+    # set $output-primary "Acer Technologies XV240Y P 0x00006F5C"
+    # set $output-secondary "Acer Technologies Acer H236HL LX1AA0044210"
+    # set $output-secondary "DVI-D-1"
+    # set $output-primary "Virtual-1"
+
+    # output $output-primary resolution 1366x768@60Hz position 0,0
+    # output $output-secondary resolution 1920x1080 position 1920,0
+    # output $output-primary scale 1.5
+    # output "*" bg ~/nixos/assets/wallpapers/kde6_bg.png fill
+    output * bg ~/nixos/assets/wallpapers/cyber.jpg fill
 #
 # You can get the names of your outputs by running: swaymsg -t get_outputs
 
@@ -265,17 +280,17 @@ exec swayidle -w \
     # bindsym $mod+bracketleft move workspace to output left
 
     # applications on startup
-    exec swaymsg 'exec firefox'
-
-    exec $term --title term_init
-    for_window [title="term_init"] move workspace 2
+    # exec swaymsg 'exec firefox'
+    # exec $term --title term_init
+    # for_window [title="term_init"] move workspace 2
 
 #
 # Status Bar:
 #
 # Read `man 5 sway-bar` for more information about this section.
 bar {
-    swaybar_command waybar
+    swaybar_command swaybar
+    position top
 }
 
 #
@@ -293,5 +308,20 @@ bar {
     # transparency
     # set $opacity 0.85
     # for_window [app_id="foot"] opacity $opacity
+
+
+
+    default_border pixel 3
+
+    # gaps
+    gaps inner 3
+    gaps outer 3
+
+    ## Window decoration
+    # class                 border  backgr. text    indicator child_border
+    client.focused          #7aa2f7 #414868 #c0caf5 #7dcfff   #7aa2f7
+    client.focused_inactive #7aa2f7 #414868 #c0caf5 #7dcfff   #7aa2f7
+    client.unfocused        #414868 #24283b #a9b1d6 #7dcfff   #414868
+    client.urgent           #e0af68 #e0af68 #1d202f #7dcfff   #e0af68
 
 include @sysconfdir@/sway/config.d/*
