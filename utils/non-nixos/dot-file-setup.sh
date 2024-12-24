@@ -12,6 +12,8 @@ if [ -d "$SOURCE_DIR" ]; then
 
 	ln -sf $SOURCE_DIR/zsh/.zshrc $HOME/.zshrc
 
+    cp $SOURCE_DIR/mimeapps.list $TARGET_DIR/mimeapps.list
+
 	echo "symbolic link created"
 
 else
