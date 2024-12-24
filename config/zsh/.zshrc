@@ -35,19 +35,19 @@ export PATH="$HOME/.local/bin:$PATH"
 export PATH="$HOME/.cargo/bin:$PATH"
 export EDITOR="nvim"
 export VISUAL="nvim"
-# alias cat='bat -pp --theme Coldark-Dark'
 alias nv='nvim'
 alias lg='lazygit'
 alias rm='rm -i'
 alias mv='mv -i'
-# alias ll='ls -lah'
+alias fcd="cd ~ && cd \$(fd --hidden --type d --exclude .git | fzf)"
+
 # colored man pages
 export MANPAGER="less -R --use-color -Dd+r -Du+b"
 export MANROFFOPT="-P -c"
 # fzf
 export FZF_DEFAULT_COMMAND="fd --type file --hidden --no-ignore --color=always --exclude .git"
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
-export FZF_DEFAULT_OPTS="--ansi --height=40% --reverse --border=none"
+export FZF_DEFAULT_OPTS="--ansi --height=40% --layout=reverse --info=inline --border sharp --margin=1 --padding=1 --prompt '∷ ' --pointer ▶  --marker ⇒ "
 
 function cat() {
     if type bat &> /dev/null; then
@@ -141,14 +141,6 @@ fkill() {
 	if [ "x$pid" != "x" ]; then
 		echo $pid | xargs kill -${1:-9}
 	fi
-}
-
-# cd to selected directory
-fcd() {
-  local dir
-  dir=$(find ${1:-.} -path '*/\.*' -prune \
-                  -o -type d -print 2> /dev/null | fzf +m) &&
-  cd "$dir"
 }
 
 ##############
