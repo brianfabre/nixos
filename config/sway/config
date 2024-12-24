@@ -226,7 +226,7 @@ input type:pointer {
 # on the original workspace that the command was run on.
 # set $menu dmenu_path | dmenu | xargs swaymsg exec --
 # set $menu bemenu-run -i -l 10 --fn 'Hack Nerd Font 11' -p menu | xargs swaymsg exec --
-set $menu bemenu-run --tb '#6272a4' --tf '#f8f8f2' --fb '#282a36' --ff '#f8f8f2' --nb '#282a36' --nf '#6272a4' --hb '#44475a' --hf '#50fa7b' --sb '#44475a' --sf '#50fa7b' --scb '#282a36' --scf '#ff79c6' -i -l 10 --fn 'Hack Nerd Font 14' -p menu | xargs swaymsg exec --
+set $menu bemenu-run --tb '#6272a4' --tf '#f8f8f2' --fb '#282a36' --ff '#f8f8f2' --nb '#282a36' --nf '#6272a4' --hb '#44475a' --hf '#50fa7b' --sb '#44475a' --sf '#50fa7b' --scb '#282a36' --scf '#ff79c6' -i -l 10 --fn 'Hack Nerd Font 12' -p run | xargs swaymsg exec --
 
 ### Output configuration
 #
@@ -291,6 +291,15 @@ exec swayidle -w \
 bar {
     swaybar_command swaybar
     position top
+    status_command ~/nixos/utils/scripts/swaybar.sh
+    colors {
+        statusline #ebdbb2
+        background #3c3836
+
+        # Outline, Background, Foreground
+        inactive_workspace #282828 #282828 #928374
+        focused_workspace #7aa2f7 #c0caf5 #1d202f
+    }
 }
 
 #
@@ -312,6 +321,7 @@ bar {
 
 
     default_border pixel 3
+    font pango:monospace 8
 
     # gaps
     gaps inner 3
