@@ -52,14 +52,14 @@ return {
         "echasnovski/mini.bufremove",
         keys = {
             {
-                "<leader>db",
+                "<leader>x",
                 function()
                     require("mini.bufremove").delete(0, false)
                 end,
                 desc = "[d]elete [b]uffer",
             },
             {
-                "<leader>dB",
+                "<leader>X",
                 function()
                     require("mini.bufremove").delete(0, true)
                 end,
@@ -67,7 +67,7 @@ return {
             },
         },
     },
-    { "echasnovski/mini.notify", version = false, opts = {} },
+
     {
         "echasnovski/mini.files",
         version = false,
@@ -86,4 +86,8 @@ return {
             },
         },
     },
+
+    { "echasnovski/mini.notify", version = false, opts = {} },
+
+    { "echasnovski/mini.cursorword", version = false, opts = {} },
 }
