@@ -8,27 +8,28 @@ HISTSIZE=5000
 SAVEHIST=5000
 HISTFILE=~/.zsh_history
 
-# Use modern completion system
-autoload -Uz compinit
-compinit
+# function for if file exists, source
+include() {
+	[[ -f "$1" ]] && source "$1"
+}
 
-zstyle ':completion:*' auto-description 'specify: %d'
-zstyle ':completion:*' completer _expand _complete _correct _approximate
-zstyle ':completion:*' format 'Completing %d'
-zstyle ':completion:*' group-name ''
-zstyle ':completion:*' menu select=2
-# eval "$(dircolors -b)" # doesnt work with mac
-zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
-zstyle ':completion:*' list-colors ''
-zstyle ':completion:*' list-prompt %SAt %p: Hit TAB for more, or the character to insert%s
-zstyle ':completion:*' matcher-list '' 'm:{a-z}={A-Z}' 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=* l:|=*'
-zstyle ':completion:*' menu select=long
-zstyle ':completion:*' select-prompt %SScrolling active: current selection at %p%s
-zstyle ':completion:*' use-compctl false
-zstyle ':completion:*' verbose true
+include /usr/share/zsh/plugins/zsh-autocomplete/zsh-autocomplete.plugin.zsh
+if [[ -f /usr/share/zsh/plugins/zsh-autocomplete/zsh-autocomplete.plugin.zsh ]]; then
+    bindkey              '^I'         menu-complete
+    bindkey "$terminfo[kcbt]" reverse-menu-complete
+    # bindkey -M menuselect              '^I'         menu-complete
+    # bindkey -M menuselect "$terminfo[kcbt]" reverse-menu-complete
+fi
 
-zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#)*=0=01;31'
-zstyle ':completion:*:kill:*' command 'ps -u $USER -o pid,%cpu,tty,cputime,cmd'
+include /usr/share/fzf/key-bindings.zsh
+include /usr/share/fzf/shell/key-bindings.zsh
+# include /usr/share/fzf/completion.zsh
+include /home/brian/.local/share/fzf/key-bindings.zsh
+include /usr/share/doc/fzf/examples/key-bindings.zsh
+include /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+include /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+
+zstyle ':completion:*' file-list yes
 
 # my config
 export PATH="$HOME/.local/bin:$PATH"
@@ -65,25 +66,21 @@ ll() {
     fi
 }
 
-
-# # Source fzf key-bindings
-# if [[ -f "/usr/share/fzf/key-bindings.zsh" ]]; then
-#     source "/usr/share/fzf/key-bindings.zsh"
-# elif [[ -f "${HOME}/.local/share/fzf/key-bindings.zsh" ]]; then
-#     source "${HOME}/.local/share/fzf/key-bindings.zsh"
-# fi
-
-# function for if file exists, source
-# ex: include ~/.zshrc
-include() {
-	[[ -f "$1" ]] && source "$1"
+# fe [FUZZY PATTERN] - Open the selected file with the default editor
+#   - Bypass fuzzy finder if there's only one match (--select-1)
+#   - Exit if there's no match (--exit-0)
+fe() {
+  IFS=$'\n' files=($(fzf-tmux --query="$1" --multi --select-1 --exit-0))
+  [[ -n "$files" ]] && ${EDITOR:-vim} "${files[@]}"
 }
 
-include /usr/share/fzf/key-bindings.zsh
-include /usr/share/fzf/shell/key-bindings.zsh
-include /usr/share/fzf/completion.zsh
-include /home/brian/.local/share/fzf/key-bindings.zsh
-include /usr/share/doc/fzf/examples/key-bindings.zsh
+# cdf - cd into the directory of the selected file
+cdf() {
+   local file
+   local dir
+   file=$(fzf +m -q "$1") && dir=$(dirname "$file") && cd "$dir"
+}
+
 
 # lf cd function
 lfcd() {
@@ -143,9 +140,9 @@ fkill() {
 	fi
 }
 
-##############
-# DISTRO     #
-##############
+##########
+# DISTRO #
+##########
 
 # IF ARCH
 if [ -f /etc/arch-release ]; then
@@ -175,3 +172,24 @@ if [ -n "${commands[fzf-share]}" ]; then
   source "$(fzf-share)/key-bindings.zsh"
   source "$(fzf-share)/completion.zsh"
 fi
+
+# # Use modern completion system
+# autoload -Uz compinit && compinit
+#
+# zstyle ':completion:*' auto-description 'specify: %d'
+# zstyle ':completion:*' completer _expand _complete _correct _approximate
+# zstyle ':completion:*' format 'Completing %d'
+# zstyle ':completion:*' group-name ''
+# zstyle ':completion:*' menu select=2
+# # eval "$(dircolors -b)" # doesnt work with mac
+# zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
+# zstyle ':completion:*' list-colors ''
+# zstyle ':completion:*' list-prompt %SAt %p: Hit TAB for more, or the character to insert%s
+# zstyle ':completion:*' matcher-list '' 'm:{a-z}={A-Z}' 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=* l:|=*'
+# zstyle ':completion:*' menu select=long
+# zstyle ':completion:*' select-prompt %SScrolling active: current selection at %p%s
+# zstyle ':completion:*' use-compctl false
+# zstyle ':completion:*' verbose true
+#
+# zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#)*=0=01;31'
+# zstyle ':completion:*:kill:*' command 'ps -u $USER -o pid,%cpu,tty,cputime,cmd'
