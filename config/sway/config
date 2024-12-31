@@ -10,6 +10,7 @@ exec foot --server
 exec wl-gammarelay
 exec wl-paste -t text --watch clipman store --max-items=1000 --histpath="~/.cache/clipman.json"
 exec gammastep -l 34:-118 -t 6500:4000 -m wayland
+exec dunst
 exec nm-applet --indicator
 # from nixos sway wiki
 exec dbus-sway-environment
@@ -58,11 +59,10 @@ set $term footclient
     bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -B 'Yes, exit sway' 'swaymsg exit'
 
     # Volume keybinds
-    # bindsym $hyper+minus exec "sh /home/brian/nixos/utils/scripts/vol_down.sh"
-    # bindsym $hyper+equal exec "sh /home/brian/nixos/utils/scripts/vol_up.sh"
-
-    bindsym XF86AudioRaiseVolume exec wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+
-    bindsym XF86AudioLowerVolume exec wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-
+    bindsym XF86AudioLowerVolume exec "sh /home/brian/nixos/utils/scripts/vol_down.sh"
+    bindsym XF86AudioRaiseVolume exec "sh /home/brian/nixos/utils/scripts/vol_up.sh"
+    # bindsym XF86AudioRaiseVolume exec wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+
+    # bindsym XF86AudioLowerVolume exec wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-
     bindsym XF86AudioMute exec wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle
     bindsym XF86AudioMicMute exec wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle
     bindsym XF86MonBrightnessUp exec brightnessctl s 5%+
