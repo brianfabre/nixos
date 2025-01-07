@@ -35,7 +35,8 @@ end
 -- c("kanagawa")
 -- c("sonokai")
 -- c("tokyonight")
-c("rose-pine")
+c("doom-one")
+-- c("rose-pine")
 -- c("falcon")
 -- c("arctic") -- vscode colors
 -- c("dracula-soft")
