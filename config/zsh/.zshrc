@@ -19,6 +19,27 @@ if [[ -f /usr/share/zsh/plugins/zsh-autocomplete/zsh-autocomplete.plugin.zsh ]];
     bindkey "$terminfo[kcbt]" reverse-menu-complete
     # bindkey -M menuselect              '^I'         menu-complete
     # bindkey -M menuselect "$terminfo[kcbt]" reverse-menu-complete
+else
+    # Use modern completion system
+    autoload -Uz compinit && compinit
+
+    zstyle ':completion:*' auto-description 'specify: %d'
+    zstyle ':completion:*' completer _expand _complete _correct _approximate
+    zstyle ':completion:*' format 'Completing %d'
+    zstyle ':completion:*' group-name ''
+    zstyle ':completion:*' menu select=2
+    # eval "$(dircolors -b)" # doesnt work with mac
+    zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
+    zstyle ':completion:*' list-colors ''
+    zstyle ':completion:*' list-prompt %SAt %p: Hit TAB for more, or the character to insert%s
+    zstyle ':completion:*' matcher-list '' 'm:{a-z}={A-Z}' 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=* l:|=*'
+    zstyle ':completion:*' menu select=long
+    zstyle ':completion:*' select-prompt %SScrolling active: current selection at %p%s
+    zstyle ':completion:*' use-compctl false
+    zstyle ':completion:*' verbose true
+
+    zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#)*=0=01;31'
+    zstyle ':completion:*:kill:*' command 'ps -u $USER -o pid,%cpu,tty,cputime,cmd'
 fi
 
 include /usr/share/fzf/key-bindings.zsh
@@ -48,11 +69,11 @@ export MANROFFOPT="-P -c"
 # fzf
 export FZF_DEFAULT_COMMAND="fd --type file --hidden --no-ignore --color=always --exclude .git"
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
-export FZF_DEFAULT_OPTS="--ansi --height=40% --layout=reverse --info=inline --border sharp --margin=1 --padding=1 --prompt '∷ ' --pointer ▶  --marker ⇒ "
+export FZF_DEFAULT_OPTS="--ansi --height=90% --layout=reverse --info=inline --border sharp --margin=1 --padding=1 --prompt '∷ ' --pointer ▶  --marker ⇒ "
 
 function cat() {
     if type bat &> /dev/null; then
-        bat -pp --theme Coldark-Dark "$@"
+        bat --theme Coldark-Dark "$@"
     else
         /bin/cat "$@"
     fi
@@ -63,6 +84,14 @@ ll() {
         eza -lah "$@"
     else
         ls -lah "$@"
+    fi
+}
+
+neofetch() {
+    if command -v fastfetch > /dev/null; then
+        fastfetch
+    else
+        neofetch
     fi
 }
 
@@ -173,23 +202,3 @@ if [ -n "${commands[fzf-share]}" ]; then
   source "$(fzf-share)/completion.zsh"
 fi
 
-# # Use modern completion system
-# autoload -Uz compinit && compinit
-#
-# zstyle ':completion:*' auto-description 'specify: %d'
-# zstyle ':completion:*' completer _expand _complete _correct _approximate
-# zstyle ':completion:*' format 'Completing %d'
-# zstyle ':completion:*' group-name ''
-# zstyle ':completion:*' menu select=2
-# # eval "$(dircolors -b)" # doesnt work with mac
-# zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
-# zstyle ':completion:*' list-colors ''
-# zstyle ':completion:*' list-prompt %SAt %p: Hit TAB for more, or the character to insert%s
-# zstyle ':completion:*' matcher-list '' 'm:{a-z}={A-Z}' 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=* l:|=*'
-# zstyle ':completion:*' menu select=long
-# zstyle ':completion:*' select-prompt %SScrolling active: current selection at %p%s
-# zstyle ':completion:*' use-compctl false
-# zstyle ':completion:*' verbose true
-#
-# zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#)*=0=01;31'
-# zstyle ':completion:*:kill:*' command 'ps -u $USER -o pid,%cpu,tty,cputime,cmd'
