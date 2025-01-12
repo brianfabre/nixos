@@ -1,7 +1,7 @@
 setopt histignorealldups sharehistory
 
 # Use emacs keybindings even if our EDITOR is set to vi
-bindkey -e
+# bindkey -e
 
 # Keep 1000 lines of history within the shell and save it to ~/.zsh_history:
 HISTSIZE=5000
@@ -51,6 +51,8 @@ include /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.z
 include /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 zstyle ':completion:*' file-list yes
+zstyle ':completion:*' menu select
+zstyle -e ':autocomplete:*:*' list-lines 'reply=( $(( LINES / 3 )) )'
 
 # my config
 export PATH="$HOME/.local/bin:$PATH"
@@ -68,7 +70,8 @@ export MANPAGER="less -R --use-color -Dd+r -Du+b"
 export MANROFFOPT="-P -c"
 # fzf
 export FZF_DEFAULT_COMMAND="fd --type file --hidden --no-ignore --color=always --exclude .git"
-export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+# export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+export FZF_CTRL_T_OPTS="--preview '~/Downloads/fzf-preview.sh {}'"
 export FZF_DEFAULT_OPTS="--ansi --height=90% --layout=reverse --info=inline --border sharp --margin=1 --padding=1 --prompt '∷ ' --pointer ▶  --marker ⇒ "
 
 function cat() {

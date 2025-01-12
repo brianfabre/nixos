@@ -29,6 +29,7 @@ set $down j
 set $up k
 set $right l
 # Your preferred terminal emulator
+# set $term ghostty
 set $term footclient
 
 
@@ -158,15 +159,12 @@ set $term footclient
     # You can send windows there and get them back later.
 
     # Move the currently focused window to the scratchpad
-    bindsym $mod+Shift+minus move scratchpad
+    # bindsym $mod+Shift+minus move scratchpad
 
     # Show the next scratchpad window or hide the focused scratchpad window.
     # If there are multiple scratchpad windows, this command cycles through them.
-    bindsym $mod+m scratchpad show
+    # bindsym $mod+m scratchpad show
 
-    # start with clipboard in scratchpad
-    exec $term --title Scratchpad
-    for_window [title="Scratchpad"] move scratchpad
 
 #
 # Resizing containers:
