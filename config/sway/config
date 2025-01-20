@@ -159,11 +159,11 @@ set $term footclient
     # You can send windows there and get them back later.
 
     # Move the currently focused window to the scratchpad
-    # bindsym $mod+Shift+minus move scratchpad
+    bindsym $mod+Shift+minus move scratchpad
 
     # Show the next scratchpad window or hide the focused scratchpad window.
     # If there are multiple scratchpad windows, this command cycles through them.
-    # bindsym $mod+m scratchpad show
+    bindsym $mod+m scratchpad show
 
 
 #
@@ -286,19 +286,19 @@ exec swayidle -w \
 # Status Bar:
 #
 # Read `man 5 sway-bar` for more information about this section.
-bar {
-    swaybar_command swaybar
-    position top
-    status_command ~/nixos/utils/scripts/swaybar.sh
-    colors {
-        statusline #ebdbb2
-        background #3c3836
-
-        # Outline, Background, Foreground
-        inactive_workspace #282828 #282828 #928374
-        focused_workspace #7aa2f7 #c0caf5 #1d202f
-    }
-}
+# bar {
+#     swaybar_command swaybar
+#     position top
+#     status_command ~/nixos/utils/scripts/swaybar.sh
+#     colors {
+#         statusline #ebdbb2
+#         background #3c3836
+#
+#         # Outline, Background, Foreground
+#         inactive_workspace #282828 #282828 #928374
+#         focused_workspace #7aa2f7 #c0caf5 #1d202f
+#     }
+# }
 
 #
 # Custom settings:
