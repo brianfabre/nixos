@@ -8,7 +8,8 @@ TARGET_DIR="$HOME/.config"
 if [ -d "$SOURCE_DIR" ]; then
 
 	ln -sf $SOURCE_DIR/lf $TARGET_DIR/lf
-	ln -sf $SOURCE_DIR/nvim $TARGET_DIR/nvim
+	ln -sf $SOURCE_DIR/nvim1 $TARGET_DIR/nvim
+	ln -sf $SOURCE_DIR/foot $TARGET_DIR/foot
 
 	ln -sf $SOURCE_DIR/zsh/.zshrc $HOME/.zshrc
 
