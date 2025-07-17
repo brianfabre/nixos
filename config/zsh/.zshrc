@@ -181,6 +181,7 @@ if [ -f /etc/arch-release ]; then
     # commands for arch linux
     alias pacin="pacman -Slq | fzf --height=100% --multi --preview 'pacman -Si {1}' --preview-window=65% | xargs -ro sudo pacman -S"
     alias pacre="pacman -Qq | fzf --height=100% --multi --preview 'pacman -Qi {1}' --preview-window=65% | xargs -ro sudo pacman -Rns"
+    alias yayin="yay -Slaq | fzf --height=100% --multi --preview 'yay -Si {1}' --preview-window=65% | xargs -ro yay -S"
 # IF MACOS
 elif [[ $(uname) == "Darwin" ]]; then
 

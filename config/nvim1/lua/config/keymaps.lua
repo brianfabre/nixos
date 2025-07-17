@@ -64,4 +64,4 @@ map("i", ">>", "<c-t>")
 map("v", ".", ":normal .<CR>")
 
 -- ui stuff
-map("n", "<leader>s", ":set invspell<CR>", { desc = "toggle spelling" })
+map("n", "<leader>us", ":set invspell<CR>", { desc = "toggle spelling" })
