@@ -35,11 +35,11 @@ end
 -- c("kanagawa")
 -- c("sonokai")
 -- c("tokyonight")
-c("doom-one")
+-- c("doom-one")
 -- c("rose-pine")
 -- c("falcon")
 -- c("arctic") -- vscode colors
--- c("dracula-soft")
+c("dracula-soft")
 -- c("dracula")
 -- c("github_dark_dimmed")
 -- c("catppuccin")

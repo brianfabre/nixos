@@ -1,6 +1,6 @@
 return {
     "jalvesaq/Nvim-R",
-    ft = {"r", "rmd"},
+    ft = { "r", "rmd" },
     config = function()
         vim.cmd([[
             let R_assign_map = '..'
@@ -10,7 +10,7 @@ return {
             let R_rconsole_width = 0
 
             " use with radian
-            let R_app = "radian"
+            " let R_app = "radian"
             let R_cmd = "R"
             let R_hl_term = 0
             let R_args = []  " if you had set any
