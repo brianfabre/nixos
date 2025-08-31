@@ -27,7 +27,8 @@ wezterm.on("update-status", function(window)
 end)
 
 -- config.font = wezterm.font("JetBrains Mono")
-config.font = wezterm.font("GohuFont uni14 Nerd Font Mono")
+-- config.font = wezterm.font("GohuFont uni14 Nerd Font Mono")
+config.font = wezterm.font("FantasqueSansM Nerd Font Mono")
 config.font_size = 18
 -- config.color_scheme = "Dark+"
 config.color_scheme = "Ayu Dark (Gogh)"

@@ -1,0 +1,11 @@
+# font-family = "GohuFont uni14 Nerd Font Propo"
+# font-family = "DejaVuSansM Nerd Font Propo"
+# font-family = "FantasqueSansM Nerd Font Propo"
+font-family = "Menlo"
+font-size = 16
+# theme = "Monokai Pro Machine"
+theme = "ayu"
+macos-titlebar-style = tabs
+keybind = global:alt+m=toggle_quick_terminal
+keybind = alt+right_bracket=goto_split:right
+keybind = alt+left_bracket=goto_split:left
