@@ -15,7 +15,7 @@ return {
         styles = {
             zen = {
                 backdrop = { transparent = false },
-                width = 80,
+                width = 82,
             },
         },
     },
