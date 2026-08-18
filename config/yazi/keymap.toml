@@ -1,0 +1,35 @@
+#:schema https://yazi-rs.github.io/schemas/keymap.json
+
+# Only the binds that actually differ from Yazi's defaults.
+# <Enter>=open, .=hidden toggle, x=cut, o/O=open/open --interactive
+# and archive extraction are already Yazi defaults, so they're not repeated here.
+
+[mgr]
+prepend_keymap = [
+	# lf: J / K — hop to the next/previous sibling directory
+	{ on = "J", run = "plugin parent-arrow 1",  desc = "Next sibling directory" },
+	{ on = "K", run = "plugin parent-arrow -1", desc = "Previous sibling directory" },
+
+	# lf: / — fzf_jump
+	{ on = "f", run = "plugin fzf", desc = "Jump to a file/directory via fzf" },
+
+	# lf: Y — yank-path
+	{ on = "Y", run = "copy path", desc = "Copy file path" },
+
+	# lf: d — delete (permanent, with confirmation); Yazi's default d only trashes
+	{ on = "d", run = "remove --permanently", desc = "Permanently delete" },
+
+	# lf: a — mkdir, A — touch
+	{ on = "a", run = "create --dir", desc = "Create a directory" },
+	{ on = "A", run = "create",       desc = "Create a file" },
+
+	# lf: zp — zip
+	{ on = [ "z", "p" ], run = 'shell --block -- zip -r "$(basename %h).zip" %s', desc = "Zip selected files" },
+
+	# lf: ga / gb / gc
+	{ on = [ "g", "a" ], run = "cd ~/Documents", desc = "Go to ~/Documents" },
+	{ on = [ "g", "b" ], run = "cd ~/Downloads", desc = "Go to ~/Downloads" },
+	{ on = [ "g", "c" ], run = "cd ~/Desktop",   desc = "Go to ~/Desktop" },
+
+        { on = "e", run = 'shell --block -- ${EDITOR:-vi} %s', desc = "Open in $EDITOR" },
+]
