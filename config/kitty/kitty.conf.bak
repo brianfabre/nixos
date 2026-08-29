@@ -1,5 +1,7 @@
-font_family DejaVuSansM Nerd Font Mono
-font_size 13.0
+# font_family DejaVuSansM Nerd Font Mono
+# font_family FantasqueSansM Nerd Font Mono
+font_family FiraMono Nerd Font Mono
+font_size 19.0
 kitty_mod ctrl+shift
 clear_all_shortcuts yes
 cursor #ff0000
@@ -9,6 +11,10 @@ shell_integration no-cursor
 enable_audio_bell no
 
 map kitty_mod+c load_config_file
+
+map opt+q close_window
+
+confirm_os_window_close 0
 
 remember_window_size  no
 initial_window_width  960
@@ -22,14 +28,14 @@ map kitty_mod+i set_tab_title
 
 # windows
 map kitty_mod+enter new_window
-map kitty_mod+q close_window
+# map kitty_mod+q close_window
 map kitty_mod+l next_window
 map kitty_mod+h previous_window
 map kitty_mod+] move_window_forward
 map kitty_mod+[ move_window_backward
 
 # transparency
-dynamic_background_opacity yes
+dynamic_background_opacity no
 map kitty_mod+p set_background_opacity +0.05
 map kitty_mod+o set_background_opacity -0.05
 
@@ -62,8 +68,11 @@ tab_separator             ""
 tab_title_template        "{fmt.fg._5c6370}{fmt.bg.default}{fmt.fg._abb2bf}{fmt.bg._5c6370} {title.split()[0]} {fmt.fg._5c6370}{fmt.bg.default} "
 active_tab_title_template "{fmt.fg._e5c07b}{fmt.bg.default}{fmt.fg._282c34}{fmt.bg._e5c07b} {title.split()[0]} {fmt.fg._e5c07b}{fmt.bg.default} "
 
+hide_window_decorations no
+# background_opacity 0.95
+background_opacity 1
 
 # BEGIN_KITTY_THEME
-# Misterioso
+# kanagawabones
 include current-theme.conf
 # END_KITTY_THEME

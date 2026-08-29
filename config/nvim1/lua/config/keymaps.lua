@@ -65,3 +65,10 @@ map("v", ".", ":normal .<CR>")
 
 -- ui stuff
 map("n", "<leader>s", ":set invspell<CR>", { desc = "toggle spelling" })
+
+vim.keymap.set("i", "<C-x><C-p>", function()
+    local out = vim.fn.system("fd --type f --type d | fzf")
+    if vim.v.shell_error == 0 then
+        vim.api.nvim_put({ vim.trim(out) }, "c", false, true)
+    end
+end)
