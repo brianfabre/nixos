@@ -6,6 +6,7 @@ git
 htop
 lazygit
 lf
+lua-language-server
 ncdu
 neofetch
 neovim
@@ -15,10 +16,11 @@ rsync
 stylua
 tealdeer
 tree
+tree-sitter-cli
 ttf-hack-nerd
 unzip
 usbutils
 vim
 wget
+zoxide
 zsh
-lua-language-server

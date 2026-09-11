@@ -31,5 +31,5 @@ prepend_keymap = [
 	{ on = [ "g", "b" ], run = "cd ~/Downloads", desc = "Go to ~/Downloads" },
 	{ on = [ "g", "c" ], run = "cd ~/Desktop",   desc = "Go to ~/Desktop" },
 
-        { on = "e", run = 'shell --block -- ${EDITOR:-vi} %s', desc = "Open in $EDITOR" },
+        { on = "e", run = 'shell --block -- ${EDITOR:-nvim} %s', desc = "Open in $EDITOR" },
 ]
