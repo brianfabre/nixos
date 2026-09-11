@@ -21,6 +21,13 @@ return {
     },
     keys = {
         {
+            "<leader>a",
+            function()
+                Snacks.dashboard()
+            end,
+            desc = "Open Dashboard",
+        },
+        {
             "<leader>z",
             function()
                 Snacks.zen()
