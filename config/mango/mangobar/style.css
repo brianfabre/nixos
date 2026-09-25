@@ -1,0 +1,109 @@
+/* ============ somebar / dwm look ============ */
+/* dwm palette */
+/*  bg     #222222   normal background
+ *  fg     #bbbbbb   normal text
+ *  selbg  #005577   selected tag / focused title
+ *  selfg  #eeeeee   selected text             */
+
+* {
+    font-family: "monospace";
+    font-size: 14px;
+    font-weight: normal;
+}
+
+/* Flat everything: no gaps, no rounding, one background */
+* {
+    color: #bbbbbb;
+    background-color: #222222;
+    padding: 0px 6px;
+    margin: 0px;
+    border-radius: 0;
+}
+
+/* Full-width, flush to the screen edge */
+#bar {
+    background-color: #222222;
+    margin: 0px;
+    padding: 0px;
+}
+#bar.sel {
+    background-color: #222222;
+}
+
+/* Tags: narrow, square cells like dwm */
+#tags {
+    padding: 0px 7px;
+    margin: 0px;
+}
+#tags.active {
+    background-color: #005577;
+    color: #eeeeee;
+}
+#tags.occupied {
+    background-color: #222222;
+    color: #eeeeee;
+}
+#tags.urgent {
+    background-color: #bbbbbb;
+    color: #222222;
+}
+#tags.empty {
+    background-color: #222222;
+    color: #555555;
+}
+
+/* Layout symbol, e.g. []= */
+#layout {
+    background-color: #222222;
+    color: #bbbbbb;
+    min-width: 0px;
+    padding: 0px 8px;
+}
+
+/* Focused title fills the middle in the accent colour */
+#title {
+    background-color: #005577;
+    color: #eeeeee;
+    padding: 0px 8px;
+}
+
+#overview {
+    background-color: #005577;
+    color: #eeeeee;
+}
+
+/* Right side: plain status text, no coloured blocks */
+#clock,
+#clock.date,
+#cpu,
+#mem,
+#brightness,
+#volume,
+#network,
+#keymode,
+#keyboardlayout,
+#custom-power {
+    background-color: #222222;
+    color: #bbbbbb;
+    padding: 0px 6px;
+    margin: 0px;
+}
+
+#tray {
+    background-color: #222222;
+    padding: 0px 6px;
+}
+
+menu {
+    background-color: #222222;
+    border-color: #444444;
+    border-radius: 0;
+    font-size: 12px;
+}
+menuitem {
+    color: #bbbbbb;
+}
+menuitem:hover {
+    color: #eeeeee;
+    background-color: #005577;
+}

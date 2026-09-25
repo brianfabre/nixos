@@ -1,0 +1,101 @@
+// mangobar config (JSONC).
+{
+    "layer": "top",
+    "height": 20,
+    "buffer-scale": 1,
+    // "scroll-interval": 100,
+    // "smooth-scrolling-threshold": 5.0,
+
+    "modules-left": [
+        "workspaces",
+        "layout",
+        "window"
+    ],
+    "modules-center": [],
+    "modules-right": [
+        "hideclients",
+        "tray",
+        "network",
+        // "keymode",
+        // "keyboardlayout",
+        "cpu",
+        "memory",
+        "pulseaudio",
+        "backlight",
+        "battery",
+        "clock#date",
+        "clock#time"
+        // "custom/power"
+    ],
+
+    "workspaces": {
+        "hide-empty": true,
+        // "pinned": [1, 2],
+        // "tag-names": ["1", "2", "3", "编", "网"],
+        "overview-label": "OVERVIEW",
+        "on-click": "activate",
+        "on-click-right": "toggle"
+    },
+    "layout": {
+        "format": "{}"
+    },
+    "window": {
+        "format": "{}",
+        "on-click": "bash ~/.config/mango/scripts/screenshot.sh",
+        "on-click-right": "python /home/wrq/tool/ocr.py"
+    },
+
+    "network": {
+        "format": "󰈀 {ifname}",
+        "format-alt": "↓{down} ↑{up}"
+    },
+    "hideclients": {
+        "format": " {}"
+    },
+    "cpu": {
+        "format": " {load}%"
+    },
+    "memory": {
+        "format": " {}%"
+    },
+    "backlight": {
+        "format": "{icon} {percent}%",
+        "icons": ["󰃚", "󰃛", "󰃜", "󰃝", "󰃞", "󰃟"],
+        "on-scroll-up": "brightnessctl set 1%+",
+        "on-scroll-down": "brightnessctl -n1 set 1%-",
+        "on-click": "brightnessctl set 1%"
+    },
+    "pulseaudio": {
+        "format": "{icon} {volume}% {bt}",
+        "format-muted": "󰝟 {volume}% {bt}",
+        "icons": ["󰝟", "󰕿", "󰕾"],
+        // "icon-bluetooth": "󰂯",
+        "on-click": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
+        "on-scroll-up": "wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 2%+",
+        "on-scroll-down": "wpctl set-volume @DEFAULT_AUDIO_SINK@ 2%-"
+    },
+    "battery": {
+        "format": "{icon} {percent}% {ac}",
+        "icons": ["󰂎", "󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"],
+        // "icon-charging": "󰂄",
+        // "icon-full": "󰁹",
+        // "icon-ac": "",
+        // "hide-on-ac": true
+    },
+    "clock#date": {
+        "format": " {:L%b%d·%A}"
+    },
+    "clock#time": {
+        "format": " {:L%I:%M %p}"
+    },
+    "tray": {
+        "icon-size": 25,
+        "spacing": 10
+    },
+
+    // "custom/power": {
+    //     "format": "󰣇",
+    //     "on-click": "wlogout -C ~/.config/mango/wlogout/style.css -l ~/.config/mango/wlogout/layout -b 6 --protocol layer-shell",
+    //     "on-click-right": "sleep 0.1s && swaync-client -t -sw"
+    // }
+}
