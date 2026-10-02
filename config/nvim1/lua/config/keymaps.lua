@@ -22,7 +22,7 @@ map("n", "<S-left>", "^")
 map("n", "<S-right>", "$")
 
 -- cursor remains in position after yank
-map("v", "y", "ygv<esc>")
+map("x", "y", "ygv<esc>")
 
 -- move between buffers
 map("n", "<S-l>", ":bnext<CR>")
@@ -31,12 +31,12 @@ map("n", "<S-h>", ":bprevious<CR>")
 -- move line/down
 map("n", "<S-Up>", ":m-2<CR>")
 map("n", "<S-Down>", ":m+<CR>")
-map("v", "<S-Up>", ":m '<-2<CR>gv=gv")
-map("v", "<S-Down>", ":m '>+1<CR>gv=gv")
+map("x", "<S-Up>", ":m '<-2<CR>gv=gv")
+map("x", "<S-Down>", ":m '>+1<CR>gv=gv")
 
 -- copy to clipboard
 -- map("v", "<Leader>y", '"*y')
-map("v", "<Leader>y", '"+y')
+map("x", "<Leader>y", '"+y')
 
 -- no register for x
 map("n", "x", '"_x')
@@ -61,14 +61,18 @@ map("i", "<<", "<c-d>")
 map("i", ">>", "<c-t>")
 
 -- allow the . to execute once for each line of a visual selection
-map("v", ".", ":normal .<CR>")
+map("x", ".", ":normal .<CR>")
 
 -- ui stuff
-map("n", "<leader>s", ":set invspell<CR>", { desc = "toggle spelling" })
+-- map("n", "<leader>s", ":set invspell<CR>", { desc = "toggle spelling" })
 
-vim.keymap.set("i", "<C-x><C-p>", function()
-    local out = vim.fn.system("fd --type f --type d | fzf")
-    if vim.v.shell_error == 0 then
-        vim.api.nvim_put({ vim.trim(out) }, "c", false, true)
-    end
-end)
+-- comment toggle via Neovim's built-in gc/gcc (replaces mini.comment)
+map("n", "<leader>/", "gcc", { remap = true, desc = "toggle comment" })
+map("x", "<leader>/", "gc", { remap = true, desc = "toggle comment" })
+
+-- vim.keymap.set("i", "<C-x><C-p>", function()
+--     local out = vim.fn.system("fd --type f --type d | fzf")
+--     if vim.v.shell_error == 0 then
+--         vim.api.nvim_put({ vim.trim(out) }, "c", false, true)
+--     end
+-- end)

@@ -20,14 +20,14 @@ return {
     { "echasnovski/mini.ai", version = false, opts = {} },
     { "echasnovski/mini.cursorword", version = false, opts = {} },
     { "echasnovski/mini.tabline", version = false, opts = {} },
-    {
-        "echasnovski/mini.comment",
-        version = false,
-        opts = {
-            mappings = {
-                comment_line = "<leader>/",
-                comment_visual = "<leader>/",
-            },
-        },
-    },
+    -- {
+    --     "echasnovski/mini.comment",
+    --     version = false,
+    --     opts = {
+    --         mappings = {
+    --             comment_line = "<leader>/",
+    --             comment_visual = "<leader>/",
+    --         },
+    --     },
+    -- },
 }
