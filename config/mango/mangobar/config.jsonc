@@ -1,4 +1,4 @@
-// mangobar config (JSONC).
+// mangobar config (JSONC): minimal / compact. Colours live in style.css.
 {
     "layer": "top",
     "height": 20,
@@ -18,8 +18,8 @@
         "network",
         // "keymode",
         // "keyboardlayout",
-        "cpu",
-        "memory",
+        // "cpu",
+        // "memory",
         "pulseaudio",
         "backlight",
         "battery",
@@ -41,56 +41,59 @@
     },
     "window": {
         "format": "{}",
+        "max-length": 480,  // pixels; keeps long titles from crowding the bar
         "on-click": "bash ~/.config/mango/scripts/screenshot.sh",
-        "on-click-right": "python /home/wrq/tool/ocr.py"
+        "on-click-right": "bash ~/.config/mango/scripts/ocr.sh"
     },
 
     "network": {
         "format": "󰈀 {ifname}",
         "format-alt": "↓{down} ↑{up}"
+        // Newer than mangobar 0.2.2, an icon that follows the link type:
+        // "format": "{icon}", "format-wifi": "{signal}",
+        // "format-disconnected": "{icon}",
     },
     "hideclients": {
-        "format": " {}"
+        "format": " {}"
     },
     "cpu": {
-        "format": " {load}%"
+        "format": " {load}%"
     },
     "memory": {
-        "format": " {}%"
+        "format": " {}%"
     },
-    "backlight": {
+        "backlight": {
         "format": "{icon} {percent}%",
         "icons": ["󰃚", "󰃛", "󰃜", "󰃝", "󰃞", "󰃟"],
-        "on-scroll-up": "bash ~/.config/mango/scripts/brightness.sh bup",
-        "on-scroll-down": "bash ~/.config/mango/scripts/brightness.sh bdown",
+        "on-scroll-up": "brightnessctl set +5%",
+        "on-scroll-down": "brightnessctl -n1 set 5%-",
         "on-click": "brightnessctl set 1%"
     },
     "pulseaudio": {
-        "format": "{icon} {volume}% {bt}",
-        "format-muted": "󰝟 {volume}% {bt}",
+        // {bt} is empty unless a Bluetooth sink is active
+        "format": "{bt}{icon} {volume}%",
+        "format-muted": "{bt}󰝟 {volume}%",
+        "icon-bluetooth": "󰂯 ",
         "icons": ["󰝟", "󰕿", "󰕾"],
-        // "icon-bluetooth": "󰂯",
-        "on-click": "pamixer -t",
-        "on-scroll-up": "pamixer -i 2",
-        "on-scroll-down": "pamixer -d 2"
+        "on-click": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
+        "on-click-right": "pavucontrol",
+        "on-scroll-up": "wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 2%+",
+        "on-scroll-down": "wpctl set-volume @DEFAULT_AUDIO_SINK@ 2%-"
     },
     "battery": {
-        "format": "{icon} {percent}% {ac}",
+        "format": "{icon} {percent}%",
         "icons": ["󰂎", "󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"],
-        // "icon-charging": "󰂄",
-        // "icon-full": "󰁹",
-        // "icon-ac": "",
-        // "hide-on-ac": true
+        "icon-charging": "󰂄"
     },
     "clock#date": {
-        "format": " {:L%b%d·%A}"
+        "format": "{:L%a %d %b}"
     },
     "clock#time": {
-        "format": " {:L%H:%M}"
+        "format": "{:L%H:%M}"
     },
     "tray": {
-        "icon-size": 25,
-        "spacing": 10
+        "icon-size": 14,
+        "spacing": 6
     },
 
     "custom/power": {

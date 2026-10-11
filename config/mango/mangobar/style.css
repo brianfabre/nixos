@@ -1,144 +1,137 @@
 /* =========================================================
- * mangobar style (only modules/properties this bar supports)
+ * mangobar style: Sonokai, minimal & compact
  *
- * Modules: bar / tags / layout / title / overview /
- *          clock / cpu / mem / brightness / volume /
- *          network / keymode / keyboardlayout / tray / custom-<name>
- * Tag states: tags.active / tags.occupied / tags.urgent / tags.empty
- * Properties: color / background / padding / margin / border-radius /
- *             min-width / font-family / font-size / font-weight
+ * One flat strip. Every module shares the bar background with
+ * no gaps between them, and colour is only used to show state.
+ *
+ * mangobar reads: color / background / padding (horizontal) /
+ * margin / border-radius / min-width / font-family / font-size /
+ * font-weight, plus @define-color variables.
  * ========================================================= */
 
+/* Sonokai (default variant): https://github.com/sainnhe/sonokai */
+@define-color bg0      #2c2e34;
+@define-color bg4      #414550;
+@define-color fg       #e2e2e3;
+@define-color red      #fc5d7c;
+@define-color yellow   #e7c664;
+@define-color green    #9ed072;
+@define-color blue     #76cce0;
+@define-color purple   #b39df3;
+@define-color grey     #7f8490;
+@define-color grey_dim #595f6f;
+
 /* ==================== Font ==================== */
-/* font-family / font-size / font-weight.
- * The config.jsonc "font" value is the fallback when CSS sets no font. */
 * {
     font-family: "monospace";
-    font-size: 12px;
+    font-size: 14px;
     font-weight: bold;
 }
 
+/* ==================== Base ==================== */
+/* Zero margins so neighbouring modules join into one strip;
+ * padding alone sets the spacing between them. */
 * {
-    color: #ebdbb2;
-    background-color: #504945;
-    padding: 0px 10px;
-    margin: 5px 1px;
-    /* border-radius: 100px; */
+    color: @fg;
+    background-color: @bg0;
+    padding: 0px 7px;
+    margin: 0px 0px;
     border-radius: 0;
 }
 
-#bar {
-    background: none;
-    margin: 5px 10px;
-}
+/* Floating strip, lined up with mango's 10px outer gaps */
+#bar,
 #bar.sel {
-    background: none;
+    background-color: @bg0;
+    margin: 4px 10px;
 }
 
+/* ==================== Left ==================== */
 #tags {
-    padding: 0px 13px;
-    margin: 0px 2px;
+    padding: 0px 5px;
 }
-
 #tags.active {
-    background-color: #83a598;
-    color: #1b1a1a;
+    background-color: @blue;
+    color: @bg0;
 }
 #tags.occupied {
-    background-color: #504945;
-    color: #ebdbb2;
+    color: @fg;
 }
 #tags.urgent {
-    background-color: #fb4934;
-    color: #1b1a1a;
+    background-color: @red;
+    color: @bg0;
 }
 #tags.empty {
-    background-color: #201b14;
-    color: #ebdbb2;
+    color: @grey_dim;
 }
 
-/* Overview mode */
 #overview {
-    background-color: #83a598;
-    color: #1b1a1a;
+    background-color: @blue;
+    color: @bg0;
 }
 
-/* Layout symbol */
 #layout {
-    background-color: #bd788a;
-    color: #111111;
-    min-width: 34px;
-    margin: 5px 5px;
+    color: @purple;
 }
 
-/* Window title */
 #title {
-    background-color: #bd788a;
-    color: #111111;
+    color: @fg;
 }
 
-/* Right-side system modules */
-#clock {
-    background-color: #c4b595;
-    color: #1b1a1a;
-}
-/* Date module (clock#date), separate from time */
-#clock.date {
-    background-color: #b8bb26;
-    color: #1b1a1a;
-}
-#cpu {
-    padding: 0px 15px;
-    background-color: #c4b595;
-    color: #1b1a1a;
-}
-#mem {
-    background-color: #83a598;
-    color: #1b1a1a;
-}
-#brightness {
-    background-color: #d3869b;
-    color: #1b1a1a;
-}
-#volume {
-    background-color: #d19e27;
-    color: #1b1a1a;
-}
-#network {
-    background-color: #b8bb26;
-    color: #1b1a1a;
-}
-#keymode {
-    background-color: #83a598;
-    color: #1b1a1a;
-}
+/* ==================== Right ==================== */
+#hideclients,
+#cpu,
+#mem,
 #keyboardlayout {
-    background-color: #bd788a;
-    color: #1b1a1a;
+    color: @grey;
 }
 
-/* Custom modules use #custom-<name> (e.g. custom/power -> #custom-power) */
-#custom-power {
-    margin: 0px 5px;
-    background-color: #90AD9D;
-    color: #000000;
+#keymode {
+    color: @yellow;
+}
+
+#network {
+    color: @green;
+}
+/* Link-state colour (needs mangobar newer than 0.2.2; ignored before) */
+#network.disconnected {
+    color: @red;
+}
+
+#volume,
+#brightness,
+#battery {
+    color: @fg;
+}
+
+#clock.date {
+    color: @grey;
+}
+#clock {
+    color: @blue;
 }
 
 #tray {
-    background-color: #6B645A;
-    padding: 0px 15px;
+    padding: 0px 6px;
 }
 
+/* custom/power -> #custom-power */
+#custom-power {
+    color: @red;
+    padding: 0px 8px;
+}
+
+/* ==================== Tray menu ==================== */
 menu {
-    background-color: #201B14;
-    border-color: #ebdbb2;
-    border-radius: 10px;
-    font-size: 14px;
+    background-color: @bg0;
+    border-color: @bg4;
+    border-radius: 4px;
+    font-size: 12px;
 }
 menuitem {
-    color: #ebdbb2;
+    color: @fg;
 }
 menuitem:hover {
-    color: #1b1a1a;
-    background-color: #b8bb26;
+    color: @bg0;
+    background-color: @blue;
 }
