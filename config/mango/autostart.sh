@@ -22,6 +22,7 @@ swayidle -w before-sleep 'swaylock -f -c 000000' &
 
 fcitx5 -d &
 
+~/.config/mango/scripts/wincount-watch.sh &
 
 # # ensure xdg-desktop-portal running without last dirty state
 # systemctl --user restart xdg-desktop-portal &

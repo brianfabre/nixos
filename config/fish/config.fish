@@ -8,8 +8,8 @@ bind --erase \ec        # remove alt-c (cd into dir)
 
 abbr -a nv nvim
 abbr -a lg lazygit
-abbr -a tu 'tailscale up'
-abbr -a td 'tailscale down'
+abbr -a tu 'mullvad disconnect && tailscale up'
+abbr -a td 'tailscale down && mullvad connect'
 
 
 bind \cz 'fg 2>/dev/null; commandline -f repaint'  # ctrl-z toggles back into job

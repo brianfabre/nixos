@@ -9,7 +9,8 @@
     "modules-left": [
         "workspaces",
         "layout",
-        "window"
+        "custom/winlist",
+        // "window"
     ],
     "modules-center": [],
     "modules-right": [
@@ -75,10 +76,10 @@
         "format-muted": "{bt}󰝟 {volume}%",
         "icon-bluetooth": "󰂯 ",
         "icons": ["󰝟", "󰕿", "󰕾"],
-        "on-click": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
-        "on-click-right": "pavucontrol",
-        "on-scroll-up": "wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 2%+",
-        "on-scroll-down": "wpctl set-volume @DEFAULT_AUDIO_SINK@ 2%-"
+	"on-click": "~/.config/mango/scripts/volume.sh mute",
+	"on-click-right": "pavucontrol",
+	"on-scroll-up": "~/.config/mango/scripts/volume.sh up",
+	"on-scroll-down": "~/.config/mango/scripts/volume.sh down"
     },
     "battery": {
         "format": "{icon} {percent}%",
@@ -100,5 +101,11 @@
         "format": "󰣇",
         "on-click": "wlogout -C ~/.config/mango/wlogout/style.css -l ~/.config/mango/wlogout/layout -b 6 --protocol layer-shell",
         "on-click-right": "sleep 0.1s && swaync-client -t -sw"
+    },
+    "custom/winlist": {
+        "exec": "~/.config/mango/scripts/winlist.sh",
+        "signal": 9,
+        "format": "{}",
+        "max-length": 400
     }
 }
