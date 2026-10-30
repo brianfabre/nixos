@@ -6,23 +6,30 @@ set +e
 # check if external monitor
 ~/.config/mango/scripts/monitor.sh check
 
+noctalia >/dev/null 2>&1 &
+
 # top bar
-mangobar -c ~/.config/mango/mangobar/config.jsonc -s ~/.config/mango/mangobar/style.css 2>&1 &
+# mangobar -c ~/.config/mango/mangobar/config.jsonc -s ~/.config/mango/mangobar/style.css 2>&1 &
 
 # keep clipboard content
-wl-clip-persist --clipboard regular --reconnect-tries 0 >/dev/null 2>&1 &
+# wl-clip-persist --clipboard regular --reconnect-tries 0 >/dev/null 2>&1 &
 
 # clipboard content manager
-wl-paste --type text --watch cliphist store >/dev/null 2>&1 &
+# wl-paste --type text --watch cliphist store >/dev/null 2>&1 &
 
 # night light
-gammastep -l 25.0:121.5 -t 6500:3500 -m wayland >/dev/null 2>&1 &
+# gammastep -l 25.0:121.5 -t 6500:3500 -m wayland >/dev/null 2>&1 &
 
-swayidle -w before-sleep 'swaylock -f -c 000000' &
+# swayidle -w before-sleep 'swaylock -f -c 000000' &
 
 fcitx5 -d &
 
 ~/.config/mango/scripts/wincount-watch.sh &
+
+
+
+
+
 
 # # ensure xdg-desktop-portal running without last dirty state
 # systemctl --user restart xdg-desktop-portal &

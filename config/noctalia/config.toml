@@ -1,0 +1,108 @@
+# ~/.config/noctalia/config.toml
+# Noctalia 5.4.x on mango (CachyOS), Sonokai palette.
+# Only overrides live here; everything else stays at upstream defaults
+# (full reference: example.toml in the noctalia repo).
+# Note: changes made in the Settings GUI go to ~/.local/state/noctalia/settings.toml
+# and win over this file. If an edit here seems ignored, check there.
+
+# ── Shell ────────────────────────────────────────────────────────────────
+[shell]
+time_format  = "{:%H:%M}"
+polkit_agent = true             # mango starts no polkit agent
+clipboard_history_max_entries = 10000
+
+[shell.animation]
+enabled = false
+# speed = 1.5
+
+[shell.panel]
+transparency_mode = "solid"     # solid | soft | glass
+
+[shell.launcher]
+layout  = "simple"              # search + results only; keyboard-first
+compact = true
+pinned  = []                    # e.g. ["kitty", "firefox"]
+categories = false
+
+# ── Theme ────────────────────────────────────────────────────────────────
+[theme]
+mode           = "dark"         # Sonokai has no light variant
+source         = "custom"
+custom_palette = "Sonokai"      # loads ~/.config/noctalia/palettes/Sonokai.json
+
+# ── Wallpaper (replaces swaybg/swww) ─────────────────────────────────────
+[wallpaper]
+enabled    = true
+directory  = "~/Pictures/Wallpapers"
+fill_mode  = "crop"
+transition = ["fade", "wipe", "disc"]
+
+[wallpaper.default]
+path = "color:#222327"
+
+
+# ── Control Center  ──────────────────────────────────────────────────────
+[control_center]
+sidebar = "full"
+
+# ── OSD / lock / idle (replaces swaylock + swayidle) ─────────────────────
+[osd]
+position = "bottom_center"
+
+[lockscreen]
+transition     = ["fade"]
+blur_intensity = 0.6
+
+[idle.behavior.lock]
+enabled = true
+timeout = 600                   # lock after 10 min
+
+[idle.behavior.screen-off]
+enabled = true
+timeout = 660                   # screens off a minute later
+
+# ── Night light (replaces gammastep) ─────────────────────────────────────
+[location]
+latitude  = 25.0
+longitude = 121.5
+
+[nightlight]
+enabled           = true
+temperature_day   = 6500
+temperature_night = 3500
+
+# ── Bar (replaces mangobar) ──────────────────────────────────────────────
+[bar.default]
+position             = "top"
+thickness            = 30
+margin_ends          = 0        # full width
+margin_edge          = 0        # flush to the edge
+concave_edge_corners = true     # needs margin_edge = 0
+start  = ["workspaces", "active_window"]
+center = ["clock"]
+end    = ["tray", "notifications", "clipboard", "network", "bluetooth", "volume", "brightness", "battery", "control-center", "session"]
+
+[widget.workspaces]
+hide_when_empty = false          # only show mango tags that have windows
+
+# [widget.active_window]
+# max_length = 48
+
+[widget.clock]
+format         = "{:%a %d %b  %H:%M}"
+tooltip_format = "{:%A, %B %d, %Y}"
+
+[widget.cpu]
+type = "sysmon"
+stat = "cpu_usage"
+
+[widget.ram]
+type = "sysmon"
+stat = "ram_pct"
+
+[widget.notifications]
+hide_when_no_unread = true
+
+# ── Monitor
+[brightness]
+enable_ddcutil = true
