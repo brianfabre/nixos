@@ -3,7 +3,7 @@
 # font-family = "FantasqueSansM Nerd Font Propo"
 font-family = "Menlo"
 font-size = 20
-# theme = "Monokai Pro Machine"
+# theme = "Gruvbox Material"
 theme = "Ayu Mirage"
 
 # mouse & clipboard
@@ -24,3 +24,6 @@ split-inherit-working-directory = true
 # scratchpad
 keybind = global:alt+m=toggle_quick_terminal
 quick-terminal-screen = mouse
+
+
+shell-integration-features = ssh-terminfo,ssh-env
