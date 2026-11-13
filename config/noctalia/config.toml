@@ -24,6 +24,10 @@ compact = true
 pinned  = []                    # e.g. ["kitty", "firefox"]
 categories = false
 
+[keybinds]
+up   = ["up", "ctrl+p"]
+down = ["down", "ctrl+n"]
+
 # ── Theme ────────────────────────────────────────────────────────────────
 [theme]
 mode           = "dark"         # Sonokai has no light variant
@@ -78,9 +82,9 @@ thickness            = 30
 margin_ends          = 0        # full width
 margin_edge          = 0        # flush to the edge
 concave_edge_corners = true     # needs margin_edge = 0
-start  = ["workspaces", "active_window"]
-center = ["clock"]
-end    = ["tray", "notifications", "clipboard", "network", "bluetooth", "volume", "brightness", "battery", "control-center", "session"]
+start  = ["workspaces"]
+center = ["active_window"]
+end    = ["tray", "notifications", "clipboard", "network", "bluetooth", "volume", "brightness", "battery", "clock", "control-center", "session"]
 
 [widget.workspaces]
 hide_when_empty = false          # only show mango tags that have windows
@@ -89,7 +93,7 @@ hide_when_empty = false          # only show mango tags that have windows
 # max_length = 48
 
 [widget.clock]
-format         = "{:%a %d %b  %H:%M}"
+format         = "{:%-I:%M %p}"
 tooltip_format = "{:%A, %B %d, %Y}"
 
 [widget.cpu]
